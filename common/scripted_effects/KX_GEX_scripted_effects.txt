@@ -17,7 +17,7 @@ germany_flees_to_exile = {
 				}
 				is_controlled_by = GER
 			}
-			MAF = { transfer_state = PREV }
+			event_target:Mittelafrika_Target = { transfer_state = PREV }
 		}
 	}
 	
@@ -92,29 +92,29 @@ germany_flees_to_exile = {
 			send_equipment = { target = PREV type = modern_tank_chassis amount = temp }
 		}
 
-		set_temp_variable = { temp = num_equipment@nav_bomber_equipment }
+		set_temp_variable = { temp = num_equipment@small_plane_naval_bomber_airframe }
 		multiply_temp_variable = { temp = 0.35 }
-		send_equipment = { target = PREV type = nav_bomber_equipment amount = temp }
+		send_equipment = { target = PREV type = small_plane_naval_bomber_airframe amount = temp }
 
-		set_temp_variable = { temp = num_equipment@CAS_equipment }
+		set_temp_variable = { temp = num_equipment@small_plane_cas_airframe }
 		multiply_temp_variable = { temp = 0.35 }
-		send_equipment = { target = PREV type = CAS_equipment amount = temp }
+		send_equipment = { target = PREV type = small_plane_cas_airframe amount = temp }
 
-		set_temp_variable = { temp = num_equipment@fighter_equipment }
+		set_temp_variable = { temp = num_equipment@small_plane_airframe }
 		multiply_temp_variable = { temp = 0.5 }
-		send_equipment = { target = PREV type = fighter_equipment amount = temp }
+		send_equipment = { target = PREV type = small_plane_airframe amount = temp }
 
-		set_temp_variable = { temp = num_equipment@heavy_fighter_equipment }
+		set_temp_variable = { temp = num_equipment@medium_plane_fighter_airframe }
 		multiply_temp_variable = { temp = 0.5 }
-		send_equipment = { target = PREV type = heavy_fighter_equipment amount = temp }
+		send_equipment = { target = PREV type = medium_plane_fighter_airframe amount = temp }
 
-		set_temp_variable = { temp = num_equipment@tac_bomber_equipment }
+		set_temp_variable = { temp = num_equipment@medium_plane_airframe }
 		multiply_temp_variable = { temp = 0.4 }
-		send_equipment = { target = PREV type = tac_bomber_equipment amount = temp }
+		send_equipment = { target = PREV type = medium_plane_airframe amount = temp }
 
-		set_temp_variable = { temp = num_equipment@strat_bomber_equipment }
+		set_temp_variable = { temp = num_equipment@large_plane_airframe }
 		multiply_temp_variable = { temp = 0.25 }
-		send_equipment = { target = PREV type = strat_bomber_equipment amount = temp }
+		send_equipment = { target = PREV type = large_plane_airframe amount = temp }
 
 		set_temp_variable = { temp = num_equipment@convoy }
 		multiply_temp_variable = { temp = 0.5 }
@@ -126,9 +126,7 @@ germany_flees_to_exile = {
 		limit = {
 			NOT = { tag = GEA }
 			country_exists = GEA
-			GEA = {
-				is_subject_of = GER
-			}
+			GEA = { is_subject_of = GER }
 		}
 		"GEA" = { get_current_government_type = yes }
 		puppet = "GEA"
@@ -144,30 +142,28 @@ germany_flees_to_exile = {
 	}
 	if = {
 		limit = {
-			NOT = { tag = AOG }
-			country_exists = AOG
-			AOG = {
-				is_subject_of = GER
-			}
+			NOT = { tag = LEP }
+			country_exists = LEP
+			LEP = { is_subject_of = GER }
 		}
-		"AOG" = { get_current_government_type = yes }
-		puppet = "AOG"
-		"AOG" = { restore_previous_government_type = yes }
+		"LEP" = { get_current_government_type = yes }
+		puppet = "LEP"
+		"LEP" = { restore_previous_government_type = yes }
 	}
 	else = {
 		GER = {
 			set_autonomy = {
-				target = AOG
+				target = LEP
 				autonomy_state = autonomy_free
 			}
 		}
 	}
-
 	change_tag_from = GER
-}
-
-germany_flees_to_africa = {
-	#
+	if = {
+		limit = { is_faction_leader = yes }
+		set_faction_name = "Reichspakt Remnants"
+	}
+	else = { create_faction = "Reichspakt Remnants" }
 }
 
 german_ai_flees = {
@@ -184,7 +180,7 @@ german_ai_flees = {
 			}
 			GEX_can_flee_MAF = yes
 		}
-		MAF = { country_event = GEX.2 }
+		event_target:Mittelafrika_Target = { country_event = GEX.2 }
 	}
 	else_if = {
 		limit = {
@@ -203,7 +199,7 @@ german_ai_flees = {
 	else_if = {
 		limit = {
 			OR = {
-				AOG = { is_ai = no }
+				LEP = { is_ai = no }
 				has_global_flag = GEX_players_absent
 				has_game_rule = {
 					rule = GEX_exile
@@ -212,7 +208,7 @@ german_ai_flees = {
 			}
 			GEX_can_flee_AOG = yes
 		}
-		AOG = { country_event = GEX.2 }
+		LEP = { country_event = GEX.2 }
 	}
 	else_if = {
 		limit = {
@@ -235,7 +231,7 @@ german_ai_flees = {
 	else_if = {
 		limit = {
 			OR = {
-				OTT = { is_ai = no }
+				TUR = { is_ai = no }
 				has_global_flag = GEX_players_absent
 				has_game_rule = {
 					rule = GEX_exile
@@ -244,7 +240,7 @@ german_ai_flees = {
 			}
 			GEX_can_flee_OTT = yes
 		}
-		OTT = { country_event = GEX.2 }
+		TUR = { country_event = GEX.2 }
 	}
 	else_if = {#well fuck
 		limit = {
@@ -370,29 +366,29 @@ GEX_cutting_losses_gea_aog_0_1 = {
 		send_equipment = { target = GEX type = modern_tank_chassis amount = temp }
 	}
 
-	set_temp_variable = { temp = num_equipment@nav_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_naval_bomber_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = nav_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_naval_bomber_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@CAS_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_cas_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = CAS_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_cas_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@fighter_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = fighter_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@heavy_fighter_equipment }
+	set_temp_variable = { temp = num_equipment@medium_plane_fighter_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = heavy_fighter_equipment amount = temp }
+	send_equipment = { target = GEX type = medium_plane_fighter_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@tac_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@medium_plane_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = tac_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = medium_plane_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@strat_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@large_plane_airframe }
 	multiply_temp_variable = { temp = 0.1 }
-	send_equipment = { target = GEX type = strat_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = large_plane_airframe amount = temp }
 }
 
 GEX_cutting_losses_gea_aog_0_2 = {
@@ -457,29 +453,29 @@ GEX_cutting_losses_gea_aog_0_2 = {
 		send_equipment = { target = GEX type = modern_tank_chassis amount = temp }
 	}
 
-	set_temp_variable = { temp = num_equipment@nav_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_naval_bomber_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = nav_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_naval_bomber_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@CAS_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_cas_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = CAS_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_cas_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@fighter_equipment }
+	set_temp_variable = { temp = num_equipment@small_plane_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = fighter_equipment amount = temp }
+	send_equipment = { target = GEX type = small_plane_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@heavy_fighter_equipment }
+	set_temp_variable = { temp = num_equipment@medium_plane_fighter_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = heavy_fighter_equipment amount = temp }
+	send_equipment = { target = GEX type = medium_plane_fighter_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@tac_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@medium_plane_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = tac_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = medium_plane_airframe amount = temp }
 
-	set_temp_variable = { temp = num_equipment@strat_bomber_equipment }
+	set_temp_variable = { temp = num_equipment@large_plane_airframe }
 	multiply_temp_variable = { temp = 0.2 }
-	send_equipment = { target = GEX type = strat_bomber_equipment amount = temp }
+	send_equipment = { target = GEX type = large_plane_airframe amount = temp }
 }
 
 germany_capitulates = {
@@ -657,7 +653,7 @@ germany_capitulates = {
 		random_country = {
 			limit = {
 				OR = {
-					tag = OTT
+					tag = TUR
 					tag = EGY
 				}
 				owns_state = 453
@@ -730,17 +726,13 @@ germany_capitulates = {
 		}
 	}
 	if = {
-		limit = { AOG = { is_subject_of = GER } }
+		limit = { LEP = { is_subject_of = GER } }
 		GER = {
 			set_autonomy = {
-				target = AOG
+				target = LEP
 				autonomy_state = autonomy_free
 			}
 		}
-	}
-	if = {
-		limit = { GEX = { exists = yes } }
-		GEX = { create_faction = "Reichspakt Remnants" }
 	}
 }
 
@@ -785,11 +777,11 @@ GEX_liberation_of_GER = {
 		}
 	}
 	if = {
-		limit = { AOG = { is_subject_of = PREV } }
+		limit = { LEP = { is_subject_of = PREV } }
 		GER = {
-			AOG = { get_current_government_type = yes }
-			puppet = AOG
-			AOG = { restore_previous_government_type = yes }
+			LEP = { get_current_government_type = yes }
+			puppet = LEP
+			LEP = { restore_previous_government_type = yes }
 		}
 	}
 	if = {
@@ -820,8 +812,8 @@ GEX_liberation_of_GER = {
 						tag = MAF
 						tag = TXS
 						AND = {
-							tag = AOG
-							has_completed_focus = AOG_german_hegemony_over_china
+							tag = LEP
+							has_completed_focus = LEP_AOG_pacification_of_china
 						}
 					}
 				}

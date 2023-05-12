@@ -67,17 +67,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_democratic_path"
 			hidden_effect = {
 				if = {
-					limit = {
-						has_country_flag = JAP_WEAK_SEIYUKAI
-					}
-					random_list = {
-						50 = {
-							country_event = japdom.65	#Government asks the Emperor to speak, supports government
-						}
-						50 = {
-							country_event = japdom.72	#Government asks the Emperor to speak, does not support government
-						}
-					}
+					limit = { has_country_flag = JAP_WEAK_SEIYUKAI }
+					country_event = japdom.65	#Government asks the Emperor to speak
 				}
 			}
 			add_ideas = JAP_DEM_GOV
@@ -322,7 +313,7 @@ focus_tree = {
 
 	focus = {
 		id = JAP_chuou_cons
-		icon = MON_military_res_inst
+		icon = GFX_MON_military_res_inst
 		prerequisite = {
 			focus = JAP_chuou_mob
 		}
@@ -821,7 +812,7 @@ focus_tree = {
 
 	focus = {
 		id = JAP_need_oil
-		icon = GRU_CORPORATE_TAKE_OIL
+		icon = GFX_GRU_CORPORATE_TAKE_OIL
 		prerequisite = {
 			focus = JAP_rapid_industrialisation
 		}
@@ -975,7 +966,7 @@ focus_tree = {
 
 	focus = {
 		id = JAP_ZAI_FAC
-		icon = GRU_factory_network
+		icon = GFX_GRU_factory_network
 		prerequisite = {
 			focus = JAP_ZAI_ECO
 		}
@@ -3357,9 +3348,9 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_MIL_NAV_NOT_SO_DECISIVE"
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = JAP_MIL_NAV_NOT_SO_DECISIVE
-				bonus = 1
+				cost_reduction = 1
 				uses = 1
 				category = submarine_doctrine
 				category = carrier_ship_tree
@@ -3387,9 +3378,9 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_MIL_NAV_HIT_N_RUN"
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = JAP_MIL_NAV_HIT_N_RUN
-				bonus = 1
+				cost_reduction = 1
 				uses = 1
 				category = submarine_doctrine
 			}
@@ -3415,9 +3406,9 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_MIL_NAV_OPEN_SEA"
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = JAP_MIL_NAV_OPEN_SEA
-				bonus = 1
+				cost_reduction = 1
 				uses = 1
 				category = convoy_defense_tree
 			}
@@ -4782,7 +4773,86 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_spiritual_mobilisation"
-			add_ideas = JAP_chinese_manpower_idea
+			effect_tooltip = {
+				add_relation_modifier = {
+					target = CHN
+					modifier = JAP_recruit_collaborators
+				}
+			}
+			hidden_effect = {
+				add_relation_modifier = {
+					target = QIE
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = FNG
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = CHI
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = LEP
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = ANQ
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = HNN
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = GXC
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = YUN
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = SZC
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = SHX
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = SQI
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = XSM
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = SIK
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = PRC
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = TAN
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = ETS
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = TIB
+					modifier = JAP_recruit_collaborators
+				}
+				add_relation_modifier = {
+					target = LEC
+					modifier = JAP_recruit_collaborators
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_MANPOWER }
 	}
@@ -4813,7 +4883,86 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus JAP_three_alls"
-			add_ideas = JAP_three_alls_idea
+			effect_tooltip = {
+				add_relation_modifier = {
+					target = CHN
+					modifier = JAP_three_alls_modifiers
+				}
+			}
+			hidden_effect = {
+				add_relation_modifier = {
+					target = QIE
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = FNG
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = CHI
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = LEP
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = ANQ
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = HNN
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = GXC
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = YUN
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = SZC
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = SHX
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = SQI
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = XSM
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = SIK
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = PRC
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = TAN
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = ETS
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = TIB
+					modifier = JAP_three_alls_modifiers
+				}
+				add_relation_modifier = {
+					target = LEC
+					modifier = JAP_three_alls_modifiers
+				}
+			}
 			FNG = { country_event = japfor.462 }
 			custom_effect_tooltip = JAP_FNG_outrage_tt
 		}

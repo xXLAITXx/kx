@@ -298,7 +298,10 @@ country_event = { #Diterikhs dies
 	is_triggered_only = yes
 	trigger = {
 		tag = TRM
-		NOT = { has_country_flag = TRM_Mil_coup }
+		NOT = { 
+		has_country_flag = TRM_Mil_coup 
+		has_country_flag = Mikhail_Diterikhs_dead
+		}
 		has_socialist_government = no
 	}	
 	option = {
@@ -330,6 +333,7 @@ country_event = { #Diterikhs dies
 				ruling_only = yes
 				name = "Mikhail Diterikhs"
 			}
+			has_country_flag = Mikhail_Diterikhs_dead
 		}
 	}
 	option = {
@@ -713,7 +717,7 @@ country_event = { #Replace HOS - TRM event
 		ai_chance = { #Submit
 			factor = 15
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_YUI
@@ -816,7 +820,7 @@ country_event = { #Replace HOS - JAP event
 		ai_chance = { #Mitsue
 			factor = 35
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_YUI
@@ -1735,7 +1739,7 @@ country_event = {
 				}
 			}
 			modifier = {
-				factor = 10000
+				factor = 1000
 				OR = {
 					has_game_rule = {
 						rule = TRM_path 
@@ -1840,7 +1844,7 @@ country_event = {
 	}
 	option = { #AI bypass
 		ai_chance = {
-			factor = 10000
+			factor = 1000
 		}
 		trigger = {
 			is_ai = yes
@@ -2098,14 +2102,54 @@ country_event = {
 			factor = 70
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = TRM_path 
-					option = RULE_OPTION_TRM_KOLCHAK_SECURES_POWER
+				OR = {
+					has_game_rule = {
+						rule = TRM_path 
+						option = RULE_OPTION_TRM_KOLCHAK_SECURES_POWER
+					}
+					has_game_rule = {
+						rule = TRM_path 
+						option = RULE_OPTION_TRM_SEMYONOV
+					}
 				}
 			}
 		}
 		trigger = {
-			check_variable = { ROVSOrientation < 0.99 }
+			OR = {
+				check_variable = { ROVSOrientation < 0.99 }
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_MONARCHY
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_NEW_MILITARY_CABINET
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_MORYAKI_IN_POWER
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_OBLASTNIKI
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_YUI
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_MLADOROSSI
+				}
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_NATSI
+				}
+			}
 		}
 		name = tram.80.c
 		country_event = tram.81
@@ -2166,7 +2210,13 @@ country_event = {
 	option = {
 		name = tram.80.e
 		trigger = {
-			check_variable = { CossackOrientation < 0.99 }
+			OR = {
+				check_variable = { CossackOrientation < 0.99 }
+				has_game_rule = {
+					rule = TRM_path 
+					option = RULE_OPTION_TRM_SEMYONOV
+				}
+			}
 			has_unit_leader = 243910
 		}
 		ai_chance = {
@@ -2289,7 +2339,7 @@ country_event = {
 
 	option = { #New Dictator
 		ai_chance = {
-			factor = 50
+			factor = 60
 			modifier = {
 				add = 20
 				check_variable = { party_popularity@social_liberal < 0.24 }
@@ -2345,7 +2395,7 @@ country_event = {
 
 	option = { #Republic
 		ai_chance = {
-			factor = 30
+			factor = 20
 			modifier = {
 				add = 20
 				check_variable = { party_popularity@social_liberal > 0.24 }
@@ -2630,7 +2680,7 @@ country_event = {
 				}
 			}
 			modifier = {
-				factor = 10000
+				factor = 1000
 				OR = {
 					has_game_rule = {
 						rule = TRM_path 
@@ -2820,7 +2870,7 @@ country_event = {
 	option = { # VKKE
 		name = tram.86.a
 		ai_chance = {
-			base = 35
+			base = 25
 		}
 		add_political_power = -40
 		clr_country_flag = TRM_oblastniki_operate
@@ -2853,7 +2903,7 @@ country_event = {
 	option = { # KDV
 		name = tram.86.b
 		ai_chance = {
-			base = 25
+			base = 20
 		}
 		meta_effect = {
 			text = {
@@ -2935,7 +2985,7 @@ country_event = {
 	option = { # Military Coup
 		name = tram.86.e
 		ai_chance = {
-			base = 20
+			base = 35
 		}
 		trigger = {
 			NOT = { has_country_flag = TRM_cw_oblastnik_victory }
@@ -2989,7 +3039,7 @@ country_event = {
 				}
 			}
 			modifier = {
-				factor = 10000
+				factor = 1000
 				OR = {
 					has_game_rule = {
 						rule = TRM_path 
@@ -3676,7 +3726,7 @@ country_event = {
 		ai_chance = {
 			factor = 30
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_YUI
@@ -3696,14 +3746,14 @@ country_event = {
 		ai_chance = {
 			factor = 70
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MONARCHY
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NEW_MILITARY_CABINET
@@ -4368,7 +4418,7 @@ country_event = {
 	
 	option = { #AI bypass
 		ai_chance = {
-			factor = 10000
+			factor = 1000
 		}
 		trigger = {
 			is_ai = yes
@@ -6108,6 +6158,11 @@ country_event = { #trm wants to join us
 		add_political_power = 50
 		add_to_faction = FROM
 		add_to_array = { global.asian_economic_sphere = FROM }
+		hidden_effect = {
+			JAP_recalculate_economic_integration = yes
+			custom_effect_tooltip = JAP_member_of_co_prosperity_sphere
+			FROM = { add_dynamic_modifier = { modifier = JAP_asian_economic_sphere_member } }
+		}
 	}
 }
 
@@ -7287,84 +7342,84 @@ country_event = { #Unrest in Chita
 		ai_chance = {
 			factor = 85
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_KOLCHAK_SECURES_POWER
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MONARCHY
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NEW_MILITARY_CABINET
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MORYAKI_IN_POWER
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_OBLASTNIKI
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MERKULOV
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_SEMYONOV
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_YUI
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MLADOROSSI
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NATSI
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = YAK_independece_path 
 					option = RULE_OPTION_TRM_YAKUTIA
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_CW
@@ -7434,35 +7489,35 @@ country_event = { #Unrest in Chita
 		ai_chance = {
 			factor = 15
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_RADSOC
@@ -7502,35 +7557,35 @@ country_event = { #NRA revolts
 		ai_chance = {
 			factor = 25
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_RADSOC
@@ -7587,35 +7642,35 @@ country_event = { #Khabarovsk
 		ai_chance = {
 			factor = 15
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_RADSOC
@@ -7675,35 +7730,35 @@ country_event = { #Vladivostok
 		ai_chance = {
 			factor = 15
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_RADSOC
@@ -8369,14 +8424,14 @@ country_event = { #last bastion of bolshevism
 		ai_chance = {
 			factor = 30
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_RADSOC
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP
@@ -8411,21 +8466,21 @@ country_event = { #last bastion of bolshevism
 		ai_chance = {
 			factor = 60
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
@@ -9055,7 +9110,7 @@ country_event = { #Soviet Transamur
 		ai_chance = {
 			factor = 50
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_FRUNZE
@@ -9082,7 +9137,7 @@ country_event = { #Soviet Transamur
 		ai_chance = {
 			factor = 50
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_TUKHA
@@ -9093,7 +9148,7 @@ country_event = { #Soviet Transamur
 			name = "Mikhail Tukhachevsky"
 			picture = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Tukhachevskiy.png"
 			expire = "1965.1.1"
-			ideology = red_junta_subtype
+			ideology = internationalism_subtype
 			traits = { red_napoleon }
 		}
 		set_cosmetic_tag = SOV_tukhachevsky
@@ -9110,7 +9165,7 @@ country_event = { #Soviet Transamur
 		ai_chance = {
 			factor = 50
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NRA_COUP_BOLSHEVIKS
@@ -9329,7 +9384,7 @@ country_event = { #Semyenov
 		ai_chance = {
 			factor = 60
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_SEMYONOV
@@ -9361,7 +9416,7 @@ country_event = { #Semyenov
 		ai_chance = {
 			factor = 30
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_KOLCHAK_SECURES_POWER
@@ -10065,12 +10120,12 @@ country_event = {
 				popularity = 0.05
 					}
 		hidden_effect = {
-		    country_event = {
+			country_event = {
 				id = trammlad.148
 				days = 30
 			}
 		}
-    }
+	}
 }
 country_event = {
 	id = trammlad.148
@@ -10293,7 +10348,7 @@ country_event = {
 			ideology = mladorossi_subtype
 			traits = {
 
-            }
+			}
 		}
 		set_country_flag = LEADER_GUI_VISIBLE
 	}
@@ -10361,7 +10416,7 @@ country_event = {
 		ai_chance = {
 			base = 15
 			modifier = {
-				factor = 10000
+				factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NATSI
@@ -10391,17 +10446,17 @@ country_event = {
 		}
 		trigger = {
 			OR = {
-        		NOT = { country_exists = RUS }
-        		AND = {
-            		country_exists = RUS
-           	 		RUS = {
-                		has_authoritarian_government = no
-                		NOT = { has_government = social_conservative }
-                		NOT = { has_country_flag = authoritarian_democrat_coalition }
-            		}
-        		}
-        	}
-        }
+				NOT = { country_exists = RUS }
+				AND = {
+					country_exists = RUS
+		   	 		RUS = {
+						has_authoritarian_government = no
+						NOT = { has_government = social_conservative }
+						NOT = { has_country_flag = authoritarian_democrat_coalition }
+					}
+				}
+			}
+		}
 		set_country_flag = TRM_Eurasia_Allies
 	}
 }
@@ -10706,7 +10761,7 @@ country_event = {
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 10000
+				factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_NATSI
@@ -10726,7 +10781,7 @@ country_event = {
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 10000
+				factor = 1000
 				has_game_rule = {
 					rule = TRM_path 
 					option = RULE_OPTION_TRM_MLADOROSSI
@@ -10816,8 +10871,11 @@ country_event = {
 
 	option = { 
 		name = trammlad.517.a
-		set_temp_variable = { coalition_partner_var = token:totalist }
-		add_to_coalition = yes
+		hidden_effect = { 
+			set_temp_variable = { coalition_partner_var = token:totalist }
+				add_to_coalition = yes 
+		}
+		custom_effect_tooltip = tot_will_join_coalition_tt
 		add_popularity = {
 			ideology = totalist
 			popularity = 0.03
@@ -10891,8 +10949,11 @@ country_event = {
 
 	option = { 
 		name = trammlad.519.a
-		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
-		add_to_coalition = yes
+		hidden_effect = { 
+			set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+				add_to_coalition = yes 
+		}
+		custom_effect_tooltip = pataut_will_join_coalition_tt
 		add_popularity = {
 			ideology = paternal_autocrat
 			popularity = 0.03
@@ -11403,7 +11464,7 @@ country_event = {
 	immediate = {log = "[GetDateText]: [Root.GetName]: event trammlad.533"}
 	title = trammlad.533.t
 	desc = trammlad.533.d
-        picture = GFX_news_event_TRM_turtle
+		picture = GFX_news_event_TRM_turtle
 	
 	is_triggered_only = yes
 	
@@ -11428,7 +11489,7 @@ country_event = {
 	option = {
 		name = tram.200.a
 		add_political_power = 50
-                add_stability = 0.03
+				add_stability = 0.03
 	}
 }
 country_event = {
@@ -14610,7 +14671,7 @@ country_event = {
 			}
 			add_compliance = 10
 		}
-		increase_ruling_party_popularity_by_10 = yes
+		decrease_ruling_party_popularity_by_10 = yes
 		add_stability = -0.05
 	}
 	option = {
@@ -15797,33 +15858,27 @@ country_event = { #buryat revolt trigger
 	}
 }
 country_event = { #japanese russian cities
-    id = tram.10002
-    title = tram.10002.t
-    desc = tram.10002.d
-    
-    fire_only_once = yes
+	id = tram.10002
+	title = tram.10002.t
+	desc = tram.10002.d
+	
+	fire_only_once = yes
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = { #a great idea!
-        name = tram.10002.a
+	option = { #a great idea!
+		name = tram.10002.a
 		ai_chance = {
 			factor = 75
 		}
 		add_political_power = -25
-        set_province_name = { id = 957 name = "Urajiosutoku"}
-        set_province_name = { id = 11745 name = "Darinegorusuku"}
-        set_province_name = { id = 9604 name = "Inperiaruhaba"}
-        set_province_name = { id = 12559 name = "Showadenko"}
-        set_province_name = { id = 12189 name = "Habarofusuku"}
-        set_province_name = { id = 12263 name = "Pama"}
-        set_province_name = { id = 12641 name = "Yomitori"}
-
-    }
-    option = { # no
-        name = tram.10002.b
+		set_country_flag = TRM_uses_japanese
+		every_controlled_state = { rename_state_effect = yes }
+	}
+	option = { # no
+		name = tram.10002.b
 		ai_chance = {
 			factor = 25
 		}
-    }
+	}
 }

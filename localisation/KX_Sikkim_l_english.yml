@@ -1,9 +1,5 @@
 ﻿l_english:
 
-
- VICTORY_POINTS_4435:0 "Gangtok"
-
-
 SKM_HIMALAYA_totalist:0 "Sacred Union of the Himalayas"
 SKM_HIMALAYA_totalist_ADJ:0 "Himalayan"
 SKM_HIMALAYA_totalist_DEF:0 "the Sacred Union of the Himalayas"
@@ -97,13 +93,13 @@ SKM_national_populist:0 "Kingdom of Sikkim"
 SKM_national_populist_ADJ:0 "Sikkimese"
 SKM_national_populist_DEF:0 "the Kingdom of Sikkim"
 
-ROERICH_SHAMBALA_totalist:0 "Shambhala"
-ROERICH_SHAMBALA_totalist_ADJ:0 "Shambhalan"
-ROERICH_SHAMBALA_totalist_DEF:0 "Shambhala"
+ROERICH_SHAMBALA:0 "Shambhala"
+ROERICH_SHAMBALA_ADJ:0 "Shambhalan"
+ROERICH_SHAMBALA_DEF:0 "Shambhala"
 
-SKM_SHAMBALA_national_populist:0 "Shambhala"
-SKM_SHAMBALA_national_populist_ADJ:0 "Shambhalan"
-SKM_SHAMBALA_national_populist_DEF:0 "Shambhala"
+SKM_SHAMBALA:0 "Shambhala"
+SKM_SHAMBALA_ADJ:0 "Shambhalan"
+SKM_SHAMBALA_DEF:0 "Shambhala"
 
 SKM_INDIA_JERMAN_totalist:0 "Sacred Union of India"
 SKM_INDIA_JERMAN_totalist_ADJ:0 "Indian"
@@ -324,7 +320,7 @@ SKM_national_populist_party_long:0 "Sikkim National Party"
 POLITICS_TASHI_NAMGYAL_DESC:0 "Crowned by the Dalai Lama in 1914 after the death of his half-brother, His Highness Sri Panch Maharaja Tashi Namgyal, Maharaja Chogyal of Sikkim, is the undisputed sovereign of the Kingdom of Sikkim. Born in Tibet in 1893, Tashi is only the most recent ruler in a dynastic line that has lasted since 1642. Nominally an absolute monarch, Tashi has infamously begun a crusade to reform and liberalize Sikkimese society, but this has come into conflict with the desires of the conservative nobility. Though he receives tacit support from more radical elements, many fear that the king may not be able to go far enough to truly modernize the archaic state of Sikkim, and so the 11th Chogyal walks a razor's edge here at the top of the world as he seeks to bring prosperity to this paradise amid the mountains."
 POLITICS_JERMAN_LEPCHA_DESC:0 "Standing as the face of the radical reformist movement called the Sikkim Krantikari Morcha, Jerman Lepcha is the unity figure that binds the various reformist, liberal, and vaguely Socialist groups that seek a modern and prosperous Sikkim free of the nobility and the monarchy. Born in 1910, this young firebrand has waged a mostly peaceful, non-cooperative protest campaign against the deep-rooted and oppressive aristocracy, and now stands as the progressive savior of Sikkimese democracy. Seeking to bring agrarian-minded, Socialist-inspired total societal reform to this archaic land, Sikkim shall never be the same as Jerman guides it and his people towards a uniquely-Sikkimese modernity."
 POLITICS_DORJE_DESC:0 "Reincarnated back into this world as his 16th incarnation in 1924 in Tibet near Kham and the source of the Yangtze, Rangjung Rigpe Dorje is the 16th Karmapa - the oldest line of reincarnate lamas, or tulkus, in Vajrayana Buddhism and the spiritual leader of the Karma Kagyu School of Tibetan Buddhism. Considered a living Buddha, the King of the Yogis, and known by many other monikers, his path to being recognized as the 16th Karmapa was mired in controversy. His previous form - Khakyab Dorje - had written a letter that detailed where he would be reincarnated, but the letter was entrusted to his attendant and delayed in delivery to the Dalai Lama, causing the Tibetans to pursue their own candidate who happened to be the son of one of Tibet’s leading ministers, Lungshawa. Once the letter arrived, a debate broke out that lasted well over a year until the opposing candidate, the teenage son of Lungshawa, fell from a roof, breaking his pelvis and dying days later. \n\nAlthough other candidates were put forth by other tulkus and political figures, Rangjung Rigpe Dorge was recognized as the 16th Karmapa in 1931 at Palpung Monastery, performing his first Black Crown Ceremony and taking the Bodhisattva Vows which dedicated him to the cause of achieving full buddhahood for the good of all sentient beings, embarking on the path of becoming a trained tulku and lama. Training under the the 11th Tai Situpa Pema Wangchok and the 2nd Jamgön Kongtrül Khyentse Öser, declaring them to be his root gurus, and also under the 13th Dalai Lama Thubten Gyatso, the 10th Mindrolling Trichen, and the Sakya Trizin, Rangung Rigpe Dorje has much to learn still on his journey towards Nirvana, but he is poised to use his spiritual knowledge and power to make Sikkim a truly prosperous paradise. However, with him largely being the puppet of political forces, whether he can realize this dream remains to be seen."
-SKM_KR_GATHERING_STORM_DESC:0 "An absolute monarchy since 1642, the Kingdom of Sikkim stands at the crossroads of empires. Once part of the now defunct Raj, Sikkim has survived Nepali, Bhutanese, and Indian ambitions thanks to its ally to the North in Tibet. However, with the Qing beginning to disintegrate, Tibet’s military will be preoccupied elsewhere, leaving Sikkim vulnerable as the reform-minded king of Sikkim, seeks to begin a massive liberalization and modernization initiative in order to raise his people out of feudalist serfdom. However, with nobles holding him back, and with radicals threatening revolution if he does not go far enough, Tashi is caught in the middle of competing forces as he tries to guide his nation across this treacherous tightrope and into prosperity."
+SKM_KR_GATHERING_STORM_DESC:0 "An absolute monarchy since 1642, the Kingdom of Sikkim stands at the crossroads of empires. Once part of the now defunct Raj, Sikkim has survived Nepali, Bhutanese, and Indian ambitions thanks to its Tibetan ally. However, with the Qing in turmoil, Tibet’s military will be preoccupied, leaving Sikkim vulnerable as the reform-minded king seeks to begin a massive liberalization and modernization initiative in order to raise his people out of serfdom. However, with nobles holding him back and radicals threatening revolution if he does not go far enough, Tashi is caught in the middle of competing forces as he tries to guide his nation across this treacherous tightrope and into prosperity."
 POLITICS_HELEN_LEPCHA_DESC:0 "Born in 1902 in Sangmu Village of South Sikkim, Helen Lepcha and her family moved to West Bengal shortly after birth where she was able to grow up in the rapidly modernizing tea towns of Kurseoung and Darjeeling. As the region enjoyed the few benefits Anglo imperialism brought, Helen was able to get an Anglo-style education before becoming interested in the Charkha and Khaddar movements that spread throughout the backhills of India. Picking up the anti-colonialist, cultural protectionist, Socialist, and Agrarian ideas of these movements, Helen dove deep into the movements, even becoming a famous weaver and spinner among her clique. Eventually, she left for Calcutta to give deeper into the idea of a Free India, aiding victims in the 1920 floods that rampaged Bihar, and eventually coming into personal contact with Mahatma Gandhi himself. Working to save flood victims together, the ideas and teachings of the Mahatma further drove her to her current ideas, and Gandhi himself even rechristened her as Savitri Devi, a name he felt more in touch with her national rootedness. She would continue this campaign of helping the needy and the downtrodden, joining Gandhi’s non-cooperation movement, and endeavoring to end Indian suffering nationwide. However, her dreams were nearly cut short in 1922 when she was briefly arrested for her activities by Anglo officials, but was soon released as the British Empire and their Raj came crashing down during the fires of the British Revolution. As India split and fractured, Helen stuck by Gandhi’s side, eventually falling in with the Agrarians in Calcutta. With the fall of the Socialist Government and the INC, Helen made her way back home to her native land of Sikkim in order to try yet again to free all of India."
 POLITICS_TRILOCHAN_POKHREL_DESC:0 "Born sometime during the 1890s, much about the early life of Trilochan Pokhrel is enigmatic and unknown, but it is known he was born in Tareythang Busty, part of the Pakyong subdivision of East Sikkim. During his youth, he began to be greatly influenced by the words and wisdoms of Gandhi, coming to hold dear the ideas of truth and non-violence unless there is no other option, and falling in with early Quit India movements as well as the Charkha movement. As he grew to be a man, Pokhrel began to emulate his teacher and idol the Naked Fakir, the Mahatma Gandhi. Wearing a cotton dhoti and pair of wooden Khadau sandals, Pokhrel became nicknamed Gandhi Pokhrel, and Bande Pokhral, coming from his constant use of the Bande Mataram prayer. When the British Revolution gave India the chance to be free, Pokhrel stood by Gandhi’s side and fought for a free India, and when Calcutta finally fell and this dream was crushed, he fled here to his home of Sikkim, still professing to be a disciple of the Mahatma and a true freedom fighter. Less ideological driven than his contemporaries in the INC exiles, Trilochan Pokhrel seeks to bring moderated Agrarian Socialism and Syndicalist-inspired democracy to this paradise too, but also seeks to uphold this paradise with the spiritual and philosophical ideas of the Mahatma. Now we shall only see if he is able to fulfill this dream and spread it to all of India."
 
@@ -340,6 +336,10 @@ SKM_Kazis_Win:0 "The Kazi landlords have secured their rule"
 SKM_Traditionalists_Win:0 "The Kazi old guard have come out on top"
 SKM_Reformists_Win:0 "The Kazi reformists have taken power"
 tashi_abdicate:0 "Tashi Namgyal resides in Rumtek Monastery"
+
+#Tooltips#
+skm.integrate.bhutan.tt:0 "Those once loyal to the Dragon King will join our side!"
+skm.integrate.tibet.army.tt:0 "Those once loyal to the Tibetan army will join our side!"
 
 #Ideas#
 SKM_ethnic_tensions:0 "The Chaotic Melting Pot of the Himalayas"
@@ -508,11 +508,10 @@ sikkim.18.a:0 "Show them the wrath of Nepal!"
 sikkim.18.b:0 "We won't fall for their tricks that easily."
 
 sikkim.19.t:0 "Sikkimese Raids!"
-sikkim.19.d:0 "An envoy has arrived with reports of gangs of Sikkimese thugs and bandits harassing farmers and troops stationed by our border with the Kingdom from which they arrive. With no word from the Sikkimese government that may justify this blatant disruption of peace, we can only presume the worst. As simply as it may seem for us to wipe out this proverbial housefly to the wind, it may be important to exercise caution. After all, they would not just raid us without a plan…right?" 
+sikkim.19.d:0 "An envoy has arrived with reports of gangs of Sikkimese thugs and bandits harassing farmers and troops stationed by our border with the Kingdom from which they arrive. With no word from the Sikkimese government that may justify this blatant disruption of peace, we can only presume the worst. As simply as it may seem for us to wipe out this proverbial housefly to the wind, it may be important to exercise caution. After all, they would not just raid us without a plan...right?" 
 sikkim.19.a:0 "Time to give Sikkim a good lesson on humility."
 sikkim.19.b:0 "We are wiser than to risk further war."
 
-#Flavor#
 sikkim.16.t:0 "The Pilot Prince"
 sikkim.16.d:0 "The Crown Prince Paljor Namgyal, also called Kunzang Cholay Namgyal, is the eldest son and heir apparent to Tashi Namgyal. Along with his brother Palden Thondup, he stands by his father’s side loyally as an honored friend and respected aid as well as a son. Seeking to bring further honor to his family while fulfilling a lifelong dream of flight, the Crown Prince attended an Anglo military school in Delhi in order to train to become a fighter pilot. Graduating with top honors and with hundreds of flight hours logged, Crown Prince Paljor is the greatest pilot to ever fly for Sikkim, and has since returned to Gangtok to serve as the new chief of the Sikkimese air force, tied to the functions of the Sikkim Guard. With Paljor defending our skies above as his father sits on the throne and guides the nation, the people of Sikkim can be sure that the Namgyals will keep them safe."
 sikkim.16.a:0 "A true hero of Sikkim."
@@ -697,6 +696,7 @@ sikkim.55.a:0 "Lenin Lived! Jerman Lives! Sikkim and Buddhism Will Live!"
 sikkim.56.t:0 "The Karma Kagyu Theocracy"
 sikkim.56.d:0 "In what is becoming known as the Karma Kagyu - or Rumtek - Theocracy, Lhendup Dorjee has moved to fully share power with Rangjung Rigpe Dorje, the 16th Karmapa, who currently stands as the leading tulku - or reincarnation spiritual custodian - of the Karma Kagyu school of Tibetan Buddhism. Though the 16th Karmapa is still young, he has great spiritual authority, and shall also be the perfect moldable puppet to rule through. Leading from the restored Rumtek Monastery in Gangtok, these two national figures shall work together as they herald this new age for Sikkim. Karma Kagyu Buddhism shall become the main foundation of the state as the Kagyu Clergy and the Sikkimese National Buddhist Party work in tandem to build a pious and prosperous paradise."
 sikkim.56.a:0 "Grant your blessing that I follow your example and hold your lineage."
+sikkim.56.b:0 "The 16th Karmapa is too young to rule, we must keep up the democratic facade for now."
 
 sikkim.57.t:0 "The INC Exiles Make Their Move"
 sikkim.57.d:0 "As more and more Indian Socialist flood into Sikkim from the South, fleeing the fall of Calcutta and their Socialist experiment, a group of exiles from the Indian National Congress have begun to pressure Jerman to incorporate more and more of their beliefs. Though they are Agrarian Socialists in part, like ourselves, they are staunchly Syndicalist - representing a fusion of the more moderate Agrarian and Anarcho-Syndicalist factions of the INC. As these exiles push their Syndicalist rhetoric on Jerman Lepcha more and more, his stress and disdain for leading our nation only grow. Sensing an opportunity to strike, the INC exiles, led by Agrarian Syndicalist Helen Lepcha - also called Savitri Devi - and the freedom fighter Trlochan Pokhrel, have propositioned Jerman with a deal - he would continue to be the face of the Sikkimese Revolution and the official Head of State, but more and more duties of the state would be given over to these INC exiles in the Sikkim Janata Parishad National Congress - their own established Syndicalist party here in Sikkim - as they come to dominate the state apparatus. However, Jerman is no slouch, for he is the one man who has been able to disrupt centuries upon centuries of decay and stagnation with his Revolution, and he may still have the will to endure the rigors of rule for as long as his people need him."
@@ -752,6 +752,49 @@ sikkim.67.d:0 "With an independent Tibet no longer existing, Nicholas Roerich, h
 sikkim.67.a:0 "Let him live in peace within our paradise."
 sikkim.67.b:0 "Give him a place within our cabinet to spread his wisdom."
 sikkim.67.c:0 "Allow the progenitor of our ideology take the reins of power."
+
+sikkim.68.t:0 "Workings of the State Council"
+sikkim.68.d:0 "The Sikkimese State Council was established in order to create a democratic system of representative governance for the people of Sikkim while still adhering to the Namgyal dynasty’s monarchist system, with the council being the brainchild of the Chogyal Tashi Namgyal himself, along with the help of his closest advisors such as the Colossus of Sikkim and Tashi’s own right-hand Barmiok Athing Tashi Dadul Densapa, the Kazi democratic reformer Lhendup Dorjee, the leading monk Ranjung Rigpe Dorje, the divisive revolutionary Jerman Lepcha, and his own sons Palijor and Palden Thondup. \n\nConsisting of 18 members, of which 12 are elected by the masses while the remaining six - including the office of Sikkimese President - are appointed by the Chogyal, the State Council is Sikkim’s first true step towards modern democracy, representing a massive leap away from tyrannical feudalism and aristocratic elitism that has plagued our paradise for millenia. Of the 12 elected members, six shall be from the Nepali community and six others shall be from the Lepcha and the Bhutia communities to ensure that the major ethnicities and cultures of our paradisiacal melting pot are to be properly represented. Each candidate hoping to run for election to the Council are required to be at least 30 years old, and the voting age has been set for all men and women who reach the age of 21, though the idea of allowing women to vote caused a serious uproar among traditionalist elements despite its official allowance by the Chogyal. \n\nTo aid in the building of democracy, many old radicals and reformers have also been released from prison, and their records have been expunged so long as they stay loyal to this new and ever-evolving system, with even Jerman Lepcha being among them, stepping once more into the spotlight of national politics as he seeks to help the Chogyal and all others across Sikkim achieve the modern and fair lives all deserve. So far, over 30,000 Sikkimese citizens have registered to vote, and it would seem that Sikkimese democracy has truly begun to come to life."
+sikkim.68.a:0 "I love democracy!"
+
+sikkim.69.t:0 "The Fate of the Dragon King's Royal Guard"
+sikkim.69.d:0 "Dousing their flames once and for all, the Thunder Dragon Empire of Bhutan has finally fallen before our might, putting us one step closer to uniting the Himalayas under our serene and wise command. Now we must decide what to do with those who surrendered to use among Bhutan’s fallen military and the King’s former royal guard, for these skilled but temperamental and bitter warriors could prove of use if we can assure their loyalty and new allegiances."
+sikkim.69.a:0 "They shall serve us!"
+sikkim.69.b:0 "We have no need for these incompetent fools!"
+
+sikkim.70.t:0 "The Fate of the Tibetan Army"
+sikkim.70.d:0 "Toppling the tyrants at the top of the world, the Buddhist mountain paradise of Tibet has finally fallen before our might, putting us one step closer to uniting the Himalayas under our serene and wise command. Now we must decide what to do with those who surrendered to use among Tibet’s fallen military, including the dob-dob militias and Buddhist warrior monks, for these skilled but temperamental and bitter warriors could prove of use if we can assure their loyalty and new allegiances."
+sikkim.70.a:0 "They shall serve us!"
+sikkim.70.b:0 "We have no need for these incompetent fools!"
+
+sikkim.71.t:0 "The Chogyal Arrives in Lhasa"
+sikkim.71.d:0 "Revolution and Socialist terror has seized Sikkim, and following a violent and rapid upheaval, the new revolutionary government publicly announced that the Namgyal Dynasty were all traitors to the Sikkimese nation and people, sentencing the royals to exile and generational banishment. Fearing for his life without the protection of his former guard, Tashi Namgyal - the former Chogyal - and his family fled up through northern Sikkim and into Tibet, and after a week-long trek up the mountains, they have finally arrived here in Lhasa. A large crown of peasants, monks, lamas, and officials from the government came to welcome these fleeing royals into our country, offering sanctuary and peace protected by the will of the Dalai Lama, who by tradition is the one who crowns the Sikkimese monarchy on every coronation. The Namgyals are to stay in the capital in the care of the Dalai Lama and his loyal attendants and guards, and together, we shall work to establish a Sikkimese royal government-in-exile in order to support their dream of reclaiming their homeland."
+sikkim.71.a:0 "Let us hope the Chogyal and his family find peace here."
+
+sikkim.72.t:0 "Aiding the Sikkimese Exiles?"
+sikkim.72.d:0 "With Tashi Namgyal and the rest of his family working to re-establish the Kingdom of Sikkim from their exile here in Lhasa, their cause has come a long way as local clergymen, nobles, and lamas support the former Chogyal’s cause. Should we support the Sikkimese royal government-in-exile and wage war on Sikkim’s occupier, or shall we bide our time and support the Namgyal dynasty in less blood-thirsty ways?"
+sikkim.72.a:0 "We wage war to save Sikkim!"
+sikkim.72.b:0 "We cannot win this war...yet."
+
+sikkim.73.t:0 "Our Promise to the Sikkimese Government-in-Exile"
+sikkim.73.d:0 "We have conquered Sikkim, and with the exiled Chogyal and his family living in Lhasa organizing their government-in-exile, we are expected to aid our allies and fellow Buddhists in their dream of reclaiming their homeland and re-establishing their monarchy. Should we make good on our promises and re-establish the Kingdom of Sikkim, or shall we continue to occupy the land and allow the Namgyals to rule as local leaders within Tibet?"
+sikkim.73.a:0 "Create a client state in Sikkim under the Namgyal Dynasty."
+sikkim.73.b:0 "Continue the Sikkimese occupation and install the Chogyal as a local leader."
+
+sikkim.74.t:0 "Tibetan Triumph in Sikkim"
+sikkim.74.d:0 "With the revolutionary militias of Sikkim routed by our Dob-Dobs and regular forces, we have won a stunning victory against Sikkim and their socialist allies in Calcutta. While most of the government is in agreement that we should negotiate a ceasefire with the socialists in return for their government respecting our claims in Sikkim, some overambitious commanders believe that we should continue the war and drive the Indians out of the McMahon Line. With these considerations in mind, should we sue for peace?"
+sikkim.74.a:0 "We have secured Sikkim, send our demands to the Socialists!"
+sikkim.74.b:0 "There will be no peace! We will march on Calcutta!"
+
+sikkim.75.t:0 "Sikkim falls to Tibet"
+sikkim.75.d:0 "Our Himalayan ally in Sikkim has been overrun by the Tibetan army and Jerman Lepcha and the rest of the revolutionary Sikkimese government have already arrived in the capital. They have pleaded with our leadership to continue this war with Tibet so that the peasants of Sikkim may finally be free. Shall we honor our commitment to Jerman and the Sikkimese revolution or shall we prepare for our confrontation with the scheming princes and British imperialists?"
+sikkim.75.a:0 "We have more important matters to attend to"
+sikkim.75.b:0 "We must fight on for the revolution!"
+
+sikkim.77.t:0 "Joining the Eastern Socialist Union?"
+sikkim.77.d:0 "We have received news that our Indian allies have created a defensive alliance with the Union of Burma, which had recently undergone its own socialist transition. Officially named the Eastern Socialist Union, these like-minded nations seek to liberate Asia from the scourge of imperialism under the light of Socialism. With our similar mission to liberate the Himalayas from feudalist tyranny, shall we send a delegation to Calcutta and unite our movements to bring forth a united socialist front?"
+sikkim.77.a:0 "The East is Red!"
+sikkim.77.b:0 "Sikkim shall forge its own destiny!"
 
 #Focus#
 

@@ -24,6 +24,13 @@ PAN_panama_canal_category = {
 
 		ai_will_do = {
 			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PAN_canal_crisis
+					option = PAN_CANAL_CRISIS_USA
+				}
+			}
 		}
 
 		remove_effect = {
@@ -257,7 +264,10 @@ PAN_drug_category = {
 						compare = equals
 						}
 			}
-			has_equipment = { fighter_equipment_0  > 20 }
+			stockpile_ratio = {
+				archetype = small_plane_airframe
+				ratio < 0.75
+			}
 		}
 
 		cost = 25
@@ -275,23 +285,23 @@ PAN_drug_category = {
 				random_list = {
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -10
-    				}
+					type = small_plane_airframe 
+					amount = -10
+					}
 					add_manpower = -10
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -5
-    				}
+					type = small_plane_airframe 
+					amount = -5
+					}
 					add_manpower = -5
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -15
-    				}
+					type = small_plane_airframe 
+					amount = -15
+					}
 					add_manpower = -15
 				}
 				25 = {
@@ -2660,10 +2670,10 @@ PAN_drug_category = {
 						compare = equals
 						}
 			}
-			country_exists = OTT
+			country_exists = TUR
 			NOT = {
 				has_country_flag = PAN_is_selling_drugs
-				OTT = {
+				TUR = {
 					has_idea = PAN_drugidea
 				}
 			}
@@ -2717,7 +2727,7 @@ PAN_drug_category = {
 					idea = PAN_profitidea
 					days = 90
 					}
-				OTT = {
+				TUR = {
 					add_timed_idea = {
 					idea = PAN_drugidea
 					days = 90
@@ -2911,7 +2921,10 @@ PAN_human_trafficking_category = {
 						compare = equals
 						}
 			}
-			has_equipment = { fighter_equipment_0  > 20 }
+			stockpile_ratio = {
+				archetype = small_plane_airframe
+				ratio < 0.75
+			}
 		}
 
 		cost = 25
@@ -2929,23 +2942,23 @@ PAN_human_trafficking_category = {
 				random_list = {
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -10
-    				}
+					type = small_plane_airframe 
+					amount = -10
+					}
 					add_manpower = -10
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -5
-    				}
+					type = small_plane_airframe 
+					amount = -5
+					}
 					add_manpower = -5
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -15
-    				}
+					type = small_plane_airframe 
+					amount = -15
+					}
 					add_manpower = -15
 				}
 				25 = {
@@ -4098,7 +4111,10 @@ PAN_gun_running_category = {
 						compare = equals
 						}
 			}
-			has_equipment = { fighter_equipment_0  > 20 }
+			stockpile_ratio = {
+				archetype = small_plane_airframe
+				ratio < 0.75
+			}
 		}
 
 		cost = 25
@@ -4116,23 +4132,23 @@ PAN_gun_running_category = {
 				random_list = {
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -10
-    				}
+					type = small_plane_airframe 
+					amount = -10
+					}
 					add_manpower = -10
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -5
-    				}
+					type = small_plane_airframe 
+					amount = -5
+					}
 					add_manpower = -5
 				}
 				25 = {
 					add_equipment_to_stockpile = {
-        			type = fighter_equipment_0 
-       	 			amount = -15
-    				}
+					type = small_plane_airframe 
+					amount = -15
+					}
 					add_manpower = -15
 				}
 				25 = {
@@ -4269,8 +4285,8 @@ PAN_gun_running_category = {
 					}
 				COR = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4365,8 +4381,8 @@ PAN_gun_running_category = {
 					}
 				USA = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4461,8 +4477,8 @@ PAN_gun_running_category = {
 					}
 				CSA = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4557,8 +4573,8 @@ PAN_gun_running_category = {
 					}
 				TEX = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4653,8 +4669,8 @@ PAN_gun_running_category = {
 					}
 				WCC = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4749,8 +4765,8 @@ PAN_gun_running_category = {
 					}
 				CAL = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4845,8 +4861,8 @@ PAN_gun_running_category = {
 					}
 				MEX = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -4941,8 +4957,8 @@ PAN_gun_running_category = {
 					}
 				CUB = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -5037,8 +5053,8 @@ PAN_gun_running_category = {
 					}
 				HAI = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea
@@ -5133,8 +5149,8 @@ PAN_gun_running_category = {
 					}
 				DOM = {
 					add_equipment_to_stockpile = {
-      				  type = infantry_equipment_1
-        				amount = 1000
+					type = infantry_equipment_1
+						amount = 1000
    					}
 					add_timed_idea = {
 					idea = PAN_gunidea

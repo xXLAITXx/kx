@@ -47,7 +47,7 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_after
 		}
-		x = 10
+		x = 9
 		y = 1
 		ai_will_do = {
 			factor = 2000
@@ -76,7 +76,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2000
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = DKB_path
 					option = DKB_PATH_KRASNOV
@@ -84,7 +84,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = DKB_ataman
-		x = -1
+		x = 0
 		y = 1
 		
 		completion_reward = {
@@ -106,7 +106,7 @@ focus_tree = {
 			factor = 50
 		}
 		relative_position_id = DKB_ataman
-		x = -2
+		x = 1
 		y = 2
 		
 		completion_reward = {
@@ -134,7 +134,7 @@ focus_tree = {
 			factor = 50
 		}
 		relative_position_id = DKB_ataman
-		x = 0
+		x = -1
 		y = 2
 		
 		completion_reward = {
@@ -153,7 +153,7 @@ focus_tree = {
 			factor = 33
 		}
 		relative_position_id = DKB_ataman
-		x = 3
+		x = -4
 		y = 3
 		
 		completion_reward = {
@@ -172,11 +172,25 @@ focus_tree = {
 			factor = 33
 		}
 		relative_position_id = DKB_ataman
-		x = 1
+		x = -2
 		y = 3
 		
 		completion_reward = {
 		country_event = dongerman.10
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = DKB_authoritarian_democrat_party
+				long_name = DKB_authoritarian_democrat_party_long
+			}
+			hidden_effect = {
+				create_country_leader = {
+					name = "Pyotr Krasnov"
+					desc = "POLITICS_PETR_KRASNOV_DESC"
+					picture = "gfx/leaders/DKB/Portrait_DKB_Petr_Krasnov.png"
+					expire = "1965.1.1"
+					ideology = pataut_cossack_subtype
+				}		
+			}
 		}
 	}
 	
@@ -194,7 +208,7 @@ focus_tree = {
 			factor = 33
 		}
 		relative_position_id = DKB_ataman
-		x = 2
+		x = -3
 		y = 4
 		
 		completion_reward = {
@@ -209,87 +223,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = DKB_armed_neutrality
-		icon = GFX_goal_NEE_armed_free_neutrality
-		cost = 5
-		prerequisite = {
-			focus = DKB_ROA
-		}
-		prerequisite = {
-			focus = DKB_build_up_what_is_left
-		}
-		ai_will_do = {
-			factor = 33
-		}
-		relative_position_id = DKB_ataman
-		x = 2
-		y = 5
-		
-		completion_reward = {
-		1191 = { 
-		add_building_construction = {
-		type = bunker
-		level = 2
-		instant_build = yes
-		province = {
-		all_provinces = yes
-		limit_to_border = yes
-			}
-		}
-		}
-		245 = {
-		add_building_construction = {
-		type = bunker
-		level = 2
-		instant_build = yes
-		province = {
-		all_provinces = yes
-		limit_to_border = yes
-			}
-		}
-		}
-		}
-	}
-	
-	focus = {
-		id = DKB_the_dream_is_dead
-		icon = GFX_goal_GEO_Strike_the_Don_Kuban_Union
-		cost = 5
-		prerequisite = {
-			focus = DKB_armed_neutrality
-		}
-		ai_will_do = {
-			factor = 33
-		}
-		relative_position_id = DKB_ataman
-		x = 2
-		y = 8
-		
-		completion_reward = {
-			custom_effect_tooltip = DKB_the_dream_is_dead_tooltip #really, just a tooltip?
-			add_stability = 0.05
-			add_war_support = 0.1
-			add_command_power = 100
-			effect_tooltip = {	
-				remove_state_claim = 235
-				remove_state_claim = 234
-				remove_state_claim = 1188
-				remove_state_claim = 1189
-				remove_state_claim = 1186
-				remove_state_claim = 1187
-				remove_state_claim = 1190
-				remove_state_claim = 1190
-				remove_state_claim = 232
-				remove_state_claim = 233
-				remove_state_claim = 787
-			}
-		}
-	}
-	
-	
-	
-	
-	focus = {
 		id = DKB_voennya_sdelka
 		icon = GFX_goal_German_Investements
 		cost = 5
@@ -300,7 +233,7 @@ focus_tree = {
 			factor = 100
 		}
 		relative_position_id = DKB_progerman_politic
-		x = -1
+		x = 3
 		y = 1
 		completion_reward = {
 			add_ideas = DON_GER_mil_mis
@@ -325,29 +258,18 @@ focus_tree = {
 			factor = 100
 		}
 		relative_position_id = DKB_progerman_politic
-		x = -3
+		x = 1
 		y = 1
 		completion_reward = {
-			create_corps_commander = {
-				name = "Wilhelm Ritter von Leeb"
-				portrait_path = "gfx/leaders/GER/Portrait_Germany_Wilhelm_Ritter_von_Leeb_kr.png"
-				traits = { skilled_staffer infantry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 2
-				id = 6884
-			}
-			create_corps_commander = {
-				name = "Helmuth von Pannwitz"
-				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Helmuth_von_Pannwitz.png"
-				traits = { cavalry_leader cavalry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 4
-				logistics_skill = 2
+			GER = {
+				random_unit_leader = {
+					limit = { has_id = 6884 }
+					set_nationality = DKB
+				}
+				random_unit_leader = {
+					limit = { has_id = 6885 }
+					set_nationality = DKB
+				}
 			}
 			custom_effect_tooltip = DKB_german_influence_will_rise
 			DKB_recalculate_german_effects = yes
@@ -373,7 +295,7 @@ focus_tree = {
 			factor = 100
 		}
 		relative_position_id = DKB_progerman_politic
-		x = -2
+		x = 2
 		y = 2
 		completion_reward = {
 			custom_effect_tooltip = DKB_german_influence_will_rise
@@ -383,6 +305,12 @@ focus_tree = {
 					ideology = paternal_autocrat
 					popularity = 0.03
 				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = dongerman.8
+					days = 30
+				}				
 			}
 		}
 	}
@@ -399,43 +327,12 @@ focus_tree = {
 			focus = DKB_distance_ourselves_from_germany
 		}
 		relative_position_id = DKB_progerman_politic
-		x = 1
+		x = -1
 		y = 1
 		completion_reward = {
 			country_event = {
 				id = dongerman.5
 				days = 1
-			}
-		}
-	}
-	focus = {
-		id = DKB_ostlegonien
-		icon = GFX_DKB_ostlegonien
-		cost = 5
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = {
-			focus = DKB_ROA
-		}
-		prerequisite = {
-			focus = DKB_make_administration
-		}
-		relative_position_id = DKB_progerman_politic
-		x = 0
-		y = 3
-		completion_reward = {
-			country_event = {
-				id = dongerman.8
-				days = 1
-			}
-			custom_effect_tooltip = DKB_german_influence_will_rise
-			DKB_recalculate_german_effects = yes
-			hidden_effect = {
-				add_popularity = {
-					ideology = paternal_autocrat
-					popularity = 0.03
-				}
 			}
 		}
 	}
@@ -450,7 +347,7 @@ focus_tree = {
 			focus = DKB_KONR
 		}
 		relative_position_id = DKB_progerman_politic
-		x = 1
+		x = -1
 		y = 2
 		completion_reward = {
 			country_event = {
@@ -467,46 +364,25 @@ focus_tree = {
 			factor = 100
 		}
 		prerequisite = {
-			focus = DKB_ROA
-		}
-		prerequisite = {
 			focus = DKB_make_administration
 		}
 		relative_position_id = DKB_progerman_politic
-		x = -2
-		y = 3
+		x = 2
+		y = 4
 		completion_reward = {
 			add_manpower = 12000
 			218 = { #Rostov
 				add_dynamic_modifier = { modifier = DKB_Rostow_Militarbezirk }
 			}
 			custom_effect_tooltip = DKB_german_influence_will_rise
-			DKB_recalculate_german_effects = yes
 			hidden_effect = {
 				add_popularity = {
 					ideology = paternal_autocrat
 					popularity = 0.03
 				}
 			}
+			DKB_recalculate_german_effects = yes
 		}
-	}
-	focus = {
-		id = DKB_fol_pol
-		icon = GFX_goal_foreign_diplomacy
-		cost = 1
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = {
-			focus = DKB_form_base
-		}
-		relative_position_id = DKB_progerman_politic
-		x = -2
-		y = 4
-		completion_reward = {
-			custom_effect_tooltip = unlock_focuses
-		}
-		
 	}
 	
 	focus = {
@@ -514,12 +390,15 @@ focus_tree = {
 		icon = GFX_DKB_annex_kuban
 		cost = 5
 		prerequisite = {
-			focus = DKB_fol_pol
+			focus = DKB_ROA
+		}
+		prerequisite = {
+			focus = DKB_build_up_what_is_left
+			focus = DKB_make_administration
 		}
 		available = {
 			country_exists = KUB
 			is_neighbor_of = KUB
-			has_war = no
 		}
 		bypass = {
 			OR = {
@@ -530,16 +409,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = KUB
 		relative_position_id = DKB_progerman_politic
-		x = -4
-		y = 5
+		x = -3
+		y = 3
 		completion_reward = {
-			KUB = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}
 	}
 	focus = {
@@ -547,12 +422,15 @@ focus_tree = {
 		icon = GFX_DKB_annex_kalmykia
 		cost = 5
 		prerequisite = {
-			focus = DKB_fol_pol
+			focus = DKB_ROA
+		}
+		prerequisite = {
+			focus = DKB_build_up_what_is_left
+			focus = DKB_make_administration
 		}
 		available = {
 			country_exists = KLY
 			is_neighbor_of = KLY
-			has_war = no
 		}
 		bypass = {
 			OR = {
@@ -563,19 +441,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = KLY
 		relative_position_id = DKB_progerman_politic
-		x = 0
-		y = 5
+		x = 1
+		y = 3
 		completion_reward = {
-			KLY = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kalmykia
 		}
 	}
-	
 	focus = {
 		id = DKB_coup
 		icon = GFX_goal_DKB_boggy_wins
@@ -614,7 +487,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2000
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = DKB_path
 					option = DKB_PATH_NOVOROS
@@ -694,6 +567,19 @@ focus_tree = {
 			country_event = {
 				id = novoros.13
 				days = 1
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = DKB_authoritarian_democrat_party
+				long_name = DKB_authoritarian_democrat_party_long
+			}
+			hidden_effect = {
+				create_country_leader = {
+					name = "Afrikan Bogaewsky"
+					picture = "gfx/leaders/DKB/Portrait_DKB_Bogaevskiy.png"
+					expire = "1965.1.1"
+					ideology = pataut_cossack_subtype
+				}		
 			}
 		}
 	}
@@ -815,8 +701,6 @@ focus_tree = {
 		available = {
 			country_exists = KUB
 			is_neighbor_of = KUB
-			has_war = no
-			is_subject = no
 		}
 		bypass = {
 			OR = {
@@ -828,6 +712,7 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_project_done
 		}
+		will_lead_to_war_with = KUB
 		ai_will_do = {
 			factor = 100
 		}
@@ -835,12 +720,7 @@ focus_tree = {
 		x = -2
 		y = 6
 		completion_reward = {
-			KUB = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}		
 	}
 	focus = {
@@ -860,8 +740,6 @@ focus_tree = {
 				country_exists = DAG
 				is_neighbor_of = DAG
 			}
-			has_war = no
-			is_subject = no
 		}
 		bypass = {
 			OR = {
@@ -874,27 +752,12 @@ focus_tree = {
 				is_subject = yes
 			}			
 		}
+		will_lead_to_war_with = MTR
 		relative_position_id = DKB_project_novorossia
 		x = 0
 		y = 6
 		completion_reward = {
-			if = {
-				limit = {
-					country_exists = DAG
-				}
-				DAG = {
-					country_event = {
-						id = dkbfor.1
-						days = 2
-					}
-				}
-			}
-			MTR = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}		
 	}
 	focus = {
@@ -907,8 +770,6 @@ focus_tree = {
 		available = {
 			country_exists = KLY
 			is_neighbor_of = KLY
-			has_war = no
-			is_subject = no
 		}
 		bypass = {
 			OR = {
@@ -920,16 +781,12 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_project_done
 		}
+		will_lead_to_war_with = KLY
 		relative_position_id = DKB_project_novorossia
 		x = 2
 		y = 6
 		completion_reward = {
-			KLY = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kalmykia
 		}
 	}
 	focus = {
@@ -948,12 +805,14 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_kalmykian_quest
 		}
+		will_lead_to_war_with = RUS
 		relative_position_id = DKB_project_novorossia
 		x = 1
 		y = 7
 		completion_reward = {
 			217 = { add_claim_by = ROOT }
 			236 = { add_claim_by = ROOT }
+			unlock_decision_tooltip = DKB_demand_tsargrad
 		}
 	}
 	focus = {
@@ -977,6 +836,7 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_kalmykian_quest
 		}
+		will_lead_to_war_with = UKR
 		relative_position_id = DKB_project_novorossia
 		x = -1
 		y = 7
@@ -986,23 +846,7 @@ focus_tree = {
 			228 = { add_claim_by = ROOT }
 			1220 = { add_claim_by = ROOT }
 			1221 = { add_claim_by = ROOT }
-			UKR = {
-				country_event = {
-					id = dkbfor.4
-					days = 2
-				}
-			}
-			if = {
-				limit = {
-					country_exists = CRM
-				}
-				CRM = {
-					country_event = {
-						id = dkbfor.4
-						days = 2
-					}
-				}
-			}
+			unlock_decision_tooltip = DKB_demand_donbass
 		}
 	}
 	focus = {
@@ -1054,29 +898,49 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = DKB_restore_don_kuban
-			focus = DKB_the_dream_is_dead
 		}
 		relative_position_id = DKB_progerman_politic
-		x = 1
-		y = 7
+		x = -1
+		y = 5
 		completion_reward = {
-			add_country_leader_trait = dictator_ataman
+			custom_effect_tooltip = DKB_the_dream_is_dead_tooltip #really, just a tooltip?
+			add_country_leader_trait = dictator_ataman			
+			add_stability = 0.05
+			add_war_support = 0.1
+			add_command_power = 100
+			if = {
+				limit = {
+					NOT = { is_in_faction_with = GER }
+					NOT = { has_completed_focus = DKB_distance_ourselves_from_germany }
+					NOT = { has_global_flag = GER_withdrew_from_caucasus }
+				}
+				GER = { country_event = sic.34 }
+			}			
 			hidden_effect = {
 				add_popularity = {
 					ideology = paternal_autocrat
-					popularity = -0.07
+					popularity = -0.04
 				}
 			}
-			DKB_recalculate_german_effects = yes
+			if = {
+				limit = {
+					NOT = { has_completed_focus = DKB_distance_ourselves_from_germany }
+				}
+				DKB_recalculate_german_effects = yes
+			}
 		}
-	}
+	}	
 	
 	focus = {
 		id = DKB_annex_causasus
 		icon = GFX_DKB_annex_mountain
 		cost = 5
 		prerequisite = {
-			focus = DKB_fol_pol
+			focus = DKB_ROA
+		}
+		prerequisite = {
+			focus = DKB_build_up_what_is_left
+			focus = DKB_make_administration
 		}
 		available = {
 			OR = {
@@ -1085,7 +949,6 @@ focus_tree = {
 				country_exists = DAG
 				is_neighbor_of = DAG
 			}
-			has_war = no
 		}
 		bypass = {
 			OR = {
@@ -1100,74 +963,31 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = MTR
 		relative_position_id = DKB_progerman_politic
-		x = -2
-		y = 5
+		x = -1
+		y = 3
 		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = DAG
-				}
-				add_claim_by = ROOT
-			}
-			if = {
-				limit = {
-					country_exists = DAG
-				}
-				DAG = {
-					country_event = {
-						id = dkbfor.1
-						days = 2
-					}
-				}
-			}
-			MTR = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}
 	}
 	focus = {
 		id = DKB_restore_don_kuban
 		icon = GFX_flag_don_kuban
 		cost = 5
-		prerequisite = {
-			focus = DKB_annex_causasus
-		}
-		prerequisite = {
-			focus = DKB_annex_kuban
-		}
-		prerequisite = {
-			focus = DKB_annex_kalmykia
-		}
-		ai_will_do = {
-			factor = 100
-		}
+		prerequisite = { focus = DKB_annex_causasus }
+		prerequisite = { focus = DKB_annex_kuban }
+		prerequisite = { focus = DKB_annex_kalmykia }
+		ai_will_do = { factor = 100 }
 		relative_position_id = DKB_progerman_politic
-		x = -2
-		y = 6
+		x = -1
+		y = 4
 		completion_reward = {
 			custom_effect_tooltip = DKB_dream_fullfilled
-			217 = { add_claim_by = ROOT }
-			236 = { add_claim_by = ROOT }
-			set_cosmetic_tag = DKB_UCH
-			hidden_effect = { 
-			234 = { add_core_of = ROOT }
-			235 = { add_core_of = ROOT }
-			1188 = { add_core_of = ROOT }
-			1189 = { add_core_of = ROOT }
-			232 = { add_core_of = ROOT }
-			787 = { add_core_of = ROOT }
-			1190 = { add_core_of = ROOT }
-			233 = { add_core_of = ROOT }
-			1186 = { add_core_of = ROOT }
-			1187 = { add_core_of = ROOT }
-			}
+			set_cosmetic_tag = DKB_don_caucasus			
 		}
 	}
-		
+
 	focus = {
 		id = DKB_uniting_cossacks
 		icon = GFX_DKB_uniting_cossacks
@@ -1184,7 +1004,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 			modifier = {
-			factor = 10000000
+			factor = 1000000
 				has_game_rule = {
 					rule = DKB_path
 					option = DKB_PATH_UCH
@@ -1221,6 +1041,7 @@ focus_tree = {
 				KUB = { is_subject = yes }
 			}
 		}
+		will_lead_to_war_with = KUB
 			
 		relative_position_id = DKB_uniting_cossacks
 		x = -1
@@ -1229,12 +1050,7 @@ focus_tree = {
 			focus = DKB_uniting_cossacks
 		}
 		completion_reward = {
-			KUB = {
-				country_event = {
-					id = dkb.101
-					days = 1
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}
 	}
 	focus = {
@@ -1259,6 +1075,7 @@ focus_tree = {
 				KLY = { is_subject = yes }
 			}
 		}
+		will_lead_to_war_with = KLY
 		relative_position_id = DKB_uniting_cossacks
 		x = 1
 		y = 1
@@ -1266,12 +1083,7 @@ focus_tree = {
 			focus = DKB_uniting_cossacks
 		}
 		completion_reward = {
-			KLY = {
-				country_event = {
-					id = dkb.101
-					days = 1
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kalmykia
 		}
 	}
 	focus = {
@@ -1299,6 +1111,7 @@ focus_tree = {
 		relative_position_id = DKB_uniting_cossacks
 		x = 0
 		y = 2
+		will_lead_to_war_with = MTR
 		prerequisite = {
 			focus = DKB_ties_with_astrakhan
 		}
@@ -1306,12 +1119,7 @@ focus_tree = {
 			focus = DKB_ties_with_kuban
 		}
 		completion_reward = {
-			MTR = {
-				country_event = {
-					id = dkb.101
-					days = 1
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}
 	}
 	
@@ -1452,17 +1260,13 @@ focus_tree = {
 		prerequisite = {
 			focus = DKB_united_economies
 		}
+		will_lead_to_war_with = RUS
 		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = RUS
-				}
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
 				add_claim_by = ROOT
 			}
-			create_wargoal = {
-				target = 195.owner
-				type = annex_everything
-			}
+			unlock_decision_tooltip = DKU_attack_russia		
 		}
 	}
 	focus = {
@@ -2431,12 +2235,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			ALO = {
-				country_event = {
-					id = dkb.101
-					days = 1
-				}
-			}
+			unlock_decision_tooltip = DKB_attack_alash
 		}
 	}
 	focus = {
@@ -2467,12 +2266,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			TRM = {
-				country_event = {
-					id = dkb.101
-					days = 1
-				}
-			}
+			unlock_decision_tooltip = DKB_attack_transamur
 		}
 	}
 	focus = {
@@ -2497,18 +2291,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			GEO = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
-			AZE = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_transcaucasia
 		}
 			
 	}
@@ -3575,7 +3358,6 @@ focus = {
 				is_in_faction = no
 			}
 			is_neighbor_of = KLY
-			has_war = no
 			has_socialist_government = yes
 		}
 		bypass = {
@@ -3591,12 +3373,7 @@ focus = {
 			factor = 80
 		}
 		completion_reward = {
-			KLY = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kalmykia
 		}
 	}
 	focus = {
@@ -3625,12 +3402,7 @@ focus = {
 			factor = 80
 		}
 		completion_reward = {
-			KUB = {
-				country_event = {
-					id = dkbfor.9
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}
 	}
 	focus = {
@@ -3663,23 +3435,7 @@ focus = {
 			factor = 80
 		}
 		completion_reward = {
-			if = {
-				limit = {
-					MTR = { has_socialist_government = yes }
-				}
-				MTR = {
-					country_event = {
-						id = dkbfor.1
-						days = 2
-					}
-				}
-			}
-			else = {
-				country_event = {
-					id = dkbfor.15
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}
 	}
 	focus = {
@@ -3699,6 +3455,7 @@ focus = {
 				NOT = { country_exists = RUS }
 			}
 		}
+		will_lead_to_war_with = RUS
 		prerequisite = {
 			focus = DKB_Liberate_Kalmyks
 		}
@@ -3725,17 +3482,11 @@ focus = {
 			}
 		}
 		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = RUS
-					is_owned_and_controlled_by = RUS
-				}
-				add_core_of = ROOT
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
+				add_claim_by = ROOT
 			}
-			declare_war_on = {
-				target = RUS
-				type = annex_everything
-			}
+			unlock_decision_tooltip = DKU_attack_russia		
 		}
 	}
 	focus = {
@@ -3776,35 +3527,35 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
 				prioritize = { 219 }
 				create_unit = {
-					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
-					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
-					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			division_template = {
@@ -3827,17 +3578,17 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6174
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3845,17 +3596,17 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6380
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3863,12 +3614,12 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 306
+					allow_spawning_on_enemy_provs = yes
 				}
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 11241
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3876,7 +3627,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 11349
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3884,7 +3635,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6245
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3892,7 +3643,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 6262
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3900,7 +3651,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 9355
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3908,7 +3659,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 3335
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3916,7 +3667,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 3580
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3924,7 +3675,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 121
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -3932,7 +3683,7 @@ focus = {
 				create_unit = {
 					division = "division_template = \"Gorodskaya Militsiya\" start_experience_factor = 0.1"
 					owner = DKB
-					prioritize_location = 11375
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 		}
@@ -4027,7 +3778,7 @@ focus = {
 	}
 	focus = {
 		id = DKB_Fate_Of_Socialist_Parties
-		icon = GFX_focus_ban_sr
+		icon = GFX_RUS_Ban_Socialists_vns
 		cost = 4
 		relative_position_id = DKB_Aftermath_Of_Civil_War
 		x = -5
@@ -5159,15 +4910,7 @@ focus = {
 		available = {
 			has_war = no
 			is_subject = no
-			if = {
-				limit = {
-					country_exists = OTT
-				}
-				is_neighbor_of = OTT
-			}
-			else = {
-				is_neighbor_of = TUR
-			}
+			is_neighbor_of = TUR
 			has_socialist_government = yes
 		}
 		prerequisite = {
@@ -5624,7 +5367,7 @@ focus = {
 	}
 	completion_reward = {
 		add_equipment_to_stockpile = {
-				type = fighter_equipment_0
+				type = small_plane_airframe
 				amount = 50
 				producer = RUS
 		}
@@ -5649,7 +5392,7 @@ focus = {
 	}
 	completion_reward = {
 		add_equipment_to_stockpile = {
-				type = tac_bomber_equipment_0
+				type = medium_plane_airframe
 				amount = 25
 				producer = RUS
 		}
@@ -5740,27 +5483,15 @@ focus = {
 		y = 1
 		completion_reward = {
 			add_ideas = DON_GER_mil_mis
-			create_field_marshal = {
-				name = "Helmuth von Pannwitz"
-				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Helmuth_von_Pannwitz.png"
-				id = 999
-				traits = { cavalry_leader cavalry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 4
-				logistics_skill = 2
-			}
-			create_corps_commander = {
-				name = "Wilhelm Ritter von Leeb"
-				portrait_path = "gfx/leaders/GER/Portrait_Germany_Wilhelm_Ritter_von_Leeb_kr.png"
-				id = 998
-				traits = { skilled_staffer infantry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 2
+			GER = {
+				random_unit_leader = {
+					limit = { has_id = 6884 }
+					set_nationality = DKB
+				}
+				random_unit_leader = {
+					limit = { has_id = 6885 }
+					set_nationality = DKB
+				}
 			}
 			country_event = germans.5
 		}
@@ -5797,32 +5528,18 @@ focus = {
 		x = -2
 		y = 3
 		completion_reward = {
-		remove_ideas = DON_Cossack_army
-		add_ideas = DKB_RONA
+			remove_ideas = DON_Cossack_army
+			add_ideas = DKB_RONA
 			hidden_effect = {
-			country_event = {
-			id = germans.6
-			days = 4
-			random = 12
-			random_days = 15
-			}
-			}
-			create_corps_commander = {
-				name = "Bronislav Kaminski"
-				portrait_path = "gfx/leaders/RUS/Portrait_RUS_Bronislav_Kaminski.png"
-				traits = {
-				media_personality
-				harsh_leader
+				country_event = {
+					id = germans.6
+					days = 4
+					random = 12
+					random_days = 15
 				}
-			#id = 1001
-			skill = 2
-			attack_skill = 3
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 2
 			}
 		}
-		}
+	}
 	
 	focus = {
 		id = DKB_get_more_funds
@@ -5888,8 +5605,12 @@ focus = {
 		x = 2
 		y = 3
 		completion_reward = {
-		add_ideas = DKB_new_patriot_idea
-		set_province_name = { id = 9417 name = "Rostow"}
+			add_ideas = DKB_new_patriot_idea
+			set_country_flag = DKB_germanization
+			set_province_name = { id = 9417 name = "Rostow"}
+			hidden_effect = {
+				every_controlled_state = { rename_state_effect = yes }
+			}
 		}
 	}
 	focus = {
@@ -5999,7 +5720,6 @@ focus = {
 		available = {
 			country_exists = KUB
 			is_neighbor_of = KUB
-			has_war = no
 		}
 		bypass = {
 			OR = {
@@ -6010,6 +5730,7 @@ focus = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = KUB
 		relative_position_id = DKB_the_foreigners_coup
 		x = 1
 		y = 5
@@ -6032,7 +5753,6 @@ focus = {
 		available = {
 			country_exists = KLY
 			is_neighbor_of = KLY
-			has_war = no
 		}
 		bypass = {
 			OR = {
@@ -6043,16 +5763,12 @@ focus = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = KLY
 		relative_position_id = DKB_the_foreigners_coup
 		x = -1
 		y = 5
 		completion_reward = {
-			KLY = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}
 	}
 	focus = {
@@ -6087,6 +5803,7 @@ focus = {
 		ai_will_do = {
 			factor = 100
 		}
+		will_lead_to_war_with = MTR
 		relative_position_id = DKB_the_foreigners_coup
 		x = 0
 		y = 6
@@ -6102,89 +5819,8 @@ focus = {
 					}
 				}
 			}
-			MTR = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}
-	}
-	focus = {
-		id = DKB_the_oil_must_flow
-		icon = GFX_DKB_annex_transcaucasia
-		cost = 5
-		relative_position_id = DKB_the_foreigners_coup
-		x = 0
-		y = 7
-		available = {
-			MTR = {
-				exists = no
-			}
-			DAG = {
-				exists = no
-			}
-			KUB = {
-				exists = no
-			}
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		prerequisite = {
-			focus = DKB_annex_mountain_ger
-		}
-		
-		completion_reward = {
-			custom_effect_tooltip = DKB_cores_on_land_ger
-			hidden_effect = {
-			every_owned_state = {
-				limit = {
-					is_core_of = KUB
-					NOT = { is_core_of = ROOT }
-				}
-				add_core_of = ROOT
-			}
-			every_owned_state = {
-				limit = {
-					OR = {
-						is_core_of = MTR
-						is_core_of = DAG
-					}
-					NOT = { is_core_of = ROOT }
-				}
-				add_core_of = ROOT
-			}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						AND = {
-							is_core_of = GEO
-							is_owned_by = GEO
-						}
-						AND = {
-							is_core_of = AZE
-							is_owned_by = AZE
-						}
-					}
-				}
-				add_claim_by = DKB
-			}
-			GEO = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
-			AZE = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
-		}
-			
 	}
 	
 	focus = {
@@ -6192,7 +5828,7 @@ focus = {
 		icon = GFX_germanprimacy
 		cost = 5
 		prerequisite = {
-		focus = DKB_the_oil_must_flow
+		focus = DKB_annex_mountain_ger
 		}
 		mutually_exclusive = {
 			focus = DKB_raze_russia
@@ -6200,19 +5836,17 @@ focus = {
 		mutually_exclusive = {
 			focus = DKB_together_for_land
 		}
+		will_lead_to_war_with = RUS
 		ai_will_do = {
 			factor = 50
 		}
 		relative_position_id = DKB_the_foreigners_coup
 		x = 2
-		y = 8
+		y = 7
 		completion_reward = {
-		add_war_support = 0.10
-			every_state = {
-				limit = {
-					is_core_of = RUS
-					is_owned_by = RUS
-				}
+			add_war_support = 0.10
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
 				add_claim_by = ROOT
 			}
 		}
@@ -6222,7 +5856,7 @@ focus = {
 		icon = GFX_goal_CZE_german_concession
 		cost = 5
 		prerequisite = {
-		focus = DKB_the_oil_must_flow
+		focus = DKB_annex_mountain_ger
 		}
 		mutually_exclusive = {
 			focus = DKB_raze_russia
@@ -6230,43 +5864,20 @@ focus = {
 		mutually_exclusive = {
 			focus = DKB_await_the_fatherlands_call
 		}
+		will_lead_to_war_with = RUS
 		ai_will_do = {
 			factor = 0
 		}
 		relative_position_id = DKB_the_foreigners_coup
 		x = 0
-		y = 8
+		y = 7
 		completion_reward = {
-		custom_effect_tooltip = DKB_germans_will_support_for_land
-			every_state = {
-				limit = {
-					is_core_of = RUS
-					is_owned_by = RUS
-				}
+			custom_effect_tooltip = DKB_germans_will_support_for_land
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
 				add_claim_by = ROOT
 			}
-			if = {
-				limit = {
-					SOV = {
-					exists = yes
-					}
-				}				
-				declare_war_on = {
-				target = SOV
-				type = annex_everything
-			}
-			}
-			if = {
-				limit = {
-					RUS = {
-					exists = yes
-					}
-				}				
-				declare_war_on = {
-				target = RUS
-				type = annex_everything
-			}
-			}
+			unlock_decision_tooltip = DKU_attack_russia				
 		}
 	}
 	focus = {
@@ -6274,7 +5885,7 @@ focus = {
 		icon = GFX_goal_BUL_raze_russia
 		cost = 5
 		prerequisite = {
-		focus = DKB_the_oil_must_flow
+		focus = DKB_annex_mountain_ger
 		}
 		mutually_exclusive = {
 			focus = DKB_await_the_fatherlands_call
@@ -6282,44 +5893,21 @@ focus = {
 		mutually_exclusive = {
 			focus = DKB_together_for_land
 		}
+		will_lead_to_war_with = RUS
 		ai_will_do = {
 			factor = 50
 		}
 		relative_position_id = DKB_the_foreigners_coup
 		x = -2
-		y = 8
+		y = 7
 		completion_reward = {
-		custom_effect_tooltip = DKB_germans_will_not_support
-		every_state = {
-				limit = {
-					is_core_of = RUS
-				}
+			custom_effect_tooltip = DKB_germans_will_not_support
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
 				add_claim_by = ROOT
 			}
-		leave_faction = yes
-			if = {
-				limit = {
-					SOV = {
-					exists = yes
-					}
-				}				
-				declare_war_on = {
-				target = SOV
-				type = annex_everything
-			}
-			}
-			if = {
-				limit = {
-					RUS = {
-					exists = yes
-					}
-				}				
-				declare_war_on = {
-				target = RUS
-				type = annex_everything
-			}
-			}
-			
+			unlock_decision_tooltip = DKU_attack_russia		
+			clear_all_relations = yes		
 		}
 	}
 	focus = {
@@ -6328,9 +5916,6 @@ focus = {
 		cost = 2
 		bypass = {
 			RUS = {
-			exists = no
-			}
-			SOV = {
 			exists = no
 			}
 		}
@@ -6348,7 +5933,7 @@ focus = {
 		
 		relative_position_id = DKB_the_foreigners_coup
 		x = 0
-		y = 9
+		y = 8
 		completion_reward = {
 		add_timed_idea = {
 		idea = DKB_battle_on_ice
@@ -6387,7 +5972,7 @@ focus = {
 		
 		relative_position_id = DKB_the_foreigners_coup
 		x = 0
-		y = 10
+		y = 9
 		completion_reward = {
 			set_country_flag = RUS_can_integrate
 			if = {
@@ -6397,20 +5982,20 @@ focus = {
 						is_in_faction_with = UKR
 					}
 				}
-					every_owned_state = {
-		limit = {
-			OR = {
-				is_core_of = UKR
-				is_claimed_by = UKR
-				state = 240
-				state = 821
-			}
-		}
-		UKR = { 
-			add_state_claim = PREV
-			transfer_state = PREV
-		}
-	}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = UKR
+							is_claimed_by = UKR
+							state = 240
+							state = 821
+						}
+					}
+					UKR = { 
+						add_state_claim = PREV
+						transfer_state = PREV
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -6419,22 +6004,25 @@ focus = {
 						is_in_faction_with = WHR
 					}
 				}
-					every_owned_state = {
-		limit = {
-			OR = {
-				is_core_of = WHR
-				is_claimed_by = WHR
-				state = 755
-				state = 242
-				state = 243
-				state = 210
-			}
-		}
-		WHR = { 
-			add_state_claim = PREV
-			transfer_state = PREV
-		}
-	}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = WHR
+							is_claimed_by = WHR
+							state = 755
+							state = 1287
+							state = 1292
+							state = 1293
+							state = 242
+							state = 243
+							state = 210
+						}
+					}
+					WHR = { 
+						add_state_claim = PREV
+						transfer_state = PREV
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -6443,15 +6031,15 @@ focus = {
 						is_in_faction_with = BAT
 					}
 				}
-					every_state = {
-						limit = {
-							AND = {
-								is_claimed_by = BAT
-								is_owned_by = DKB
-							}
+				every_state = {
+					limit = {
+						AND = {
+							is_claimed_by = BAT
+							is_owned_by = DKB
 						}
-						BAT = { transfer_state = PREV }
 					}
+					BAT = { transfer_state = PREV }
+				}
 			}
 			if = {
 				limit = {
@@ -6460,15 +6048,15 @@ focus = {
 						is_in_faction_with = LAT
 					}
 				}
-					every_state = {
-						limit = {
-							AND = {
-								is_claimed_by = LAT
-								is_owned_by = DKB
-							}
+				every_state = {
+					limit = {
+						AND = {
+							is_claimed_by = LAT
+							is_owned_by = DKB
 						}
-						LAT = { transfer_state = PREV }
 					}
+					LAT = { transfer_state = PREV }
+				}
 			}
 			if = {
 				limit = {
@@ -6477,15 +6065,15 @@ focus = {
 						is_in_faction_with = EST
 					}
 				}
-					every_state = {
-						limit = {
-							AND = {
-								is_claimed_by = EST
-								is_owned_by = DKB
-							}
+				every_state = {
+					limit = {
+						AND = {
+							is_claimed_by = EST
+							is_owned_by = DKB
 						}
-						EST = { transfer_state = PREV }
 					}
+					EST = { transfer_state = PREV }
+				}
 			}
 			if = {
 				limit = {
@@ -6494,39 +6082,37 @@ focus = {
 						is_in_faction_with = FIN
 					}
 				}
-					every_owned_state = {
-			limit = {
-				OR = {
-					is_core_of = FIN
-					is_claimed_by = FIN
-					state = 146 #Viipuri
-					state = 147 #Kuolajarvi
-					state = 213 #Murmansk
-					state = 215 #Kem
-					state = 216 #Petrozavodsk
-					state = 722 #Petsamo
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = FIN
+							is_claimed_by = FIN
+							state = 146 #Viipuri
+							state = 147 #Kuolajarvi
+							state = 213 #Murmansk
+							state = 215 #Kem
+							state = 216 #Petrozavodsk
+							state = 722 #Petsamo
+						}
+					}
+					FIN = { transfer_state = PREV }
 				}
-			}
-			FIN = { transfer_state = PREV }
-		}
 			}
 			if = {
 				limit = {
-					soviets_exist = yes
-					SOV = { has_country_flag = SOV_restored_in_transamur }
+					TRM = { has_country_flag = SOV_restored_in_transamur }
 				}
 				declare_war_on = {
-					target = SOV
+					target = TRM
 					type = annex_everything
 				}
 			}		
-			
-		add_ideas = {
-		DKB_russian_reistance
-		DKB_admin_strain
-		DKB_economic_hell
-		}
-		GER = { add_to_faction = DKB }
+			add_ideas = {
+				DKB_russian_reistance
+				DKB_admin_strain
+				DKB_economic_hell
+			}
+			GER = { add_to_faction = DKB }
 			set_politics = {
 			ruling_party = paternal_autocrat
 				elections_allowed = no
@@ -6540,55 +6126,55 @@ focus = {
 				popularity = 20
 			}
 			hidden_effect = {
-			set_party_name = { 
-			ideology = social_liberal
-			long_name = DKB_non_simps_long
-			name = DKB_non_simps
+				set_party_name = { 
+					ideology = social_liberal
+					long_name = DKB_non_simps_long
+					name = DKB_non_simps
+				}
+				set_party_name = { 
+					ideology = syndicalist
+					long_name = DKB_resistance_r_long
+					name = DKB_resistance_r
+				}
+				set_party_name = { 
+					ideology = radical_socialist
+					long_name = DKB_mother_anarchy_long
+					name = DKB_mother_anarchy
+				}
+				set_party_name = { 
+					ideology = social_conservative
+					long_name = DKB_resistance_m_long
+					name = DKB_resistance_m
+				}
+				create_country_leader = {
+					name = "Stepan Petrichenko"
+					picture = "gfx/leaders/SOV/Stepan_Petrichenko.png"
+					expire = "1965.1.1"
+					ideology = radical_socialist_subtype
+					traits = {}
+				}
+				create_country_leader = {
+					name = "Vasily Chuikov"
+					picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Chuikov.png"
+					expire = "1965.1.1"
+					ideology = syndicalist_subtype
+					traits = {}
+				}
+				create_country_leader = {
+					name = "Sergei Markov"
+					picture = "gfx/leaders/RUS/Portrait_RUS_Sergei_Markov.png"
+					expire = "1965.1.1"
+					ideology = social_conservative_subtype
+					traits = {}
+				}
+				create_country_leader = {
+					name = "Vasily Maklakov"
+					picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
+					expire = "1965.1.1"
+					ideology = social_liberal_subtype
+					traits = {}
+				}
 			}
-			set_party_name = { 
-			ideology = syndicalist
-			long_name = DKB_resistance_r_long
-			name = DKB_resistance_r
-			}
-			set_party_name = { 
-			ideology = radical_socialist
-			long_name = DKB_mother_anarchy_long
-			name = DKB_mother_anarchy
-			}
-			set_party_name = { 
-			ideology = social_conservative
-			long_name = DKB_resistance_m_long
-			name = DKB_resistance_m
-			}
-			create_country_leader = {
-			name = "Stepan Petrichenko"
-			picture = "gfx/leaders/SOV/Stepan_Petrichenko.png"
-			expire = "1965.1.1"
-			ideology = radical_socialist_subtype
-			traits = {}
-		}
-			create_country_leader = {
-			name = "Vasily Chuikov"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Chuikov.png"
-			expire = "1965.1.1"
-			ideology = syndicalist_subtype
-			traits = {}
-		}
-			create_country_leader = {
-			name = "Sergei Markov"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Sergei_Markov.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-			traits = {}
-		}
-		create_country_leader = {
-			name = "Vasily Maklakov"
-			picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-			traits = {}
-		}
-		}
 		}
 	}
 	focus = {
@@ -6786,7 +6372,7 @@ focus = {
 	
 	focus = {
 		id = DKB_All_Power_to_the_Junkers
-		icon = GFX_focus_rus_prussia
+		icon = GFX_goal_AOG_Prussian_Eagle_Conquers_Heavens
 		cost = 5
 		prerequisite = {
 			focus = DKB_The_Coronation
@@ -7326,6 +6912,7 @@ focus = {
 		completion_reward = {
 		country_event = germans.3
 		hidden_effect = {
+		remove_ideas_with_trait = head_of_government
 		add_ideas = DKB_Pannwitz_hog_sde
 		}
 		}
@@ -7356,11 +6943,13 @@ focus = {
 				add_idea = DKB_admin_strain_2 
 			}
 		hidden_effect = { 
+		remove_ideas_with_trait = economy_minister
 		add_ideas = DKB_Speer_eco_ade
 		country_event = {
 			id = germans.21
 			days = 7
 			}
+		remove_ideas_with_trait = foreign_minister
 		add_ideas = DKB_Weizsacker_for_mli
 		}
 		}
@@ -7405,37 +6994,35 @@ focus = {
 		x = -2
 		y = 1
 		completion_reward = {
-		set_province_name = { id = 3529 name = "Wolgaburg"}
-		swap_ideas = {
+			set_province_name = { id = 3529 name = "Wolgaburg"}
+			swap_ideas = {
 				remove_idea = DKB_admin_strain
 				add_idea = DKB_admin_strain_1
 			}
-			
-			add_ideas = {
-			DKB_Konrad_Hoffmann_eco_sde
-			}
-			
+			remove_ideas_with_trait = economy_minister
+			add_ideas = DKB_Konrad_Hoffmann_eco_sde
 			hidden_effect = {
-			create_country_leader = {
-			name = "Konrad Hoffmann"
-			picture = "gfx/leaders/DKB/Portrait_Konrad_Hoffmann.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-			traits = {}
-		}
-		add_popularity = {
-			ideology = social_democrat
-			popularity = 0.02
+				every_controlled_state = { rename_state_effect = yes }
+				create_country_leader = {
+					name = "Konrad Hoffmann"
+					picture = "gfx/leaders/DKB/Portrait_Konrad_Hoffmann.png"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {}
+				}
+				add_popularity = {
+					ideology = social_democrat
+					popularity = 0.02
+				}
+				set_party_name = { 
+					ideology = social_democrat
+					long_name = DKB_social_democrat_volga_long
+					name = DKB_social_democrat_volga
+				}
 			}
-			set_party_name = { 
-		ideology = social_democrat
-		long_name = DKB_social_democrat_volga_long
-		name = DKB_social_democrat_volga
+			
+		}
 	}
-		}
-		
-		}
-		}
 	
 	
 	focus = {
@@ -8048,6 +7635,9 @@ focus = {
 			653 = { add_manpower = 1053 }
 			195 = { add_manpower = -1456 }
 			570 = { add_manpower = 1456 }
+			hidden_effect = {
+				every_controlled_state = { rename_state_effect = yes }
+			}
 		}
 	}
 	
@@ -8580,38 +8170,22 @@ focus = {
 		x = 0
 		y = 1
 		completion_reward = {
-			create_corps_commander = {
-				name = "Wilhelm Keitel "
-				portrait_path = "gfx/leaders/DKB/Wilhelm_Keitel.png"
-				traits = { infantry_officer }
-				skill = 2
-				attack_skill = 1
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 1
+			GER = {
+				random_unit_leader = {
+					limit = { has_id = 6886 }
+				}
+				set_nationality = DKB
 			}
 			if = {
 				limit = {
-					KUB = {
-						exists = no
+					NOT = { country_exists = KUB }
+				}
+				KUB = {
+					random_unit_leader = {
+						limit = { has_id = 6887 }
 					}
-				}
-				create_corps_commander = {
-				name = "Andrey Shkuro"
-				portrait_path = "gfx/leaders/KUB/Portrait_KPR_Andrei_Shkuro.png"
-				traits = {
-					old_guard
-					war_hero 
-					politically_connected 
-					cavalry_officer
-					cavalry_leader
-				}
-				skill = 2
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 2
-				logistics_skill = 1
-			}
+					set_nationality = DKB
+				}				
 			}
 		}
 	}
@@ -8661,7 +8235,7 @@ focus = {
 			}
 			add_political_power = -10
 			navy_experience = 25
-			218 = {
+			1263 = {
 				add_building_construction = {
 					type = coastal_bunker
 					level = 2
@@ -8876,134 +8450,48 @@ focus = {
 		x = -41
 		y = 0
 		completion_reward = {
-		army_experience = 50
-		custom_effect_tooltip = DKB_ROA_generals_will_serve_us_tooptip
-		hidden_effect = {
-		create_corps_commander = {
-		name = "Boris Shteyfon"
-		portrait_path = "gfx/leaders/RUS/Portrait_RUS_Boris_Shteyfon.png"
-		traits = {
-		panzer_leader
-		politically_connected
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 2
-		}
-		create_corps_commander = {
-		name = "Viktor Maltsev"
-		portrait_path = "gfx/leaders/DKB/Portrait_DKB_Viktor_Maltsev.png"
-		traits = {
-		career_officer
-		}
-		skill = 2
-		attack_skill = 1
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 2
-		}
-		create_corps_commander = {
-		name = "Anatoly Rogozhin"
-		portrait_path = "gfx/leaders/DKB/Portrait_DKB_Anatoly_Rogozhin.png"
-		traits = {
-		old_guard
-		infantry_officer
-		skilled_staffer
-		}
-		skill = 3
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 3
-		logistics_skill = 2
-		}
-		create_corps_commander = {
-		name = "Konstantin Kromiadi"
-		portrait_path = "gfx/leaders/DKB/Portrait_DKB_Konstantin_Kromiadi.png"
-		traits = {
-		infantry_officer
-		trait_cautious
-		}
-		skill = 1
-		attack_skill = 1
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 1
-		}
-		create_corps_commander = {
-		name = "Mikhail Skorodumov"
-		portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Skorodumov.png"
-		traits = {
-		old_guard
-		cavalry_officer
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 4
-		}
-		create_corps_commander = {
-		name = "Mikhail Meandrov"
-		portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Meandrov.png"
-		traits = {
-		politically_connected 
-		inflexible_strategist
-		}
-		skill = 3
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 3
-		logistics_skill = 4
-		}
-		create_corps_commander = {
-			name = "Bronislav Kaminski"
-				portrait_path = "gfx/leaders/RUS/Portrait_RUS_Bronislav_Kaminski.png"
-				traits = {
-				media_personality
-				harsh_leader
+			army_experience = 50
+			custom_effect_tooltip = DKB_ROA_generals_will_serve_us_tooptip
+			hidden_effect = {
+				create_corps_commander = {
+					name = "Mikhail Skorodumov"
+					portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Skorodumov.png"
+					traits = { old_guard cavalry_officer roa_general }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 4
+					id = 42026
 				}
-			#id = 1001
-			skill = 2
-			attack_skill = 3
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 2
-			}
-			create_field_marshal = {
-				name = "Andrey Vlasov"
-				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Andrey_Vlasov.png"
-				traits = {
-				organisational_leader
-				politically_connected 
-				media_personality
-				war_hero
-				offensive_doctrine
+				create_corps_commander = {
+					name = "Mikhail Meandrov"
+					portrait_path = "gfx/leaders/DKB/Portrait_DKB_Mikhail_Meandrov.png"
+					traits = { politically_connected inflexible_strategist roa_general }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 4
+				}				
+				create_field_marshal = {
+					name = "Sergei Bunyachenko"
+					portrait_path = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
+					traits = {
+						inspirational_leader
+						hidden_sympathies
+						war_hero
+						logistics_wizard
+						roa_general
+					}
+					skill = 4
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 5
+					logistics_skill = 5
 				}
-			skill = 3
-			attack_skill = 3
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 5
-			}
-			create_field_marshal = {
-				name = "Sergei Bunyachenko"
-				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Sergei_Bunyachenko.png"
-				traits = {
-				inspirational_leader
-				hidden_sympathies
-				war_hero
-				logistics_wizard
-				}
-			skill = 4
-			attack_skill = 4
-			defense_skill = 2
-			planning_skill = 5
-			logistics_skill = 5
 			}
 		}
-	}
 	}
 	
 	focus = {
@@ -9043,20 +8531,15 @@ focus = {
 		x = 2
 		y = 2
 		completion_reward = {
-		GER = {
-		give_guarantee = DKB
-		}
-		create_corps_commander = {
-				name = "Helmuth von Pannwitz"
-				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Helmuth_von_Pannwitz.png"
-				traits = { cavalry_leader cavalry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 4
-				logistics_skill = 2
+			GER = {
+				give_guarantee = DKB
 			}
-			
+			GER = {
+				random_unit_leader = {
+					limit = { has_id = 6885 }
+					set_nationality = DKB
+				}
+			}			
 		}
 	}
 	
@@ -9156,7 +8639,7 @@ focus = {
 	}
 	focus = {
 		id = DKB_Review_our_Doctrines
-		icon = MON_doctrines_I
+		icon = GFX_MON_doctrines_I
 		cost = 5
 		ai_will_do = {
 			factor = 50
@@ -9239,7 +8722,23 @@ focus = {
 		x = 5
 		y = 1
 		relative_position_id = DKB_Russian_Liberation_Army
-		completion_reward = { air_experience = 50 }
+		completion_reward = { 
+			air_experience = 50 
+			create_corps_commander = {
+				name = "Viktor Maltsev"
+				portrait_path = "gfx/leaders/DKB/Portrait_DKB_Viktor_Maltsev.png"
+				traits = {
+					career_officer
+					roa_general
+					air_commander
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+			}				
+		}
 	}
 	
 	focus = {
@@ -9287,12 +8786,12 @@ focus = {
 				category = light_air
 			}
 			add_equipment_to_stockpile = {
-				type = fighter_equipment_1
+				type = small_plane_airframe
 				amount = 100
 				producer = GER
 			}
 			add_equipment_to_stockpile = {
-				type = cas_equipment_1
+				type = small_plane_cas_airframe
 				amount = 50
 				producer = GER
 			}
@@ -9723,19 +9222,15 @@ focus = {
 		}
 		x = -2
 		y = 4
+		will_lead_to_war_with = KUB
 		completion_reward = {
-		every_state = {
+			every_state = {
 				limit = {
 					is_core_of = KUB
 				}
 				add_claim_by = ROOT
 			}
-			KUB = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kuban
 		}
 		}
 	
@@ -9758,6 +9253,7 @@ focus = {
 		}
 		x = -4
 		y = 4
+		will_lead_to_war_with = KLY
 		completion_reward = {
 		every_state = {
 				limit = {
@@ -9765,12 +9261,7 @@ focus = {
 				}
 				add_claim_by = ROOT
 			}
-			KLY = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
-			}
+			unlock_decision_tooltip = DKU_attack_kalmykia
 		}
 	}
 	
@@ -9795,18 +9286,13 @@ focus = {
 		}
 		x = -3
 		y = 5
+		will_lead_to_war_with = MTR
 		completion_reward = {
-		every_state = {
+			every_state = {
 				limit = {
 					is_core_of = MTR
 				}
 				add_claim_by = ROOT
-			}
-			MTR = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
-				}
 			}
 			if = {
 				limit = {
@@ -9815,18 +9301,13 @@ focus = {
 					}
 				}
 				every_state = {
-				limit = {
-					is_core_of = DAG
-				}
-				add_claim_by = ROOT
-			}
-			DAG = {
-				country_event = {
-					id = dkbfor.1
-					days = 2
+					limit = {
+						is_core_of = DAG
+					}
+					add_claim_by = ROOT
 				}
 			}
-			}
+			unlock_decision_tooltip = DKU_attack_mountain
 		}
 	}
 	
@@ -9934,57 +9415,20 @@ focus = {
 			factor = 50
 		}
 		relative_position_id = DKB_KONR_in_Power
+		will_lead_to_war_with = RUS
 		prerequisite = {
 			focus = DKB_Kolchakite_Question
 		}
 		
 		x = 0
 		y = 8
+		will_lead_to_war_with = RUS
 		completion_reward = {
-			create_wargoal = {
-				target = 195.owner
-				type = annex_everything
-			}
-			every_state = {
-				limit = {
-					is_core_of = RUS
-					is_owned_by = RUS
-				}
+			for_each_scope_loop = {
+				array = RUS.RUS_starting_states_array
 				add_claim_by = ROOT
 			}
-			if = {
-				limit = {
-					RVA = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-				target = RVA
-				type = annex_everything
-			}
-			}
-			if = {
-				limit = {
-					RRF = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-				target = RRF
-				type = annex_everything
-			}
-			}
-			if = {
-				limit = {
-					WRA = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-				target = WRA
-				type = annex_everything
-			}
-			}
+			unlock_decision_tooltip = DKU_attack_russia
 		}
 	}
 	
@@ -10299,7 +9743,7 @@ focus = {
 		y = 4
 		completion_reward = {
 			add_ideas = {
-				BRG_mil_dom_alt2
+				DKB_vlasov_democracy
 			}
 		}
 	
@@ -11024,7 +10468,7 @@ focus = {
 	}
 	focus = {
 		id = DKB_fuck_japan
-		icon = GFX_focus_rus_far_east
+		icon = GFX_goal_generic_anti_japan
 		cost = 5
 		prerequisite = {
 			focus = DKB_Reclaim_Lands
@@ -11198,11 +10642,7 @@ focus = {
 			has_war = no
 			has_country_flag = TRM_become_russia
 			is_subject = no
-			if = {
-				limit = { country_exists = OTT }
-				is_neighbor_of = OTT
-			}
-			else = { is_neighbor_of = TUR }
+			is_neighbor_of = TUR 
 		}
 		x = 4
 		y = 1
@@ -11217,7 +10657,7 @@ focus = {
 		}
 		bypass = {
 			NOT = {
-				country_exists = OTT
+				country_exists = TUR
 				country_exists = TUR
 			}
 		}
@@ -11233,10 +10673,10 @@ focus = {
 				add_claim_by = ROOT
 			}
 			if = {
-				limit = { country_exists = OTT }
+				limit = { country_exists = TUR }
 				create_wargoal = {
 					type = annex_everything
-					target = OTT
+					target = TUR
 				}
 			}
 			if = {

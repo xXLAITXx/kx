@@ -6,11 +6,6 @@ focus_tree = {
 	id = mongolia_non_sternberg
 	country = {
 		factor = 0
-		modifier = {
-			add = 10
-			NOT = { tag = MON }
-			original_tag = MON
-		}
 	}
 	shared_focus = MON_under_the_chinese
 	### Shared - Economy + Army
@@ -208,7 +203,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_start_mongol_highway
-		icon = MON_dev_sib_railway
+		icon = GFX_MON_dev_sib_railway
 		cost = 5
 		relative_position_id = MON_nomadic_economy
 		x = 0
@@ -277,7 +272,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_military_factory2
-		icon = GRU_CORPORATE_MILITARY_INDUSTRIAL_COMPLEX
+		icon = GFX_GRU_CORPORATE_MILITARY_INDUSTRIAL_COMPLEX
 		cost = 7
 		relative_position_id = MON_nomadic_economy
 		x = 1
@@ -302,7 +297,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_small_arms_development
-		icon = MON_military_res_inst
+		icon = GFX_MON_military_res_inst
 		cost = 8
 		relative_position_id = MON_nomadic_economy
 		x = 3
@@ -325,7 +320,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_doctrine_development
-		icon = MON_doctrine_III
+		icon = GFX_MON_doctrine_III
 		cost = 8
 		relative_position_id = MON_nomadic_economy
 		x = 4
@@ -519,7 +514,7 @@ focus = {
 }
 focus = {
 	id = MON_declare_sternberg_a_traitor
-	icon = MON_God_of_War
+	icon = GFX_MON_God_of_War
 	cost = 1
 	relative_position_id = MON_democratic_mongolia
 	x = -2
@@ -1011,7 +1006,7 @@ focus = {
 	}
 	focus = {
 		id = MON_first_presidential_election
-		icon = GRU_FREE_ELECTIONS
+		icon = GFX_GRU_FREE_ELECTIONS
 		cost = 0
 		relative_position_id = MON_declare_the_mongolian_republic
 		x = 0
@@ -2553,7 +2548,7 @@ focus = {
 }
 focus = {
 	id = MON_slander_sternbergs_buddhism
-	icon = MON_God_of_War
+	icon = GFX_MON_God_of_War
 	cost = 1
 	relative_position_id = MON_buddhist_mongolia
 	x = 1
@@ -2577,7 +2572,7 @@ focus = {
 }
 focus = {
 	id = MON_end_russian_influence
-	icon = GFX_goal_GEO_resist_russian_influence
+	icon = GFX_goal_GER_Butcher_Russian_Bear
 	cost = 1
 	relative_position_id = MON_buddhist_mongolia
 	x = 2
@@ -3896,6 +3891,7 @@ focus = {
 				add_extra_state_shared_building_slots = 2
 			}
 			add_offsite_building = { type = industrial_complex level = 1 }
+			country_event = mongolia.1231
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 	}
@@ -4215,7 +4211,7 @@ focus = {
 	}
 	focus = {
 		id = MON_expand_recruitment
-		icon = MON_conscript_the_tribesmen
+		icon = GFX_MON_conscript_the_tribesmen
 		cost = 8
 		relative_position_id = MON_lamas_fifedom
 		x = 5
@@ -4381,7 +4377,7 @@ focus = {
 	}
 	focus = {
 		id = MON_nobility_problem
-		icon = VNC_revoke_noble_priviliges
+		icon = GFX_VNC_revoke_noble_priviliges
 		cost = 1
 		relative_position_id = MON_foreign_mongolia
 		x = 2
@@ -4404,7 +4400,7 @@ focus = {
 	}
 	focus = {
 		id = MON_end_gada_meiren
-		icon = BAY_KILLING_COMMUNARDS
+		icon = GFX_BAY_KILLING_COMMUNARDS
 		cost = 1
 		relative_position_id = MON_foreign_mongolia
 		x = 0
@@ -4847,7 +4843,7 @@ focus = {
 
 	focus = {
 		id = MON_invite_cossacks
-		icon = MON_strike_at_the_cossaks
+		icon = GFX_MON_strike_at_the_cossaks
 		cost = 8
 		relative_position_id = MON_end_gada_meiren
 		x = -5
@@ -4987,7 +4983,7 @@ focus = {
 
 	focus = {
 		id = MON_rally_ungern_loyalists
-		icon = Mon_rus_not_watch
+		icon = GFX_MON_rus_not_watch
 		cost = 8
 		relative_position_id = MON_end_gada_meiren
 		x = -3
@@ -5502,7 +5498,7 @@ focus = {
 			hidden_effect = {
 				country_event = {
 					id = tot_mon_flavor.19
-					days = 9
+					days = 100
 				}
 			}
 		}
@@ -5861,9 +5857,15 @@ focus = {
 		y = 3
 		relative_position_id = MON_dealing_with_extremists
 		available = {
+			OR = {
 			has_country_leader = {
 				name = "Dashdorjiin Natsagdorj"
 				ruling_only = yes
+			}
+			has_country_leader = {
+				name = "Namzhilyn Khayankhirvaa"
+				ruling_only = yes
+				}
 			}
 		}
 		prerequisite = { 
@@ -6429,7 +6431,7 @@ focus = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MON_benefits_of_bolshie_expertise"
-                        unlock_decision_category_tooltip = MON_red_diplomacy
+						unlock_decision_category_tooltip = MON_red_diplomacy
 			add_ideas = MON_bolshevik_expertise
 			hidden_effect = {
 				country_event = {
@@ -6514,7 +6516,7 @@ focus = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus MON_sino_mongolian_communes_coops"
-                        unlock_decision_category_tooltip = MON_red_diplomacy
+						unlock_decision_category_tooltip = MON_red_diplomacy
 			create_faction = "United Revolutionary Front"
 			add_ideas = MON_sino_mongolian_cooperatives
 			hidden_effect = {

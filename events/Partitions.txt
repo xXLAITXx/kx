@@ -11,7 +11,7 @@ add_namespace = part
 #### The German Partition
 ############################
 
-#####Russia#########
+##### Russia #####
 
 country_event = { #fate of Germany Russia
 	id = part.1
@@ -789,12 +789,29 @@ country_event = { #Choosing the new german Head of State.
 			factor = 90
 		}
 		add_stability = 0.02
-		GER = {
-			country_event = part.17
+		if = {
+			limit = {
+				GRU = {
+					exists = yes
+				}
+			}
+			GRU = {
+				set_cosmetic_tag = GRU_NFA_kingdom
+				country_event = part.17
+			}
+			reverse_add_opinion_modifier = {
+				target = GRU
+				modifier = chose_our_hos
+			}
 		}
-		reverse_add_opinion_modifier = {
-			target = GER
-			modifier = chose_our_hos
+		else = {
+			GER = {
+				country_event = part.17
+			}
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = chose_our_hos
+			}
 		}
 	}
 
@@ -804,9 +821,22 @@ country_event = { #Choosing the new german Head of State.
 			factor = 10
 		}
 		add_stability = -0.02
-		reverse_add_opinion_modifier = {
-			target = GER
-			modifier = let_us_choose_our_hos
+		if = {
+			limit = {
+				GRU = {
+					exists = yes
+				}
+			}
+			reverse_add_opinion_modifier = {
+				target = GRU
+				modifier = let_us_choose_our_hos
+			}
+		}
+		else = {
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = let_us_choose_our_hos
+			}
 		}
 	}
 }
@@ -1624,9 +1654,7 @@ country_event = { #Alsace-Lorraine
 		controls_state = 16
 	}
 
-	mean_time_to_happen = {
-		days = 15
-	}
+	is_triggered_only = yes
 
 	option = { #Claim Alsace-Lorraine!
 		name = part.32.a
@@ -2150,9 +2178,7 @@ country_event = { #Northern Schleswig
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 15
-	}
+	is_triggered_only = yes
 
 	option = { #Claim Northern Schleswig!
 		name = part.44.a
@@ -2936,9 +2962,7 @@ country_event = { #The partitioning of Germany FRA
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 7
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event part.3"
@@ -3668,6 +3692,7 @@ country_event = { #Germany
 		hidden_effect = {
 			GBP = {
 				add_state_core = 123
+				add_state_core = 1315
 				add_state_core = 338
 				add_state_core = 127
 				add_state_core = 126
@@ -3677,6 +3702,7 @@ country_event = { #Germany
 				add_state_core = 130
 				add_state_core = 132
 				add_state_core = 131
+				add_state_core = 1317
 			}
 			SCT = {
 				add_state_core = 938
@@ -3768,6 +3794,7 @@ country_event = { #Germany
 		hidden_effect = {
 			GBP = {
 				add_state_core = 123
+				add_state_core = 1315
 				add_state_core = 338
 				add_state_core = 127
 				add_state_core = 126
@@ -3783,6 +3810,7 @@ country_event = { #Germany
 				add_state_core = 120
 				add_state_core = 136
 				add_state_core = 938
+				add_state_core = 1317
 			}
 		}
 
@@ -4086,35 +4114,35 @@ country_event = { #Germany let us choose our new President
 				desc = "GBP_MICHAEL_FOOT_DESC"
 				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = classical_liberalism_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
 				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = marlib_classical_liberalism_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
 				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
-				ideology = social_conservative_subtype
+				ideology = toryism_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
 				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = authdem_toryism_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
 				desc = "GBP_MICHAEL_FOOT_DESC"
 				picture = "gfx/leaders/GBP/Portrait_Britain_Michael_Foot.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = pataut_authoritarian_liberalism_subtype
 			}
 			create_country_leader = {
 				name = "Michael Foot"
@@ -4145,42 +4173,42 @@ country_event = { #Germany let us choose our new President
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = social_liberal_subtype
+				ideology = classical_liberalism_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = market_liberal_subtype
+				ideology = marlib_classical_liberalism_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = social_conservative_subtype
+				ideology = toryism_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = authdem_junta_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = junta_subtype
 			}
 			create_country_leader = {
 				name = "Bernard Montgomery"
 				desc = "GBP_BERNARD_MONTGOMERY_DESC"
 				picture = "gfx/leaders/CAN/Portrait_England_Bernard_Montgomery.png"
 				expire = "1965.1.1"
-				ideology = national_populist_subtype
+				ideology = militarism_subtype
 			}
 			#add_ideas = GBR_Edward_Heath_hog_ade
 		}
@@ -4261,14 +4289,14 @@ country_event = { #Wales
 				desc = "POLITICS_OSKAR_DESC"
 				picture = "gfx/leaders/WAL/Portrait_Oskar_I.png"
 				expire = "1965.1.1"
-				ideology = authoritarian_democrat_subtype
+				ideology = prussian_constitutionalism_subtype
 			}
 			create_country_leader = {
 				name = "Oskar I"
 				desc = "POLITICS_OSKAR_DESC"
 				picture = "gfx/leaders/WAL/Portrait_Oskar_I.png"
 				expire = "1965.1.1"
-				ideology = paternal_autocrat_subtype
+				ideology = absolute_monarchy_subtype
 			}
 			set_party_name = { 
 				ideology = paternal_autocrat
@@ -4485,9 +4513,7 @@ country_event = { #Germany defeats france
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 3
-	}
+	is_triggered_only = yes
 
 	option = { #puppet france
 		name = part.6.a
@@ -4944,6 +4970,9 @@ country_event = { #Loyal governments in the new French states
 			BRI = {
 				is_subject_of = ROOT
 			}
+						NRM = {
+				is_subject_of = ROOT
+			}
 			OCC = {
 				is_subject_of = ROOT
 			}
@@ -4959,6 +4988,15 @@ country_event = { #Loyal governments in the new French states
 			add_to_faction = BRI
 			BRI = {
 				country_event = part.88
+			}
+		}
+				if = {
+			limit = {
+				country_exists = NRM
+			}
+			add_to_faction = NRM
+			NRM = {
+				country_event = part.89
 			}
 		}
 		if = {
@@ -5402,7 +5440,7 @@ country_event = { #Choosing the new French Head of State
 	option = { #George of Hannover will be François III!
 		name = part.85.a
 		ai_chance = {
-			factor = 60
+			factor = 50
 		}
 		add_political_power = 20
 		reverse_add_opinion_modifier = {
@@ -5414,7 +5452,7 @@ country_event = { #Choosing the new French Head of State
 	option = { #The Kaiser's Daughter, Victoria Louise of Prussia!
 		name = part.85.b
 		ai_chance = {
-			factor = 30
+			factor = 50
 		}
 		add_political_power = 20
 		reverse_add_opinion_modifier = {
@@ -5426,7 +5464,7 @@ country_event = { #Choosing the new French Head of State
 	option = { #Let the French decide, as long as they stay loyal.
 		name = part.85.c
 		ai_chance = {
-			factor = 10
+			factor = 0
 		}
 		add_political_power = -20
 		reverse_add_opinion_modifier = {
@@ -5519,6 +5557,11 @@ country_event = { #A New King
 
 			}
 		}
+		remove_all_ministers = yes
+		add_ideas = FRP_Pierre_Laval_hog_sco
+		add_ideas = FRP_Pierre_Laval_for_sco
+		add_ideas = FRP_Jean_Fabry_eco_sco
+		add_ideas = FRP_Joseph_Paganon_sec_sco
 		add_stability = -0.1
 		if = {
 			limit = {
@@ -5626,6 +5669,11 @@ country_event = { #The Queen's Coronation
 			planning_skill = 1
 			logistics_skill = 2
 		}
+		remove_all_ministers = yes
+		add_ideas = FRP_Pierre_Laval_hog_sco
+		add_ideas = FRP_Pierre_Laval_for_sco
+		add_ideas = FRP_Jean_Fabry_eco_sco
+		add_ideas = FRP_Joseph_Paganon_sec_sco
 		add_political_power = -150
 		if = { limit = { country_exists = NFA }
 		set_country_flag = Jean_Marie_Lattre_de_Tassigny_dead
@@ -5644,73 +5692,14 @@ country_event = { #Germany lets us choose our new President
 	desc = part.87.d
 	is_triggered_only = yes
 
-	option = { #Albert Lebrun will guide our nation!
+	option = { 
 		name = part.87.a
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = social_democrat_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = social_liberal_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = market_liberal_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = social_conservative_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
-		}
-		create_country_leader = {
-			name = "Albert Lebrun"
-			desc = "FRP_ALBERT_LEBRUN_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Albert_Lebrun.png"
-			expire = "1965.1.1"
-			ideology = national_populist_subtype
-		}
 		add_stability = 0.04
 		remove_all_ministers = yes
 		add_ideas = FRP_Pierre_Laval_hog_sco
 		add_ideas = FRP_Pierre_Laval_for_sco
 		add_ideas = FRP_Jean_Fabry_eco_sco
 		add_ideas = FRP_Joseph_Paganon_sec_sco
-		if = {
-			limit = {
-				country_exists = NFA
-			}
-			set_country_flag = Jean_Marie_Lattre_de_Tassigny_dead
-			set_country_flag = Edouard_Herriot_dead
-			set_country_flag = George_Bidault_dead
-			set_country_flag = Robert_Schumann_dead
-			set_country_flag = Rene_Pleven_dead
-		}
 	}
 }
 
@@ -5779,6 +5768,72 @@ country_event = { #A new government BRI
 		add_ideas = BRI_Loeiz_Andouard_sec_pau
 		hidden_effect = {
 			load_oob = BRI_independent_GER
+		}
+		custom_effect_tooltip = GBP_gdpindger_tt
+	}
+}
+
+country_event = { #A new government NRM
+	id = part.89
+	immediate = { log = "[GetDateText]: [Root.GetName]: event part.89" }
+	title = part.89.t
+	desc = part.89.d
+	is_triggered_only = yes
+
+	option = { #A new beginning.
+		name = part.89.a
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = market_liberal_subtype
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		create_country_leader = {
+			name = "Franz Maria von Bayern"
+			desc = "NRM_FRANZ_BAYERN_DESC"
+			picture = "gfx/leaders/HUN/HUN_Franz_Von_Bayern.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+		}
+				hidden_effect = {
+			load_oob = NRM_independent_GER
 		}
 		custom_effect_tooltip = GBP_gdpindger_tt
 	}
@@ -6476,7 +6531,7 @@ country_event = { #Choosing the new french Head of State
 
 	is_triggered_only = yes
 
-	option = { #Prince Ioann Konstantinovich will be Charles XI!
+	option = { #Prince Ioann Konstantinovich will be Jean III!
 		name = part.99.a
 		ai_chance = {
 			factor = 90
@@ -6511,54 +6566,54 @@ country_event = { #A New King
 	desc = part.100.d
 	is_triggered_only = yes
 
-	option = { #Long live Charles XI
+	option = { #Long live Jean III
 		name = part.100.a
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = social_liberal_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = market_liberal_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = social_conservative_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = authoritarian_democrat_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 		}
 		create_country_leader = {
-			name = "Charles XI"
+			name = "Jean III"
 			desc = "FRP_CHARLES_XI_DESC"
-			picture = "gfx/leaders/FRP/Portrait_France_Charles_XI.png"
+			picture = "gfx/leaders/FRP/Portrait_France_John_Konstantinovich.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -6609,6 +6664,7 @@ country_event = { #Loyal governments in the new French states
 
 	option = { #Pax Europa!
 		name = part.102.a
+				add_to_faction = NRM
 		add_to_faction = BRI
 		add_to_faction = OCC
 		if = {
@@ -6616,6 +6672,7 @@ country_event = { #Loyal governments in the new French states
 				has_cosmetic_tag = RTS
 			}
 			country_event = part.105
+						country_event = part.107
 			country_event = part.109
 		}
 		RUS = {
@@ -6847,6 +6904,107 @@ country_event = { #A new Grand Duke
 			name = "Gabriel I"
 			desc = "BRI_GABRIEL_I_DESC"
 			picture = "gfx/leaders/BRI/Portrait_Britanny_Gabriel_I.png"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+		}
+		add_stability = -0.1
+	}
+}
+
+country_event = { #Choosing the new Head of State of Normandy
+	id = part.107
+	immediate = {log = "[GetDateText]: [Root.GetName]: event part.107"}
+	title = part.107.t
+	desc = part.107.d
+
+	is_triggered_only = yes
+
+	option = { #Princess Tatiana Konstantinovna will be new Grand Duchess!
+		name = part.107.a
+		ai_chance = {
+			factor = 90
+		}
+		add_stability = 0.02
+		NRM = {
+			country_event = part.108
+		}
+		reverse_add_opinion_modifier = {
+			target = NRM
+			modifier = chose_our_hos
+		}
+	}
+
+	option = { #Let the Normans decide, as long as they stay loyal
+		name = part.107.b
+		ai_chance = {
+			factor = 10
+		}
+		add_stability = -0.02
+		reverse_add_opinion_modifier = {
+			target = NRM
+			modifier = let_us_choose_our_hos
+		}
+	}
+}
+
+country_event = { #A new Grand Duchess
+	id = part.108
+	immediate = {log = "[GetDateText]: [Root.GetName]: event part.108"}
+	title = part.108.t
+	desc = part.108.d
+	is_triggered_only = yes
+
+	option = { #Long live Grand Duchess Tatiana!
+		name = part.108.a
+		ai_chance = {
+			factor = 90
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = market_liberal_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+		}
+		create_country_leader = {
+			name = "Anna I"
+			desc = "NRM_ANNA_I_DESC"
+			picture = "gfx/leaders/NRM/Portrait_Normandy_Tatiana_Constantinovna.png"
 			expire = "1965.1.1"
 			ideology = national_populist_subtype
 		}
@@ -7191,6 +7349,7 @@ country_event = { #The fate of Britain
 		hidden_effect = {
 			GBP = {
 				add_state_core = 123
+				add_state_core = 1315
 				add_state_core = 338
 				add_state_core = 127
 				add_state_core = 126
@@ -7206,6 +7365,7 @@ country_event = { #The fate of Britain
 				add_state_core = 120
 				add_state_core = 136
 				add_state_core = 938
+				add_state_core = 1317
 			}
 		}
 
@@ -7560,6 +7720,7 @@ country_event = { #England
 		hidden_effect = {
 			GBP = {
 				add_state_core = 123
+				add_state_core = 1315
 				add_state_core = 338
 				add_state_core = 127
 				add_state_core = 126
@@ -7569,6 +7730,7 @@ country_event = { #England
 				add_state_core = 130
 				add_state_core = 132
 				add_state_core = 131
+				add_state_core = 1317
 			}
 		}
 
@@ -8538,6 +8700,56 @@ country_event = { #National France refuses our deal
 			}
 		}
 	}
+}
+
+country_event = { #Choosing the new French Head of State
+	id = part.201
+	title = part.85.t
+	desc = part.85.d
+	trigger = {
+	tag = GER
+	FRP = {
+	is_subject_of = GER
+		}
+	}
+	fire_only_once = yes
+
+	option = { #George of Hannover will be François III!
+		name = part.85.a
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = 20
+		reverse_add_opinion_modifier = {
+			target = FRP modifier = chose_our_hos
+		}
+		FRP = { country_event = { id = part.86 } }
+	}
+	
+	option = { #The Kaiser's Daughter, Victoria Louise of Prussia!
+		name = part.85.b
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = 20
+		reverse_add_opinion_modifier = {
+			target = FRP modifier = chose_our_hos
+		}
+		FRP = { country_event = { id = part.136 } }
+	}
+	
+	option = { #Let the French decide, as long as they stay loyal.
+		name = part.85.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -20
+		reverse_add_opinion_modifier = {
+			target = FRP modifier = let_us_choose_our_hos
+		}
+		FRP = { country_event = { id = part.87 } }
+	}
+
 }
 
 #### CAPITAL CHANGES BUT MEH NOBODY CARES NOT ENOUGH PROVINCES FUCK YOU

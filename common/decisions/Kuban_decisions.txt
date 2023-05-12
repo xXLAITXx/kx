@@ -1,5 +1,815 @@
 ### by soclibdictator ###
-#new shit   
+#new shit  
+DKU_expansion = {
+	DKU_superevent = {
+		icon = hol_draw_up_staff_plans
+		allowed = { tag = DKB }
+
+		available = {
+			is_subject = no
+			NOT = { country_exists = KUB }
+			NOT = { country_exists = KLY }
+			NOT = { country_exists = MTR }
+			owns_state = 218
+			owns_state = 234
+			owns_state = 233
+			owns_state = 237
+		}
+		
+		visible = {
+			is_subject = no
+			OR = {
+				has_country_flag = DKB_krasnov_stays
+				has_country_flag = DKB_russophiles_win
+			}
+			has_cosmetic_tag = DKB_union
+		}		
+
+		cost = 0
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_superevent target: [From.GetName]"
+			hidden_effect = { country_event = super.108 }
+		}	
+	}
+	DKU_attack_russia = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+		
+		visible = {
+			can_declare_war_on = FROM
+		}
+
+		targets = { RUS RVA RRF WRA }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = DKB_kill_the_predator
+				has_completed_focus = DKB_Confront_The_Bear
+				has_completed_focus = DKB_raze_russia
+				has_completed_focus = DKB_together_for_land
+				has_completed_focus = DKB_Slay_the_Dragon
+			}				
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+			modifier = { # the best chance
+				add = 1000
+				russian_civil_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_attack_russia target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+		}
+	
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKU_attack_russia target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKU_attack_kuban = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+		visible = {
+			can_declare_war_on = FROM
+		}
+
+		targets = { KUB }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = DKB_annex_kuban
+				has_completed_focus = DKB_kuban_quest
+				has_completed_focus = DKB_annex_kuban_ger
+				has_completed_focus = DKB_Liberate_Kuban
+				has_completed_focus = DKB_ties_with_kuban
+				has_completed_focus = DKB_Address_Cooperatives_In_Kuban
+			}				
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+			modifier = { #they will agree
+				add = 1000
+				FROM = {
+					OR = {
+						has_government = social_conservative
+						has_authoritarian_government = yes
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_attack_kuban target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			if = {
+				limit = { has_completed_focus = DKB_ties_with_kuban }
+				FROM = {
+					country_event = {
+						id = dkb.101
+						days = 2
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = DKB_Address_Cooperatives_In_Kuban }
+				FROM = {
+					country_event = {
+						id = dkbfor.9
+						days = 2
+					}
+				}
+			}
+			else = {
+				FROM = {
+					country_event = {
+						id = dkbfor.1
+						days = 2
+					}
+				}
+			}
+		}
+	
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKU_attack_kuban target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKU_attack_kalmykia = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { KLY }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = DKB_annex_kalmykia
+				has_completed_focus = DKB_kalmykian_quest
+				has_completed_focus = DKB_annex_kalmykia_ger
+				has_completed_focus = DKB_Liberate_Kalmyks
+				has_completed_focus = DKB_Liberate_Kalmykia
+				has_completed_focus = DKB_ties_with_astrakhan
+			}	
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_attack_kalmykia target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			if = {
+				limit = { has_completed_focus = DKB_ties_with_astrakhan }
+				FROM = {
+					country_event = {
+						id = dkb.101
+						days = 2
+					}
+				}
+			}
+			else = {
+				FROM = {
+					country_event = {
+						id = dkbfor.1
+						days = 2
+					}
+				}
+			}			
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKU_attack_kalmykia target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKB_attack_transamur = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { TRM }
+		target_root_trigger = {
+			has_completed_focus = DKB_ties_with_transamur	
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKB_attack_transamur target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			FROM = {
+				country_event = {
+					id = dkb.101
+					days = 2
+				}
+			}			
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKB_attack_transamur target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKB_attack_alash = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { ALO }
+		target_root_trigger = {
+			has_completed_focus = DKB_ties_with_orenburg
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKB_attack_alash target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			FROM = {
+				country_event = {
+					id = dkb.101
+					days = 2
+				}
+			}			
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKB_attack_alash target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKU_attack_mountain = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { MTR DAG }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = DKB_Liberate_the_Mountains
+				has_completed_focus = DKB_annex_mountain_ger
+				has_completed_focus = DKB_annex_causasus
+				has_completed_focus = DKB_caucasus_quest
+				has_completed_focus = DKB_ties_with_terek
+				has_completed_focus = DKB_Contacts_With_OKSP
+			}	
+		}
+		target_trigger = {
+			can_declare_war_on = FROM			
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_attack_mountain target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			if = {
+				limit = { 
+					has_completed_focus = DKB_Contacts_With_OKSP
+					FROM = { has_socialist_government = no }
+				}
+				FROM = {
+					country_event = {
+						id = dkbfor.15
+						days = 2
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = DKB_ties_with_terek }
+				FROM = {
+					country_event = {
+						id = dkb.101
+						days = 2
+					}
+				}
+			}
+			else = {
+				FROM = {
+					country_event = {
+						id = dkbfor.1
+						days = 2
+					}
+				}
+			}			
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKU_attack_mountain target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKU_attack_transcaucasia = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+			FROM = {
+				is_subject = no
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { GEO AZE ARM }
+		target_root_trigger = {
+			has_completed_focus = DKB_annexation_of_transcaucasia
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKU_attack_transcaucasia target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			FROM = {
+				country_event = {
+					id = dkbfor.1
+					days = 2
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKU_attack_transcaucasia target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	DKB_demand_tsargrad = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { 217.OWNER }
+		target_root_trigger = {
+			has_completed_focus = DKB_claim_tsargrad
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { owns_state = 217 }
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+			modifier = {
+				add = 100
+				russian_civil_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKB_demand_tsargrad target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			FROM = {
+				country_event = {
+					id = dkbfor.100
+					days = 2
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKB_demand_tsargrad target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+	}
+	DKB_demand_urda = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { 236.OWNER }
+		target_root_trigger = {
+			has_completed_focus = DKB_claim_tsargrad
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { owns_state = 236 }
+			FROM = { NOT = { owns_state = 217 } }
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+			modifier = {
+				add = 100
+				russian_civil_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKB_demand_urda target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			FROM = {
+				country_event = {
+					id = dkbfor.100
+					days = 2
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKB_demand_urda target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+	}
+	DKB_demand_donbass = {
+		icon = hol_draw_up_staff_plans
+
+		available = {
+			is_subject = no
+			OR = {
+				is_owner_neighbor_of = FROM
+				any_allied_country = { is_owner_neighbor_of = FROM }
+			}
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+		}
+		cancel_trigger = {
+			FROM = { 
+				OR = {
+					is_in_faction_with = ROOT
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+			
+		targets = { UKR CRM }
+		target_root_trigger = {
+			has_completed_focus = DKB_claim_donbass
+		}
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { 
+				OR = {
+					owns_state = 228
+					owns_state = 137
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					dont_start_major_faction_wars = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DKB_demand_donbass target: [From.GetName]"
+			set_country_flag = { flag = imminent_war days = 20 value = 1 }
+			setup_decision_attack_AI = yes
+			FROM = {
+				country_event = {
+					id = dkbfor.4
+					days = 2
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove DKB_demand_donbass target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+	}	
+}
+	
 DKB_coring_shit = {
 	DKU_move_to_moscow = {
 		icon = GFX_decision_generic_nationalism
@@ -24,15 +834,15 @@ DKB_coring_shit = {
 	}
 		
 	DKU_move_to_petrograd = {
-        icon = GFX_decision_generic_nationalism
-	    priority = 1000
+		icon = GFX_decision_generic_nationalism
+		priority = 1000
 		available = {
 			has_full_control_of_state = 195
 			}
-	    visible = {
+		visible = {
 			has_full_control_of_state = 195
 			OR = { 
-		    has_cosmetic_tag = DKB_RUS_empire
+			has_cosmetic_tag = DKB_RUS_empire
 			has_cosmetic_tag = DKB_tsar_willy
 			has_cosmetic_tag = DKB_vlasov_RUS
 			has_cosmetic_tag = DKB_RUS
@@ -47,14 +857,14 @@ DKB_coring_shit = {
 	}
 	#German
 	DKU_Leeb_Victory = {
-        icon = GFX_decision_generic_nationalism
-	    priority = 1000
+		icon = GFX_decision_generic_nationalism
+		priority = 1000
 		available = {
 			has_full_control_of_state = 64
 			}
-	    visible = {
+		visible = {
 			has_full_control_of_state = 64
-		    has_country_flag = DKB_leeb_gaming_begins
+			has_country_flag = DKB_leeb_gaming_begins
 		}
 		cost = 10
 		fire_only_once = yes
@@ -68,29 +878,29 @@ DKB_coring_shit = {
 						is_core_of = GER
 					}
 					add_core_of = ROOT
-				 }
-				 every_owned_state = {
+				}
+				every_owned_state = {
 					limit = {
 						is_core_of = RUS
 					}
 					remove_core_of = DKB
-				 }
+				}
 			}
 		}
 	}
 		
 	DKU_Give_Transamur_to_Siberia = {
-        icon = GFX_decision_hol_exchange_intelligence_data
-	    priority = 1000
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 1000
 		available = {
 			has_full_control_of_state = 408
 			TRM = {
 				exists = no
 			}
 		}
-	    visible = {
+		visible = {
 			has_full_control_of_state = 408
-		    has_country_flag = DKB_leeb_gaming_begins
+			has_country_flag = DKB_leeb_gaming_begins
 		}
 		cost = 10
 		fire_only_once = yes
@@ -110,13 +920,13 @@ DKB_coring_shit = {
 	}
 		
 	DKU_Reward_the_Russians = {
-        icon = GFX_decision_hol_exchange_intelligence_data
-	    priority = 1000
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 1000
 		available = {
 			has_cosmetic_tag = DKB_Leeb_Germany
 			has_war = no
 		}
-	    visible = {
+		visible = {
 			has_cosmetic_tag = DKB_Leeb_Germany
 		}
 		cost = 10
@@ -199,16 +1009,16 @@ political_actions = {
 				}
 				division_template = {
 					name = "Spetsotryad Kazakov"
-					division_names_group = RUS_CAV_01
+					division_names_group = DKB_CAV_01
 					is_locked = no
 					regiments = {
-						cavalry = { x = 0 y = 0 }
-						cavalry = { x = 0 y = 1 }
-						cavalry = { x = 0 y = 2 }
-						cavalry = { x = 1 y = 0 }
-						cavalry = { x = 1 y = 1 }
-						cavalry = { x = 1 y = 2 }
-						cavalry = { x = 1 y = 3 }
+						irregular_cavalry = { x = 0 y = 0 }
+						irregular_cavalry = { x = 0 y = 1 }
+						irregular_cavalry = { x = 0 y = 2 }
+						irregular_cavalry = { x = 1 y = 0 }
+						irregular_cavalry = { x = 1 y = 1 }
+						irregular_cavalry = { x = 1 y = 2 }
+						irregular_cavalry = { x = 1 y = 3 }
 					}
 					support = {
 						recon = { x = 0 y = 0 }
@@ -307,7 +1117,7 @@ KPR_Rada_Debate = {
 		ai_will_do = {
 			factor = 2000
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -357,7 +1167,7 @@ KPR_Rada_Debate = {
 		ai_will_do = {
 			factor = 2000
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -539,7 +1349,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -601,7 +1411,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -663,7 +1473,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -725,7 +1535,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -785,7 +1595,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -845,7 +1655,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -905,7 +1715,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -965,7 +1775,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -1025,7 +1835,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -1085,7 +1895,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -1145,7 +1955,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -1205,7 +2015,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN
@@ -1258,7 +2068,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_CHERN
@@ -1318,7 +2128,7 @@ KPR_Rada_Debate = {
 				}
 			}
 			modifier = {
-			factor = 10000
+			factor = 1000
 				has_game_rule = {
 					rule = KUB_path
 					option = KUB_PATH_LIN

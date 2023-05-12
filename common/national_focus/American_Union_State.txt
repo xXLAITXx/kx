@@ -2,6 +2,9 @@
 # American Union State Focus Tree
 # By Herkles
 ###########################
+
+####THE AFP LEFTISM FLAG IS INVERTED FOR SOME REASON, DO NOT TRY TO FIX IT, IT IS NOT BROKEN
+
 focus_tree = {
 	id = AUS
 	country = {
@@ -19,7 +22,17 @@ focus_tree = {
 		icon = GFX_goal_USA_president_long
 		cost = 5
 		available = {
-			has_global_flag = USA_civil_war_over_flag
+			custom_trigger_tooltip = {
+				tooltip = CAL_civil_war_victor
+				has_global_flag = USA_civil_war_over_flag
+				NOT = {
+					country_exists = COR
+					country_exists = CSA
+					country_exists = USA
+					has_global_flag = PSA_rockies_ceasefire
+					has_war_with = CAL
+				}
+			}
 			has_country_flag = AUS_election_occured
 			has_government = authoritarian_democrat
 			has_country_leader = { ruling_only = yes name = "Huey Long" }
@@ -46,6 +59,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+						NOT = { has_country_flag = TEX_pendergast_chads }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -167,7 +181,7 @@ focus_tree = {
 			custom_effect_tooltip = TEX_leftism_tooltip
 			modify_country_flag = {
 			flag = AFP_leftism
-			value = 2
+			value = -2
 			}
 		}
 	}
@@ -238,7 +252,7 @@ focus_tree = {
 			custom_effect_tooltip = TEX_rightism_tooltip
 			modify_country_flag = {
 			flag = AFP_leftism
-			value = -2
+			value = 2
 			}
 		}
 	}
@@ -408,6 +422,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+						NOT = { has_country_flag = TEX_pendergast_chads }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -657,6 +672,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+						NOT = { has_country_flag = TEX_pendergast_chads }
 		}
 		select_effect = {
 		country_event = {
@@ -947,6 +963,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+						NOT = { has_country_flag = TEX_pendergast_chads }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -1551,11 +1568,11 @@ focus_tree = {
 			add_command_power = 50
 			add_stability = -0.1
 			add_popularity = { ideology = paternal_autocrat popularity = 0.15 }
-                        set_party_name = {
-			      ideology = paternal_autocrat
-			      long_name = TEX_radical_AFP_party_long
-			      name = TEX_radical_AFP_party
-                        }
+						set_party_name = {
+				ideology = paternal_autocrat
+				long_name = TEX_radical_AFP_party_long
+				name = TEX_radical_AFP_party
+						}
 			hidden_effect = {
 				country_event = {
 				id = unionstate.46
@@ -1669,18 +1686,26 @@ focus_tree = {
 		available = {
 			has_country_flag = TEX_allowed_catholic
 			has_government = national_populist
+			hidden_trigger = {
+				NOT = { 
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+				}
+			}
 		}
 		bypass = {
 			has_country_flag = TEX_allowed_catholic
 			has_government = national_populist
+						NOT = { 
+						has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+						}
 		}
 		ai_will_do = { factor = 5 }
 		x = -7
 		y = 0
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_new_gunpowder_plot"
-                        custom_effect_tooltip = unlock_focuses
-                        remove_ideas = TEX_prohibition_bill
+						custom_effect_tooltip = unlock_focuses
+						remove_ideas = TEX_prohibition_bill
 			set_party_name = {
 				ideology = national_populist
 				long_name = TEX_national_populist_catholic_party_long
@@ -1690,6 +1715,7 @@ focus_tree = {
 				ideology = national_populist
 				popularity = 0.1
 			}
+			hidden_effect = { set_country_flag = TEX_cath_power }
 		}
 	}
 
@@ -1783,7 +1809,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_puppet_the_opposition"
 			add_popularity = { ideology = national_populist popularity = 0.1 }
 			add_stability = 0.05
-                        remove_ideas = TEX_unpopular_government_idea
+						remove_ideas = TEX_unpopular_government_idea
 		}
 		search_filters = { FOCUS_FILTER_STABILITY }
 	}
@@ -1810,7 +1836,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_destroy_the_klan"
 			add_popularity = { ideology = authoritarian_democrat popularity = -0.2 }
 			add_popularity = { ideology = paternal_autocrat popularity = -0.2 }
-                        remove_ideas = TEX_orange_menace_idea
+						remove_ideas = TEX_orange_menace_idea
 			custom_effect_tooltip = ACW_combat_klan
 			custom_effect_tooltip = ACW_combat_legion
 			modify_country_flag = {
@@ -1873,6 +1899,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_promote_monarchism"
 			add_political_power = 80
 			add_popularity = { ideology = national_populist popularity = 0.05 }
+			hidden_effect = {
+				country_event = {
+					id = cathdeath.107
+					days = 25
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -1897,10 +1929,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_catholic_america"
-			add_ideas = TEX_catholic_america_idea
-			country_event = unionstate.317 #americanist heresey
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			TEX_increase_political_recovery = yes
+			hidden_effect = {
+				country_event = {
+					id = cathdeath.106
+					days = 25
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 	}
@@ -2162,7 +2198,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_distributism"
 			add_ideas = TEX_distributism_idea
-            remove_ideas = TEX_foreign_lifeline_idea
+			remove_ideas = TEX_foreign_lifeline_idea
 			country_event = unionstate.314 #Day VS Smith
 		}
 	}
@@ -2245,6 +2281,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_blur_the_lines"
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			TEX_increase_political_recovery = yes
+			add_ideas = TEX_catholic_america_idea
+			country_event = unionstate.317 #americanist heresey
 		}
 	}
 
@@ -2272,7 +2310,18 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_americae_sanctus"
 			remove_ideas = TEX_political_instability_6
-			country_event = unionstate.319 #americae sanctus
+			if = {
+				limit = {
+					has_idea = TEX_christ_the_king_idea
+				}
+				country_event = unionstate.319 
+			}
+			if = {
+				limit = {
+					has_idea = TEX_philipregent_idea
+				}
+				country_event = unionstate.323
+			}
 		}
 	}
 	
@@ -3139,7 +3188,18 @@ focus_tree = {
 			focus = TEX_christian_party_victory
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3172,7 +3232,18 @@ focus_tree = {
 			focus = TEX_defend_democracy
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+			OR = {	
+			has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+			has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+				}
+			}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3198,7 +3269,18 @@ focus_tree = {
 			focus = TEX_organize_new_elections
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3227,7 +3309,18 @@ focus_tree = {
 			focus = TEX_fight_the_terrorists
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3257,7 +3350,18 @@ focus_tree = {
 			focus = TEX_defend_democracy
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3286,7 +3390,18 @@ focus_tree = {
 			focus = TEX_outlaw_syndicalism
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3312,7 +3427,18 @@ focus_tree = {
 			focus = TEX_christian_party_victory
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3346,7 +3472,18 @@ focus_tree = {
 			focus = TEX_national_command_structure
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3386,7 +3523,18 @@ focus_tree = {
 			focus = TEX_form_new_councils_of_safety
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3477,7 +3625,18 @@ focus_tree = {
 			focus = TEX_christian_party_victory
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		select_effect = {
 		country_event = {
@@ -3570,7 +3729,18 @@ focus_tree = {
 			focus = TEX_pdol
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3671,7 +3841,18 @@ focus_tree = {
 			focus = TEX_universal_jobs_registry
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3710,7 +3891,18 @@ focus_tree = {
 			focus = TEX_pdol
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		select_effect = {
 		hidden_effect = {
@@ -3755,7 +3947,18 @@ focus_tree = {
 			focus = TEX_christian_commonwealth
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3785,7 +3988,18 @@ focus_tree = {
 			focus = TEX_annual_dividends
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3822,7 +4036,18 @@ focus_tree = {
 			focus = TEX_fight_the_terrorists
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3851,7 +4076,18 @@ focus_tree = {
 			focus = TEX_annual_dividends
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3881,7 +4117,18 @@ focus_tree = {
 			focus = TEX_referendum_voting
 		}
 		available = {
-			has_government = social_conservative
+			OR = {
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
+			has_country_leader = { ruling_only = yes name = "Willard Kemp" }
+			has_country_leader = { ruling_only = yes name = "Henry Allen" }
+			has_country_leader = { ruling_only = yes name = "Gerald L.K. Smith" }
+			hidden_trigger = {
+				OR = {	
+				has_country_leader = { ruling_only = yes name = "Silver Legion Council" }
+				has_country_leader = { ruling_only = yes name = "Joe McWilliams" }
+					}
+				}
+			}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -3902,7 +4149,7 @@ focus_tree = {
 			add_stability = 0.1
 		}
 	}
-        ###Marland###
+		###Marland###
 	focus = {
 		id = TEX_marland_presidency
 		icon = GFX_goal_TEX_Marland_Democratic_Party
@@ -3967,7 +4214,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_marland_presidency"
-                        country_event = unionstate.30002
+						country_event = unionstate.30002
 			add_ideas = TEX_rejected_west_coast_businessmen
 		}
 	}
@@ -3992,9 +4239,9 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_marland_presidency"
 			add_research_slot = 1
 			swap_ideas = {
-                               remove_idea = TEX_start_economic_revival
-                               add_idea = TEX_economic_revival
-                        }
+							remove_idea = TEX_start_economic_revival
+							add_idea = TEX_economic_revival
+						}
 		}
 	}
 	focus = {
@@ -4206,9 +4453,9 @@ focus_tree = {
 				}
 			}
 			swap_ideas = {
-                              remove_idea = TEX_little_new_deal
-                              add_idea = TEX_little_new_deal2
-                        }
+							remove_idea = TEX_little_new_deal
+							add_idea = TEX_little_new_deal2
+						}
 		}
 	}
 	focus = {
@@ -4262,7 +4509,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_marland_presidency"
-                        country_event = unionstate.30003
+						country_event = unionstate.30003
 			TEX_increase_political_recovery = yes
 			add_popularity = { ideology = market_liberal popularity = 0.08  }
 			add_stability = 0.05
@@ -4360,15 +4607,15 @@ focus_tree = {
 			has_country_flag = AUS_election_occured
 			}
 			NOT = {
-				OR = {
+				has_completed_focus = TEX_christian_party_victory
 				has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
 				has_country_leader = { ruling_only = yes name = "Huey Long" }
-				has_country_leader = { ruling_only = yes name = "Philip Fox La Follette." }
+				has_country_leader = { ruling_only = yes name = "Philip Fox La Follette" }
 				has_country_leader = { ruling_only = yes name = "E. W. Marland" }
-                                has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
-                                has_country_leader = { ruling_only = yes name = "Tom Pendergast" }
-                                has_country_leader = { ruling_only = yes name = "Harry Truman" }
-				}
+				has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
+				has_country_leader = { ruling_only = yes name = "Tom Pendergast" }
+				has_country_leader = { ruling_only = yes name = "Harry Truman" }
+				hidden_trigger = { has_country_flag = TEX_cath_power }				
 			}
 		}
 		ai_will_do = {
@@ -5655,7 +5902,7 @@ focus_tree = {
 		}
 	}
 
-	 focus = {#World-Class-Highways
+	focus = {#World-Class-Highways
 		id = TEX_world_class_highways
 		icon = GFX_COR_national_highway_system
 		cost = 5
@@ -7361,7 +7608,7 @@ focus_tree = {
 			focus = TEX_pappy_odaniel
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7388,7 +7635,7 @@ focus_tree = {
 			focus = TEX_pappy_odaniel
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7419,7 +7666,7 @@ focus_tree = {
 			focus = TEX_five_point_plan
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7454,7 +7701,7 @@ focus_tree = {
 			focus = TEX_texas_values
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7482,7 +7729,7 @@ focus_tree = {
 			focus = TEX_texas_values
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7506,7 +7753,7 @@ focus_tree = {
 			focus = TEX_fight_wasteful_spending
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7536,7 +7783,7 @@ focus_tree = {
 			focus = TEX_sunday_broadcasts
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7563,7 +7810,7 @@ focus_tree = {
 			focus = TEX_labor_agitators
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7597,7 +7844,7 @@ focus_tree = {
 			focus = TEX_radio_showmanship
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7625,7 +7872,7 @@ focus_tree = {
 			focus = TEX_ten_commandments
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7649,7 +7896,7 @@ focus_tree = {
 			focus = TEX_old_age_pensions
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7697,7 +7944,7 @@ focus_tree = {
 			focus = TEX_radio_showmanship
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7721,7 +7968,7 @@ focus_tree = {
 			focus = TEX_industrialization_committee
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7761,7 +8008,7 @@ focus_tree = {
 			focus = TEX_hillbilly_boys
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7788,7 +8035,7 @@ focus_tree = {
 			focus = TEX_power_to_farmers
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7815,7 +8062,7 @@ focus_tree = {
 			focus = TEX_hillbilly_boys
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7845,7 +8092,7 @@ focus_tree = {
 			focus = TEX_old_age_pensions
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7872,7 +8119,7 @@ focus_tree = {
 			focus = TEX_protect_poor_whites
 		}
 		available = {
-			has_government = social_conservative
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -7890,13 +8137,14 @@ focus_tree = {
 			add_manpower = 3000
 		}
 	}
-        #Pendergast Bros wya
+		#Pendergast Bros wya
 
 	focus = {
 		id = TEX_king_of_kansas_city
 		icon = GFX_goal_TEX_King_Kansas_City
 		cost = 5
 		available = {
+						has_global_flag = USA_civil_war_over_flag
 			has_country_flag = TEX_pendergast_chads
 			has_government = paternal_autocrat
 			has_country_leader = { ruling_only = yes name = "Tom Pendergast" }
@@ -7934,7 +8182,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_utilizing_connections_across_america"
-                        add_ideas = TEX_political_connections
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_political_connections
 		}
 	}
 
@@ -7958,7 +8207,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_kansas_city_aint_big_enough"
-                        add_ideas = TEX_longist_purge
+						add_ideas = TEX_longist_purge
 		}
 	}
 
@@ -7982,7 +8231,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_swaying_philantropists"
-                        add_ideas = TEX_common_touchy
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_common_touchy
 		}
 	}
 
@@ -8006,7 +8256,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_providing_quote_jobs"
-                        add_ideas = TEX_quote_legal_jobs
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_quote_legal_jobs
 		}
 	}
 
@@ -8030,16 +8281,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_compassion_for_the_poor"
-                        swap_ideas = {
-                             add_idea = TEX_compassion_people
-                             remove_idea = TEX_common_touchy
-                        }
-                        hidden_effect = {
+						swap_ideas = {
+							add_idea = TEX_compassion_people
+							remove_idea = TEX_common_touchy
+						}
+						hidden_effect = {
 			country_event = {
 				id = unionstate.1406
 				days = 27
 			}
-                        }
+						}
 		}
 	}
 
@@ -8063,7 +8314,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_pendergast_stamp"
-                        add_ideas = TEX_stampin_pendergast
+						add_ideas = TEX_stampin_pendergast
 		}
 	}
 
@@ -8087,7 +8338,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_connections_with_other_bosses"
-                        add_ideas = TEX_tammany_connections
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_tammany_connections
 		}
 	}
 
@@ -8111,16 +8363,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_complex_alliance"
-                        swap_ideas = {
-                             add_idea = TEX_southern_connections
-                             remove_idea = TEX_tammany_connections
-                        }
-                        hidden_effect = {
+						swap_ideas = {
+							add_idea = TEX_southern_connections
+							remove_idea = TEX_tammany_connections
+						}
+						hidden_effect = {
 			country_event = {
 				id = unionstate.1407
 				days = 26
 			}
-                        }
+						}
 		}
 	}
 
@@ -8144,13 +8396,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_crush_democrat_factionalism"
-                        add_ideas = TEX_vice_politics
-                        hidden_effect = {
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_vice_politics
+						hidden_effect = {
 			country_event = {
 				id = unionstate.1408
 				days = 14
 			}
-                        }
+						}
 		}
 	}
 
@@ -8174,7 +8427,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_business_empire"
-                        add_ideas = TEX_empire_of_business
+						add_ideas = TEX_empire_of_business
 		}
 	}
 
@@ -8198,10 +8451,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_an_open_alliance"
-                        swap_ideas = {
-                             add_idea = TEX_alliance_with_crime
-                             remove_idea = TEX_political_connections
-                        }
+						swap_ideas = {
+							add_idea = TEX_alliance_with_crime
+							remove_idea = TEX_political_connections
+						}
 		}
 	}
 
@@ -8225,10 +8478,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_liberal_policies"
-                        swap_ideas = {
-                             add_idea = TEX_fuck_democracy
-                             remove_idea = TEX_longist_purge
-                        }
+						swap_ideas = {
+							add_idea = TEX_fuck_democracy
+							remove_idea = TEX_longist_purge
+						}
 		}
 	}
 	focus = {
@@ -8254,7 +8507,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_wonders_of_gambling"
-                        add_ideas = TEX_city_of_sin
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_city_of_sin
 		}
 	}
 	focus = {
@@ -8277,10 +8531,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_freeing_booze"
-                        swap_ideas = {
-                             add_idea = TEX_city_of_sin_2
-                             remove_idea = TEX_city_of_sin
-                        }
+						swap_ideas = {
+							add_idea = TEX_city_of_sin_2
+							remove_idea = TEX_city_of_sin
+						}
 		}
 	}
 
@@ -8304,7 +8558,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_paving_brush_creek"
-                        random_owned_state = {
+						random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -8312,7 +8566,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-                        random_owned_state = {
+						random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -8320,7 +8574,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-                        random_owned_state = {
+						random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -8354,7 +8608,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_police_forces_in_grip"
-                        add_ideas = TEX_nefarious_acts
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						add_ideas = TEX_nefarious_acts
 		}
 	}
 
@@ -8387,10 +8642,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_the_senator_from_pendergast"
-                        swap_ideas = {
-                             add_idea = TEX_senator_w_pendergast
-                             remove_idea = TEX_fuck_democracy
-                        }
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.1  }
+						swap_ideas = {
+							add_idea = TEX_senator_w_pendergast
+							remove_idea = TEX_fuck_democracy
+						}
 			country_event = {
 				id = unionstate.14050
 				days = 4
@@ -8426,10 +8682,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_emperor_of_missouri"
-                        swap_ideas = {
-                             add_idea = TEX_emperor_missouri
-                             remove_idea = TEX_nefarious_acts
-                        }
+			add_popularity = { ideology = paternal_autocrat popularity = 0.08  }
+						swap_ideas = {
+							add_idea = TEX_emperor_missouri
+							remove_idea = TEX_nefarious_acts
+						}
 		}
 	}
 
@@ -8442,7 +8699,10 @@ focus_tree = {
 			focus = TEX_the_senator_from_pendergast
 		}
 		available = {
+						OR = {
 			has_government = paternal_autocrat
+						has_government = authoritarian_democrat
+						}
 		}
 		cancel_if_invalid = yes
 		available_if_capitulated = yes
@@ -8454,6 +8714,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_living_like_true_king"
+			add_popularity = { ideology = paternal_autocrat popularity = 0.1  }
 			country_event = {
 				id = unionstate.1409
 				days = 5
@@ -8466,7 +8727,19 @@ focus_tree = {
 		id = TEX_rebuilding_the_country
 		icon = GFX_goal_AUS_victory
 		cost = 5
-		available = { has_global_flag = USA_civil_war_over_flag	}
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = CAL_civil_war_victor
+				has_global_flag = USA_civil_war_over_flag
+				NOT = {
+					country_exists = COR
+					country_exists = CSA
+					country_exists = USA
+					has_global_flag = PSA_rockies_ceasefire
+					has_war_with = CAL
+				}
+			}
+		}
 		ai_will_do = {
 			factor = 4
 		}
@@ -9065,6 +9338,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reconciliation"
 			add_political_power = -40
+			if = {
+			limit = {
+			has_country_leader = { ruling_only = yes name = "W. Lee O'Daniel" }
+			}
+			country_event = unionstate.5906
+			}
 		}
 	}
 	
@@ -9463,11 +9742,16 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_global_flag = USA_civil_war_over_flag
-			NOT = {
-				country_exists = CAL
-				country_exists = CSA
-				country_exists = USA
+			custom_trigger_tooltip = {
+				tooltip = CAL_civil_war_victor
+				has_global_flag = USA_civil_war_over_flag
+				NOT = {
+					country_exists = COR
+					country_exists = CSA
+					country_exists = USA
+					has_global_flag = PSA_rockies_ceasefire
+					has_war_with = CAL
+				}
 			}
 		}
 		x = 0
@@ -9691,9 +9975,9 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Terrible_Terry"
 			add_ideas = TEX_la_mesa_plan_idea
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = TEX_Terrible_Terry_plan
-				bonus = 1.5
+				cost_reduction = 1.5
 				uses = 1
 				category = cat_grand_battle_plan
 			}
@@ -9753,9 +10037,9 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_physical_conditioning"
 			add_ideas = TEX_physical_conditioning_idea
 			army_experience = 10
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = TEX_Terrible_Terry_plan
-				bonus = 1.5
+				cost_reduction = 1.5
 				uses = 1
 				category = cat_grand_battle_plan
 			}
@@ -9811,9 +10095,9 @@ focus_tree = {
 			add_idea = TEX_la_mesa_plan_idea_3
 			}
 			add_command_power = 40
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = TEX_Terrible_Terry_plan
-				bonus = 1.5
+				cost_reduction = 1.5
 				uses = 2
 				category = cat_grand_battle_plan
 			}
@@ -10178,9 +10462,9 @@ focus_tree = {
 			remove_idea = TEX_lighning_joe_idea
 			add_idea = TEX_lighning_joe_idea_2
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = COR_Overwhelming_Firepower
-				bonus = 1.5
+				cost_reduction = 1.5
 				uses = 2
 				category = cat_superior_firepower
 			}
@@ -10392,9 +10676,9 @@ focus_tree = {
 				remove_idea = TEX_lighning_joe_idea_4
 				add_idea = TEX_lighning_joe_idea_5
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = COR_Overwhelming_Firepower
-				bonus = 1.25
+				cost_reduction = 1.25
 				uses = 3
 				category = cat_superior_firepower
 			}
@@ -10683,9 +10967,9 @@ focus_tree = {
 				remove_idea = TEX_Devers_plan4
 				add_idea = TEX_Devers_plan5
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = COR_Spearhead_Doctrine
-				bonus = 1.25
+				cost_reduction = 1.25
 				uses = 3
 				category = cat_mobile_warfare
 			}
@@ -10804,7 +11088,7 @@ focus_tree = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				category = fighter_techs
+				category = light_fighter
 			}
 		}
 
@@ -10839,7 +11123,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TEX_air_field_expansion
-		icon = MON_improve_construction
+		icon = GFX_MON_improve_construction
 		cost = 5
 		prerequisite = {
 			focus = TEX_bombers
@@ -11080,19 +11364,11 @@ focus_tree = {
 		relative_position_id = TEX_Weyland_plan
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus TEX_CAS_focus"
-			if = {
-				limit = { NOT = { has_tech = CAS2 } }
-				hidden_effect = {
-					set_technology = { CAS2 = 1 }
-				}
-				custom_effect_tooltip = COR_unlock_CAS
-				else = {
-					add_tech_bonus = {
-						bonus = 1
-						uses = 1
-						category = cas_bomber
-					}
-				}
+			add_tech_bonus = {
+				name = TEX_CAS_focus
+				bonus = 0.75
+				uses = 2
+				category = cas_bomber
 			}
 		}
 	}
@@ -11206,14 +11482,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_strat_bomber_development"
 			add_tech_bonus = {
-				bonus = 1.5
-				uses = 1
+				name = TEX_strat_bomber_development
+				bonus = 0.75
+				uses = 2
 				category = cat_strategic_bomber
-			}
-			add_equipment_to_stockpile = {
-				type = strat_bomber_equipment
-				amount = 30
-				producer = TEX
 			}
 		}
 	}
@@ -11267,26 +11539,11 @@ focus_tree = {
 		relative_position_id = TEX_le_may_reform
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_long_range_interceptors"
-			if = {
-				limit = { NOT = { has_tech = heavy_fighter1 } }
-				hidden_effect = {
-					set_technology = { heavy_fighter1 = 1 }
-				}
-				custom_effect_tooltip = TEX_unlock_heavy_fighter_1
-				else_if = {
-					limit = { NOT = { has_tech = heavy_fighter2 } }
-					hidden_effect = {
-						set_technology = { heavy_fighter2 = 1 }
-					}
-					custom_effect_tooltip = TEX_unlock_heavy_fighter_2
-				}
-				else = {
-					add_tech_bonus = {
-						bonus = 1
-						uses = 1
-						category = cat_heavy_fighter
-					}
-				}
+			add_tech_bonus = {
+				name = TEX_long_range_interceptors 
+				bonus = 0.75
+				uses = 2
+				category = cat_heavy_fighter
 			}
 		}
 	}
@@ -11329,7 +11586,7 @@ focus_tree = {
 
 	focus = {# Great White Fleet
 		id = TEX_great_white_fleet
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_goal_generic_naval_fleet_in_being
 		cost = 5
 		mutually_exclusive = {
 			focus = TEX_protect_american_trade
@@ -11363,8 +11620,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_great_white_fleet"
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
 				uses = 2
 				category = cat_fleet_in_being
 			}
@@ -11373,7 +11630,7 @@ focus_tree = {
 
 	focus = {# Protect American Trade
 		id = TEX_protect_american_trade
-		icon = GFX_goal_generic_navy_cruiser
+		icon = GFX_goal_generic_trade_interdiction
 		cost = 5
 		mutually_exclusive = {
 			focus = TEX_great_white_fleet
@@ -11418,7 +11675,7 @@ focus_tree = {
 
 	focus = {# Carrier Projects
 		id = TEX_carriers
-		icon = GFX_goal_generic_navy_carrier
+		icon = GFX_goal_generic_carrier_aircraft
 		cost = 5
 		mutually_exclusive = {
 			focus = TEX_great_white_fleet
@@ -11567,7 +11824,7 @@ focus_tree = {
 
 	focus = {# Light Cruisers
 		id = TEX_light_cruisers
-		icon = GFX_goal_EGY_sultan_fleet
+		icon = GFX_goal_generic_naval_cruiser2
 		cost = 5
 		prerequisite = {
 			focus = TEX_protect_american_trade
@@ -11867,7 +12124,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = TEX_naval_aviation
-                        focus = TEX_our_coast_guard
+						focus = TEX_our_coast_guard
 			focus = TEX_battleships
 		}
 		available = {
@@ -12082,7 +12339,7 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-			NOT = { has_government = national_populist }
+			NOT = { has_country_flag = TEX_catholic_monarchy_declared }
 		}
 		relative_position_id = TEX_back_in_business
 		x = 0
@@ -12614,7 +12871,7 @@ focus_tree = {
 				}
 			}
 			create_wargoal = {
-			type = puppet_wargoal_focus
+			type = annex_everything
 			target = MEX
 				}
 			}
@@ -12625,7 +12882,7 @@ focus_tree = {
 				}
 			}
 			create_wargoal = {
-			type = puppet_wargoal_focus
+			type = annex_everything
 			target = NIC
 				}
 			}
@@ -12636,7 +12893,7 @@ focus_tree = {
 				}
 			}
 			create_wargoal = {
-			type = puppet_wargoal_focus
+			type = annex_everything
 			target = CHI
 				}
 			}
@@ -12647,7 +12904,7 @@ focus_tree = {
 				}
 			}
 			create_wargoal = {
-			type = puppet_wargoal_focus
+			type = annex_everything
 			target = CUB
 				}
 			}
@@ -12694,7 +12951,7 @@ focus_tree = {
 			limit = { ARG = { has_government = national_populist }
 				}
 			create_wargoal = {
-				type = puppet_wargoal_focus
+				type = annex_everything
 				target = ARG
 				}
 			}
@@ -12739,9 +12996,9 @@ focus_tree = {
 			add_popularity = { ideology = national_populist popularity = -0.03 }
 			unlock_decision_tooltip = TEX_break_militarists_decision
 			set_rule = {
-				    can_guarantee_other_ideologies = yes
-			    }
-		    }
+					can_guarantee_other_ideologies = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -12866,7 +13123,7 @@ focus_tree = {
 	
 	focus = {
 		id = TEX_mutual_trade
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_goal_MEX_open_markets_for_entente
 		cost = 4.00
 		prerequisite = {
 			focus = TEX_friendship_in_the_americas
@@ -12909,7 +13166,7 @@ focus_tree = {
 	
 	focus = {
 		id = TEX_research_agreement
-		icon = GFX_goal_double_research
+		icon = GFX_goal_NEE_join_ISAC
 		cost = 4.00
 		prerequisite = {
 			focus = TEX_friendship_in_the_americas
@@ -12971,7 +13228,6 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-			NOT = { has_government = paternal_autocrat }
 		}
 		relative_position_id = TEX_back_in_business
 		x = -6
@@ -13055,7 +13311,7 @@ focus_tree = {
 	
 	focus = {
 		id = TEX_Northern_boundary_defense
-		icon = GFX_goal_fortify_the_westwall
+		icon = GFX_goal_NEE_Ho_All_To_Border
 		cost = 5.00
 		prerequisite = {
 			focus = TEX_fortress_america
@@ -13282,7 +13538,7 @@ focus_tree = {
 
 	focus = {
 		id = TEX_leap_forward
-		icon = GFX_goal_great_science
+		icon = GFX_goal_NYC_Neutral_Concordia
 		cost = 5.00
 		prerequisite = {
 			focus = TEX_business_of_neutrality
@@ -13315,7 +13571,7 @@ focus_tree = {
 
 	focus = {
 		id = TEX_peace_at_last
-		icon = GFX_HON_peace_in_our_time
+		icon = GFX_goal_goal_CAN_negotiate_american_peace
 		cost = 5.00
 		prerequisite = {
 			focus = TEX_leap_forward
@@ -13340,7 +13596,7 @@ focus_tree = {
 			add_political_power = 200
 		}
 	}
-	 #New Treaty of Tordesillas
+	#New Treaty of Tordesillas
 	focus = {
 		id = TEX_treaty_of_tord
 		icon = GFX_goal_TEX_focus_guadempire
@@ -13553,7 +13809,7 @@ focus_tree = {
 					target = GUA
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = HON
 				}
 			create_wargoal = {
@@ -13561,7 +13817,7 @@ focus_tree = {
 					target = ELS
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = NIC
 				}
 			create_wargoal = {
@@ -13569,7 +13825,7 @@ focus_tree = {
 					target = COS
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = PAN
 				}
 			create_wargoal = {
@@ -13577,7 +13833,7 @@ focus_tree = {
 					target = COL
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = VEN
 				}
 			create_wargoal = {
@@ -13585,7 +13841,7 @@ focus_tree = {
 					target = ECU
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = PRU
 				}
 			create_wargoal = {
@@ -13593,7 +13849,7 @@ focus_tree = {
 					target = BOL
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = PAR
 				}
 			create_wargoal = {
@@ -13601,7 +13857,7 @@ focus_tree = {
 					target = CHL
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = ARG
 				}
 			create_wargoal = {
@@ -13609,7 +13865,7 @@ focus_tree = {
 					target = FOP
 				}
 			create_wargoal = {
-			                type = annex_everything
+							type = annex_everything
 					target = URG
 				}
 		}
@@ -13663,7 +13919,7 @@ focus_tree = {
 						is_core_of =  MEX
 					}
 					TEX = {
-						  add_state_core = PREV
+						add_state_core = PREV
 					}
 				}
 			}
@@ -13909,7 +14165,7 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_death_of_carroll"
-            custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {# the congress
@@ -13928,7 +14184,17 @@ focus_tree = {
 		y = 7
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus  TEX_holy_leauge_congress"
-            country_event = cathdeath.2
+			country_event = cathdeath.2
+			hidden_effect = {
+				country_event = {
+					id = cathdeath.108
+					days = 1000
+				}
+				country_event = {
+					id = cathdeath.109
+					days = 80
+				}
+			}
 		}
 	}
 	focus = {# All America Congress
@@ -13949,7 +14215,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_hardliner_victory"
-            custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {# All America Congress
@@ -13970,7 +14236,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_moderate_victory"
-            custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {# All America Congress
@@ -13991,7 +14257,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reform_victory"
-            custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {# All America Congress
@@ -14009,7 +14275,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Days_anarchism"
-            country_event = {
+			country_event = {
 				id = cathdeath.15
 				days = 1
 			}
@@ -14030,7 +14296,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Smiths_captialism"
-            country_event = {
+			country_event = {
 				id = cathdeath.17
 				days = 1
 			}
@@ -14048,7 +14314,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_a_better_society"
-            add_ideas = TEX_we_live_in_a_red_society
+			add_ideas = TEX_we_live_in_a_red_society
 		}
 	}
 	focus = {# All America Congress
@@ -14063,7 +14329,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_a_fair_society"
-            add_ideas = TEX_we_live_in_a_federal_society
+			add_ideas = TEX_we_live_in_a_federal_society
 		}
 	}
 	focus = {# All America Congress
@@ -14079,7 +14345,7 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_restore_the_parties?"
-            country_event = {
+			country_event = {
 				id = cathdeath.19
 				days = 2
 			}
@@ -14121,7 +14387,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_blessed_are_the_persecuted"
-            country_event = {
+			country_event = {
 				id = cathdeath.20
 				days = 2
 			}
@@ -14143,7 +14409,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Sheen_the_beloved_disciple"
-            country_event = {
+			country_event = {
 				id = cathdeath.21
 				days = 2
 			}
@@ -14161,7 +14427,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_if_it_aint_broke"
-            add_ideas = TEX_based_sheen_idea
+			add_ideas = TEX_based_sheen_idea
 		}
 	}
 	focus = {# All America Congress
@@ -14180,7 +14446,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Coughlin_the_populist"
-            country_event = {
+			country_event = {
 				id = cathdeath.23
 				days = 2
 			}
@@ -14198,7 +14464,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reviving_america_first"
-            add_ideas = TEX_cathamerica_first_idea
+			add_ideas = TEX_cathamerica_first_idea
 		}
 	}
 	focus = {# All America Congress
@@ -14214,7 +14480,7 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_test_of_faith?"
-            country_event = {
+			country_event = {
 				id = cathdeath.25
 				days = 2
 			}
@@ -14232,7 +14498,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Blessed_are_the_pure_in_heart"
-            country_event = {
+			country_event = {
 				id = cathdeath.26
 				days = 2
 			}
@@ -14253,7 +14519,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Feeney_the_radical"
-             country_event = {
+			country_event = {
 				id = cathdeath.29
 				days = 2
 			}
@@ -14274,7 +14540,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Carmody_the_knight"
-            country_event = {
+			country_event = {
 				id = cathdeath.27
 				days = 2
 			}
@@ -14292,7 +14558,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_american_feudalism"
-            add_ideas = TEX_cathfuntimesinmedivalland
+			add_ideas = TEX_cathfuntimesinmedivalland
 		}
 	}
 	focus = {# All America Congress
@@ -14307,7 +14573,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_extra_ecclesiam_nulla_salus"
-            add_ideas = TEX_outsideofthechurchbtfd
+			add_ideas = TEX_outsideofthechurchbtfd
 		}
 	}
 	focus = {# All America Congress
@@ -14323,7 +14589,7 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_strengthen_the_inquisition?"
-            country_event = {
+			country_event = {
 				id = cathdeath.31
 				days = 2
 			}
@@ -14341,7 +14607,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_strengthen_the_inquisition?"
-            country_event = {
+			country_event = {
 				id = cathdeath.32
 				days = 2
 			}
@@ -14365,7 +14631,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-            custom_effect_tooltip = unlock_focuses
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 	focus = {# All America Congress
@@ -14381,7 +14647,7 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-             country_event = {
+			country_event = {
 				id = cathdeath.33
 				days = 2
 			}
@@ -14402,7 +14668,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-             country_event = {
+			country_event = {
 				id = cathdeath.34
 				days = 2
 			}
@@ -14420,7 +14686,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-            add_ideas = TEX_catharmyfirst
+			add_ideas = TEX_catharmyfirst
 		}
 	}
 	focus = {# All America Congress
@@ -14438,7 +14704,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-            country_event = {
+			country_event = {
 				id = cathdeath.36
 				days = 2
 			}
@@ -14471,7 +14737,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_back_from_the_brink"
-            country_event = {
+			country_event = {
 				id = cathdeath.38
 				days = 2
 			}

@@ -19,8 +19,8 @@ bookmarks = {
 
 			focuses = {
 				FRA_communism_reborn
-				FRA_glory_to_the_chairman
-				FRA_france_awake
+				FRA_defender
+				FRA_who_shall_lead
 			}
 		}
 		
@@ -38,6 +38,38 @@ bookmarks = {
 			}
 		}
 
+		"RUS" = {
+			history = "RUS_KR_GATHERING_STORM_DESC"
+			ideology = social_liberal
+			ideas = {
+				rus_unfinished_land_reform
+				rus_brest_litovsk
+				RUS_scars_of_russian_revolution
+			}
+
+			focuses = {
+				RUS_Revolutionary_Front
+				RUS_Soc_Lib_Dictator
+				RUS_Jakobsons_Socdem_Eurasia
+			}
+		}
+		
+		"AUS" = {
+			minor = no
+			history = "AUS_KR_GATHERING_STORM_DESC"
+			ideology = social_conservative
+			ideas = {
+				AUS_financial_ties_broken
+				AUS_fatherland_front
+				AUS_karl_habsburg
+			}
+			focuses = {
+				AUS_austro-marxism
+				AUS_one_party_empire
+				AUS_united_states
+			}
+		}
+		
 		"GER" = {
 			history = "GER_KR_GATHERING_STORM_DESC"
 			ideology = authoritarian_democrat
@@ -53,52 +85,6 @@ bookmarks = {
 				GER_kurt_von_schleichers_chancellorship
 			}
 		}
-		
-		"AUS" = {
-			minor = no
-			history = "AUS_KR_GATHERING_STORM_DESC"
-			ideology = social_conservative
-			ideas = {
-				AUS_fatherland_front
-                                AUS_karl_habsburg
-			}
-			focuses = {
-				AUS_patriotize_army
-				AUS_god_wills_it
-				AUS_one_party_empire
-			}
-		}
-		
-		"RUS" = {
-			history = "RUS_KR_GATHERING_STORM_DESC"
-			ideology = social_liberal
-			ideas = {
-				rus_unfinished_land_reform
-				rus_industry_lack
-				rus_brest_litovsk
-			}
-
-			focuses = {
-				RUS_Drozdovsky_Takes_Over
-				RUS_Question_Of_The_Duma
-				RUS_Jakobsons_Socdem_Eurasia
-			}
-		}
-
-		"CAN" = {
-			history = "CAN_KR_GATHERING_STORM_DESC"
-			ideology = market_liberal
-			ideas = {
-				CAN_anglo_french_tensions_2
-				CAN_great_depression_2
-			}
-
-			focuses = {
-				CAN_draft_bill_c7
-				CAN_preparations_for_war
-				CAN_canadian_referendum
-			}
-		}
 
 		"USA" = {
 			history = "USA_HOTB_GATHERING_STORM_DESC"
@@ -109,9 +95,9 @@ bookmarks = {
 				USA_syndicalist_strike_idea
 			}
 			focuses = {
-				USA_return_to_true_americanism
-				USA_last_bastion
-				USA_by_the_people_for_the_people
+				USA_preserve_founders_vision
+				USA_everypot_a_chicken
+				USA_salute_the_chief
 			}
 		}
 
@@ -131,23 +117,146 @@ bookmarks = {
 			}
 		}
 		
-		"---" = {
-			history = "OTHER_KR_GATHERING_STORM_DESC"
+		"CAN" = {
+			history = "CAN_KR_GATHERING_STORM_DESC"
+			ideology = market_liberal
+			ideas = {
+				CAN_anglo_french_tensions_2
+				CAN_great_depression_2
+			}
+
+			focuses = {
+				CAN_draft_bill_c7
+				CAN_preparations_for_war
+				CAN_canadian_referendum
+			}
 		}
 		
-		"SKM" = {
-			minor = yes
-			history = "SKM_KR_GATHERING_STORM_DESC"
+		"NFA" = {
+			history = "NFA_KR_GATHERING_STORM_DESC"
 			ideology = authoritarian_democrat
 			ideas = {
-                                skm_chogyal
-				skm_red_sun
-				skm_pink_spot
+				NFA_anti_communard
+				NFA_native_unrest_2
+				NFA_internal_unrest
 			}
 			focuses = {
-				skm_socdem_victory
-				skm_true_shambala
-				skm_jermanism
+				NFA_napoleon_restoration
+				NFA_troops_on_the_streets
+				NFA_sede_es_petri
+			}
+		}
+
+		"GEO" = {
+			minor = yes
+			history = "GEO_KR_GATHERING_STORM_DESC"
+			ideology = social_democrat
+			ideas = {
+				GEO_treaty_of_poti_idea
+				GEO_minority_problem 
+			}
+			focuses = {
+				GEO_infusion_of_Baudelaireism
+				GEO_chairman_focus 
+				GEO_The_Rise_Of_Jugheli 
+			}
+		}
+
+		"WHR" = {
+			minor = yes
+			history = "WHR_KR_GATHERING_STORM_DESC"
+			ideology = authoritarian_democrat
+			ideas = {
+				WHR_agrarian_society
+				WHR_weak_national_identity
+				WHR_Jewish_Bund
+			}
+			focuses = {
+				WHR_Belarus_Red_Denmark
+				WHR_Black_Banner_Engulfs_Nation
+				WHR_Belarus_Free_True
+			}
+		}
+
+		"FIN" = {
+			minor = yes
+			history = "FIN_KR_GATHERING_STORM_DESC"
+			ideology = paternal_autocrat
+			ideas = {
+				FIN_sisu_idea
+				FIN_mounting_dissent_idea
+				FIN_ukrainian_grain_imports_idea
+			}
+			focuses = {
+				FIN_the_national_progressives
+				FIN_peoples_union
+				FIN_the_monarchy
+			}
+		}
+
+
+		"TIB" = {
+			minor = yes
+			history = "TIB_KR_GATHERING_STORM_DESC"
+			ideology = paternal_autocrat
+			ideas = {
+				TIB_struggle_tibet
+				TIB_monastic_governance
+				TIB_dob_dobs_trad
+			}
+			focuses = {
+				TIB_Open_Shambhala
+				TIB_Roerich_Victory
+				TIB_Justify_Lenin
+			}
+		}
+
+		
+		"IRE" = {
+			minor = yes
+			history = "IRE_KR_GATHERING_STORM_DESC"
+			ideology = market_liberal
+			ideas = {
+				IRE_Ulster_Issue
+				IRE_Unraveling_Political_Scene
+				IRE_Threat_Across_Isle
+			}
+			focuses = {
+				IRE_Ruby_Isle
+				IRE_Democratic_Mandate
+				IRE_Monarchy
+			}
+		}
+	
+
+		"ALB" = {
+			minor = yes
+			history = "ALB_KR_GATHERING_STORM_DESC"
+			ideology = social_conservative
+			ideas = {
+				ALB_polarised_nation_idea
+				ALB_illiteracy
+			}
+			focuses = {
+				ALB_Succession_Concession
+				ALB_Triumphant_Flag
+				ALB_No_Vision_Mine
+			}
+		}
+
+		"FNG" = {
+			minor = yes
+			history = "FNG_KR_GATHERING_STORM_DESC"
+			ideology = authoritarian_democrat
+			ideas = {
+				FNG_The_Kwantung_Army
+				FNG_mantetsu_influence_idea
+				FNG_Regionalist_Sentiment
+			}
+			focuses = {
+				FNG_Unification_through_Negotiation
+				FNG_A_Chinese_Napoleon
+				FNG_foundry_granary_barracks
 			}
 		}
 
@@ -157,29 +266,13 @@ bookmarks = {
 			ideology = paternal_autocrat
 			ideas = {
 				MON_claims_of_greatness
-				MON_scourge_of_the_steppes
-				MON_gada_meiren
+				MON_warlord 
+				MON_jebtsundamba_khutuktu_idea
 			}
 			focuses = {
-				MON_gada_rides_again
-				MON_true_man
-				MON_man_syndicalists
-			}
-		}
-
-		"DKB" = {
-			minor = yes
-			history = "DKB_KR_GATHERING_STORM_DESC"
-			ideology = authoritarian_democrat
-			ideas = {
-				DON_Cossack_army
-				DON_Cossack_state
-				DKB_Rostov_Manifesto_idea
-			}
-			focuses = {
-				DKB_Birth_of_the_Federation
-				DKB_KONR_in_Power
-				DKB_The_Blue_Vozhd
+				MON_true_man 
+				MON_the_russians_arent_watching 
+				MON_ja_lama_in_power
 			}
 		}
 

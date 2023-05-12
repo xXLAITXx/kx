@@ -4,239 +4,6 @@ ideas = {
 			picture = SOV_sovnarkom_idea
 			allowed = { always = no }
 		}
-		SOV_socialist_resistance = {
-			allowed = { always = no }
-			picture = MEX_revolutionary_army
-			modifier = {
-				stability_factor = -0.15
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.1
-			}
-		}
-		SOV_socialist_resistance_1 = {
-			allowed = { always = no }
-			picture = MEX_revolutionary_army
-			modifier = {
-				stability_factor = -0.1
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_socialist_resistance_2 = {
-			allowed = { always = no }
-			picture = MEX_revolutionary_army
-			modifier = {
-				stability_factor = -0.075
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-			}
-		}
-		SOV_democrat_resistance = {
-			allowed = { always = no }
-			name = SOV_democrat_resistance
-			picture = SOV_democrat_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.1
-			}
-		}
-		SOV_democrat_resistance_1 = {
-			allowed = { always = no }
-			picture = SOV_democrat_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_democrat_resistance_2 = {
-			allowed = { always = no }
-			picture = SOV_democrat_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-				conscription_factor = -0.05
-			}
-		}
-		SOV_monarchist_resistance = {
-			allowed = { always = no }
-			name = SOV_monarchist_resistance
-			picture = SOV_monarchist_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_monarchist_resistance_1 = {
-			allowed = { always = no }
-			picture = SOV_monarchist_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-			}
-		}
-		SOV_nationalist_resistance = {
-			allowed = { always = no }
-			name = SOV_nationalist_resistance
-			picture = SOV_nationalist_resistance_idea
-			modifier = {
-				war_support_factor = -0.1
-				stability_factor = -0.1
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.1
-			}
-		}
-		SOV_nationalist_resistance_1 = {
-			allowed = { always = no }
-			picture = SOV_nationalist_resistance_idea
-			modifier = {
-				war_support_factor = -0.05
-				stability_factor = -0.05
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_nationalist_resistance_2 = {
-			allowed = { always = no }
-			picture = SOV_nationalist_resistance_idea
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-			}
-		}
-		SOV_oblastnik_resistance = {
-			allowed = { always = no }
-			picture = TRM_siberian_oblastniks
-			modifier = {
-				stability_factor = -0.15
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.15
-			}
-		}
-		SOV_oblastnik_resistance_1 = {
-			allowed = { always = no }
-			picture = TRM_siberian_oblastniks
-			modifier = {
-				stability_factor = -0.1
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.1
-			}
-		}
-		SOV_oblastnik_resistance_2 = {
-			allowed = { always = no }
-			picture = TRM_siberian_oblastniks
-			modifier = {
-				stability_factor = -0.075
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-				conscription_factor = -0.05
-			}
-		}
-		SOV_siberian_monarchists_resistance = {
-			allowed = { always = no }
-			picture = TRM_siberian_monarchists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.1
-			}
-		}
-		SOV_siberian_monarchists_resistance_1 = {
-			allowed = { always = no }
-			picture = TRM_siberian_monarchists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_siberian_monarchists_resistance_2 = {
-			allowed = { always = no }
-			picture = TRM_siberian_monarchists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-				conscription_factor = -0.05
-			}
-		}
-		SOV_kolchak_loyalists_resistance = {
-			allowed = { always = no }
-			name = SOV_kolchak_loyalists_resistance
-			picture = TRM_kolchak_loyalists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_kolchak_loyalists_resistance_1 = {
-			allowed = { always = no }
-			picture = TRM_kolchak_loyalists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-			}
-		}
-		SOV_semyenov_loyalists_resistance = {
-			allowed = { always = no }
-			picture = TRM_semyenov_loyalists
-			modifier = {
-				war_support_factor = -0.1
-				stability_factor = -0.1
-				production_factory_max_efficiency_factor = -0.15
-				production_factory_efficiency_gain_factor = -0.15
-				industrial_capacity_factory = -0.15
-				conscription_factor = -0.1
-			}
-		}
-		SOV_semyenov_loyalists_resistance_1 = {
-			allowed = { always = no }
-			picture = TRM_semyenov_loyalists
-			modifier = {
-				war_support_factor = -0.05
-				stability_factor = -0.05
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = -0.1
-				industrial_capacity_factory = -0.1
-				conscription_factor = -0.05
-			}
-		}
-		SOV_semyenov_loyalists_resistance_2 = {
-			allowed = { always = no }
-			picture = TRM_semyenov_loyalists
-			modifier = {
-				production_factory_max_efficiency_factor = -0.05
-				production_factory_efficiency_gain_factor = -0.05
-				industrial_capacity_factory = -0.05
-			}
-		}
 		SOV_mass_collectivization = {
 			allowed = { always = no }
 			on_remove = {
@@ -1716,7 +1483,7 @@ ideas = {
 			modifier = {
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 			}
@@ -1730,7 +1497,7 @@ ideas = {
 				stability_factor = 0.15
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 			}
@@ -1742,7 +1509,7 @@ ideas = {
 			modifier = {
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 				production_speed_buildings_factor = 0.15
@@ -1756,7 +1523,7 @@ ideas = {
 			modifier = {
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 				production_speed_buildings_factor = 0.15
@@ -1773,7 +1540,7 @@ ideas = {
 				stability_factor = 0.15
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 				production_speed_buildings_factor = 0.15
@@ -1789,7 +1556,7 @@ ideas = {
 				stability_factor = 0.15
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 				production_speed_buildings_factor = 0.15
@@ -1807,7 +1574,7 @@ ideas = {
 				war_support_factor = 0.15
 				encryption = 1
 				decryption = 1
-				occupation_cost = -0.25
+				required_garrison_factor = -0.25
 				experience_gain_army_factor = 0.25
 				training_time_factor = -0.1
 				production_speed_buildings_factor = 0.15
@@ -1860,7 +1627,7 @@ ideas = {
 			modifier = {
 				encryption_factor = -0.2
 				decryption_factor = -0.2
-				occupation_cost = 0.1
+				required_garrison_factor = 0.1
 			}
 		}
 }

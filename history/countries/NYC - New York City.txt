@@ -31,15 +31,37 @@ set_technology = {
 	tech_recon = 1
 	motorised_infantry = 1
 	gw_artillery = 1
-	### AIR ###
-	early_fighter = 1
-	naval_bomber1 = 1
-	early_bomber = 1
-	strategic_bomber1 = 1
-	CAS1 = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	cv_CAS1 = 1
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "NYC_air_bba"
+
+		set_technology = {
+			aa_lmg = 1
+			early_bombs = 1
+			engines_1 = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			iw_large_airframe = 1
+			basic_small_airframe = 1
+			basic_medium_airframe = 1
+		}
+		NYC_BBA_air_variants = yes
+	else = {
+		set_air_oob = "NYC_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			naval_bomber1 = 1
+			early_bomber = 1
+			strategic_bomber1 = 1
+			CAS1 = 1
+			cv_early_fighter = 1
+			cv_naval_bomber1 = 1
+			cv_CAS1 = 1
+		}
+	}
 }
 
 ### Navy - MtG ###
@@ -82,15 +104,12 @@ if = {
 		basic_submarine_snorkel = 1
 		basic_light_battery = 1
 		improved_light_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
 		basic_depth_charges = 1
 		improved_depth_charges = 1
 		advanced_depth_charges = 1
 		smoke_generator = 1
 		sonar = 1
 		basic_cruiser_armor_scheme = 1
-		improved_cruiser_armor_scheme = 1
 		basic_heavy_battery = 1
 		improved_heavy_battery = 1
 		advanced_heavy_battery = 1
@@ -183,7 +202,7 @@ country_event = { id = NYC_flavor.26 days = 450 random_days = 100 } #Fate of the
 country_event = { id = NYC_flavor.27 days = 500 random_days = 110 } #Repairing Cathedreal
 country_event = { id = NYC_flavor.30 days = 550 random_days = 120 } #BEER
 country_event = { id = NYC_flavor.33 days = 400 random_days = 130 } #Cowboy
-country_event = { id = NYC_flavor.38 days = 450 random_days = 140 } #Blood on the Harlem Streets
+country_event = { id = NYC_flavor.38 days = 185 random_days = 140 } #Blood on the Harlem Streets
 country_event = { id = NYC_flavor.66 days = 428 random_days = 150 } #New Look for Lady Liberty
 country_event = { id = NYC_flavor.67 days = 390 random_days = 160 } #Assemblymen Pardon
 country_event = { id = NYC_flavor.78 days = 78  random_days = 170 } #Bela Kiss
@@ -261,7 +280,7 @@ create_country_leader = {
 	desc = "POLITICS_JOHN_STEINBECK_DESC"
 	picture = "gfx/leaders/NYC/Portrait_NYC_John_Steinbeck.png"
 	expire = "1965.1.1"
-	ideology = radical_progressivism_subtype
+	ideology = moderate_socialist_subtype
 	traits = {}
 }
 
@@ -310,7 +329,7 @@ create_field_marshal = {
 }
 create_field_marshal = { 
 	name = "Lewis J. Valentine "
-	portrait_path = "gfx/leaders/NYC/Portrait_NYC_Lewis_Joseph_Valentine.png"
+	portrait_path = "gfx/leaders/NYC/Portrait_NYC_Lewis_Joseph_Valentine_General.png"
 	traits = {
 		politically_connected
 		NYC_police_officer
@@ -352,9 +371,9 @@ create_corps_commander = {
 }
 
 create_corps_commander = {
-	name = "Samuel L. Battle"
+	name = "Samuel J. Battle"
 	#desc = "POLITICS_LEWIS_VALENTINE_DESC"
-	portrait_path = "gfx/leaders/NYC/Portrait_NYC_Samuel_L_Battle.png"
+	portrait_path = "gfx/leaders/NYC/Portrait_NYC_Samuel_J_Battle.png"
 	traits = {
 		NYC_police_officer
 	}
@@ -367,7 +386,7 @@ create_corps_commander = {
 
 
 create_corps_commander = { 
-	name = "Mary Sullivan"
+	name = "Mary A. Sullivan"
 	#desc = "POLITICS_LEWIS_VALENTINE_DESC"
 	portrait_path = "gfx/leaders/NYC/Portrait_NYC_Mary_Sullivan.png"
 	traits = {

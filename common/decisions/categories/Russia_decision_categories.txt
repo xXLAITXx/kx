@@ -24,6 +24,7 @@ RUS_Duma = {
 			NOT = { has_country_flag = disable_duma }			
 		}
 	}
+	visible_when_empty = yes
 	scripted_gui = RUS_GUI_Duma_Open
 }
 
@@ -68,6 +69,7 @@ RUS_coalition_decisions = {
 			}
 		}
 	}
+	priority = 100
 	visible = {
 		RUS = {
 			has_country_flag = RUS_SEN
@@ -118,7 +120,13 @@ RUS_Alliance_decisions = {
 	
 	visible = {
 		is_subject = no
-		is_faction_leader = yes
+		OR = {
+			is_faction_leader = yes
+			AND = {
+				has_country_flag = RUS_allies_JAP_flag
+				is_in_faction_with = JAP
+			}
+		}
 	}
 }
 
@@ -136,7 +144,7 @@ RUS_Foreign_Policy_decisions = {
 	visible = {
 		is_subject = no
 		OR = {
-			has_completed_focus = RUS_minsk_treaty
+			has_completed_focus = RUS_Rearmament_Programme
 			has_completed_focus = RUS_Respect_The_Minsk_Treaty
 			has_completed_focus = DKB_Reclaim_Lands
 		}
@@ -157,16 +165,16 @@ RUS_Siberian_War = {
 		is_subject = no
 		OR = {
 			has_completed_focus = RUS_SOV_Enemy_In_The_East
-			has_completed_focus = RUS_minsk_treaty
+			has_completed_focus = RUS_Rearmament_Programme
 			has_completed_focus = RUS_Respect_The_Minsk_Treaty
 			has_completed_focus = DKB_Reclaim_Lands
+			TRM = { has_completed_focus = TRM_Expand_RCW }
 		}
 		country_exists = TRM
-		TRM = { has_completed_focus = TRM_Expand_RCW }
 	}
 	visible_when_empty = yes
 }
-		
+
 RUS_Separate_Peace = {
 	icon = GFX_decision_category_marching_soldiers
 	picture = GFX_decision_cat_picture_annexation
@@ -198,35 +206,6 @@ RUS_China_Policy_decisions = {
 		is_subject = no
 	}
 }
-
-RUS_Panslavic_Congress_decisions = {
-
-	icon = GFX_decision_category_generic_political_actions
-	visible_when_empty = yes
-	allowed = {
-		OR = {
-			tag = RUS
-			tag = GER
-			tag = AUS
-			tag = HUN
-			tag = UKR
-			tag = WHR
-			tag = POL
-			tag = GAL
-			tag = CZE
-			tag = SVK
-			tag = SLO
-			tag = CRO
-			tag = SER
-			tag = BUL
-			tag = BOS
-		}
-	}
-	visible = {
-		has_country_flag = psc_council_vote
-	}
-}
-
 
 RUS_Integration_decisions = {
 	icon = GFX_decision_cat_annexation
@@ -314,27 +293,41 @@ SOV_NKVD_decisions = {
 	}
 	visible = {
 		OR = {
-			AND = {
-				has_country_flag = yagoda_personal_hell
-				NOT = { has_completed_focus = SOV_Congress_Of_Soviets }
-			}
-			AND = {
-				has_completed_focus = SOV_Congress_Of_Soviets
-				has_country_flag = nkvd_purge_available
-			}
+			has_country_flag = yagoda_personal_hell
+			has_country_flag = nkvd_purge_available
 		}
 	}
 	scripted_gui = sov_nkvd_gui
 }
-SOV_dealing_with_opposition = {
-	icon = GFX_decision_category_sov_great_patriotic_war
+RUS_dealing_with_opposition = {
+	icon = GFX_decision_category_patriotic
 	priority = 100
 	
 	allowed = {
 		is_russian_tag = yes
 	}
 	visible = {
-		has_country_flag = SOV_must_deal_with_opposition
+		OR = {
+			has_idea = RUS_socialist_resistance
+			has_idea = RUS_socialist_resistance_1
+			has_idea = RUS_socialist_resistance_2
+			has_idea = RUS_democrat_resistance
+			has_idea = RUS_democrat_resistance_1
+			has_idea = RUS_democrat_resistance_2
+			has_idea = RUS_monarchist_resistance
+			has_idea = RUS_monarchist_resistance_1
+			has_idea = RUS_nationalist_resistance
+			has_idea = RUS_nationalist_resistance_1
+			has_idea = RUS_nationalist_resistance_2
+			has_idea = RUS_siberian_monarchists_resistance
+			has_idea = RUS_siberian_monarchists_resistance_1
+			has_idea = RUS_siberian_monarchists_resistance_2
+			has_idea = RUS_kolchak_loyalists_resistance
+			has_idea = RUS_kolchak_loyalists_resistance_1
+			has_idea = RUS_semyenov_loyalists_resistance
+			has_idea = RUS_semyenov_loyalists_resistance_1
+			has_idea = RUS_semyenov_loyalists_resistance_2
+		}
 	}
 }
 SOV_Cultural_Revolution_Proletkult_decisions = {
@@ -353,6 +346,7 @@ RUS_democratic_politics_category = {
 	allowed = {
 		original_tag = RUS
 	}
+	priority = 100
 	visible = {
 		RUS = { 
 			OR = {
@@ -384,6 +378,8 @@ RUS_civil_war_decisions = {
 			tag = UKR
 			tag = DKB
 			tag = GER
+			tag = FIN
+			tag = EST
 		}
 	}
 	priority = 120

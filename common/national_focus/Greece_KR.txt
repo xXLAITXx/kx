@@ -245,11 +245,11 @@ focus_tree = {
 					has_country_leader = {
 							ruling_only = yes
 							name = "Geórgios II"
-                        }
+						}
 					has_country_leader = {
 							ruling_only = yes
 							name = "Pávlos I"
-                        }
+						}
 					has_country_leader = {
 							ruling_only = yes
 							name = "Ioannis Metaxas"
@@ -269,8 +269,8 @@ focus_tree = {
 						}
 				}
 			available = {
-			        NOT = {
-                        has_country_flag = GRE_balkan_war_loss
+					NOT = {
+						has_country_flag = GRE_balkan_war_loss
 					}
 				}
 			available = {
@@ -721,7 +721,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_greek_rail
-		icon = BAY_RAILWAYS
+		icon = GFX_BAY_RAILWAYS
 		cost = 5.00
 		prerequisite = {
 			focus = GRE_foreign_industry_question
@@ -1493,7 +1493,7 @@ focus_tree = {
 					custom_trigger_tooltip = {
 							tooltip = GRE_turks_exist_and_peaceful
 							OR = {
-									OTT = {
+									TUR = {
 											exists = yes
 											is_subject = no
 											controls_all_owned_states = yes
@@ -1519,7 +1519,7 @@ focus_tree = {
 									exists = yes
 									OR = {
 											tag = TUR
-											tag = OTT
+											tag = TUR
 										}
 								}
 							country_event = gre.200
@@ -1798,7 +1798,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_megali_idea
-		icon = GFX_GRE_megali
+		icon = GFX_GRE_megali2
 		cost = 5.00
 		prerequisite = {
 			focus = GRE_war_industry
@@ -1856,7 +1856,7 @@ focus_tree = {
 									NOT = {
 											owns_state = 187
 										}
-                                                                        #Dardanellas
+																		#Dardanellas
 									NOT = {
 											owns_state = 1225
 										}
@@ -2032,14 +2032,14 @@ focus_tree = {
 					}
 			}
 			bypass = {
-			has_war_with = OTT
+			has_war_with = TUR
 			}
 			completion_reward = {
 					log = "[GetDateText]: [Root.GetName]: Focus GRE_avenge"
 					custom_effect_tooltip = GRE_byzantium_ottomans
 					country_event = gre.303
 					declare_war_on = {
-							target = OTT
+							target = TUR
 							type = annex_everything
 						}
 				}
@@ -2159,7 +2159,7 @@ focus_tree = {
 					owns_state = 342
 					owns_state = 356
 					owns_state = 343
-                                        owns_state = 1225
+										owns_state = 1225
 				}
 			available = {
 					NOT = {
@@ -2192,6 +2192,10 @@ focus_tree = {
 						country_event = {
 							id = gre.313
 							days = 5
+						}
+						country_event = {
+							id = gre.318
+							days = 15
 						}
 					}
 				}
@@ -2226,7 +2230,7 @@ focus_tree = {
 					log = "[GetDateText]: [Root.GetName]: Focus GRE_metaxas_youth"
 					country_event = gre.309
 					add_war_support = 0.05
-                    increase_ruling_party_popularity_by_5 = yes
+					increase_ruling_party_popularity_by_5 = yes
 				}
 
 	}
@@ -2306,6 +2310,9 @@ focus_tree = {
 					add_state_claim = 163
 					add_state_claim = 104
 					add_state_claim = 103
+					add_state_claim = 1143
+					add_state_claim = 1270
+					add_state_claim = 1206
 				}
 
 	}
@@ -3216,7 +3223,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_republican_victory
-		icon = GRU_DIRECT_REFEREDUMS
+		icon = GFX_GRU_DIRECT_REFEREDUMS
 		cost = 0.00
 		prerequisite = {
 			focus = GRE_monarchy_referendum
@@ -3244,7 +3251,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_strengthen_republic
-		icon = VNC_model_of_modern_republicanism
+		icon = GFX_VNC_model_of_modern_republicanism
 		cost = 5.00
 		prerequisite = {
 			focus = GRE_republican_victory
@@ -3271,7 +3278,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_monarchist_question
-		icon = VNC_revoke_noble_priviliges
+		icon = GFX_VNC_revoke_noble_priviliges
 		cost = 5.00
 		prerequisite = {
 			focus = GRE_strengthen_republic
@@ -7061,7 +7068,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GRE_hellenic_shipyards
-		icon = GFX_GRE_hellenic_shipyard
+		icon = GFX_GRE_hellenic_shipyard2
 		cost = 5.00
 		prerequisite = {
 			focus = GRE_merchant_marine
@@ -7196,7 +7203,7 @@ focus_tree = {
 					custom_trigger_tooltip = {
 							tooltip = GRE_turks_exist_and_peaceful
 							OR = {
-									OTT = {
+									TUR = {
 											exists = yes
 											is_subject = no
 											controls_all_owned_states = yes
@@ -7211,7 +7218,7 @@ focus_tree = {
 					custom_trigger_tooltip = {
 							tooltip = GRE_turks_own_limited_greece
 							OR = {
-									OTT = {
+									TUR = {
 											exists = yes
 											NOT = {
 													any_owned_state = {
@@ -7260,7 +7267,7 @@ focus_tree = {
 									exists = yes
 									OR = {
 											tag = TUR
-											tag = OTT
+											tag = TUR
 										}
 								}
 							country_event = gre.203

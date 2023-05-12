@@ -1,3 +1,25 @@
+RUS_german_influence_is_low_enough = {
+	custom_trigger_tooltip = {
+		tooltip = RUS_german_influence_is_low_enough
+		NOT = {
+			has_idea = rus_riga_accords
+			has_idea = rus_riga_accords_1
+			has_idea = rus_riga_accords_2
+			has_idea = rus_riga_accords_3
+		}
+	}
+}
+RUS_democratic_tree_visible = {
+	OR = {
+		has_country_flag = make_russia_plsr_nsp_democratic_tree_visible
+		has_country_flag = make_russia_rsdrp_democratic_tree_visible
+		has_country_flag = make_russia_psr_democratic_tree_visible
+		has_country_flag = make_russia_liberal_conservative_democratic_tree_visible
+		has_country_flag = make_russia_nrpr_democratic_tree_visible
+		has_country_flag = make_russia_nsnp_democratic_tree_visible
+	}
+}
+
 soviets_exist = {
 	custom_trigger_tooltip = {
 		tooltip = soviet_russia_restored
@@ -26,6 +48,10 @@ led_by_trm_crm_or_dkb = {
 			}
 			has_country_leader = {
 				name = "Sergey Syrtsov"
+				ruling_only = yes
+			}
+			has_country_leader = {
+				name = "Anastas Mikoyan"
 				ruling_only = yes
 			}
 			has_country_flag = SOV_was_puppeted
@@ -89,7 +115,27 @@ RUS_natpops_in_power = {
 		has_country_flag = RUS_GORGULOV
 	}
 }
-		
+RUS_is_absolute_monarchy = {
+	RUS_russian_monarch = yes
+	OR = {
+		has_government = paternal_autocrat
+		has_government = national_populist
+		has_country_leader_ideology = absolute_monarchy_subtype
+		has_country_leader_ideology = eurasianism_subtype
+		has_country_leader_ideology = prussian_constitutionalism_subtype
+	}
+}
+RUS_is_constitutional_monarchy = {
+	RUS_russian_monarch = yes
+	NOT = {
+		has_government = paternal_autocrat
+		has_government = national_populist
+		has_country_leader_ideology = absolute_monarchy_subtype
+		has_country_leader_ideology = eurasianism_subtype
+		has_country_leader_ideology = prussian_constitutionalism_subtype
+	}
+}
+
 RUS_russian_monarch = {
 	custom_trigger_tooltip = {
 		tooltip = "The Russian Empire has Returned"
@@ -144,6 +190,10 @@ RUS_russian_monarch = {
 			}
 			has_country_leader = {
 				name = "Nicholas II"
+				ruling_only = yes
+			}
+			has_country_leader = {
+				name = "Felix I"
 				ruling_only = yes
 			}
 			has_global_flag = MON_Sternberg_russian_empire
@@ -558,10 +608,12 @@ RUS_is_eurasia = { #Used for RUS scope!
 			has_cosmetic_tag = RUS_EUR_right
 			has_cosmetic_tag = RUS_EUR_empire
 			has_cosmetic_tag = RUS_EUR_left
+			has_cosmetic_tag = RUS_EUR_alt
 			has_country_leader = {
 				name = "Dmitry Svyatopolk-Mirskiy"
 				ruling_only = yes
 			}
+			has_focus_tree = RUS_EURASIAN_UNION_FOCUS
 		}
 	}
 }
@@ -571,7 +623,6 @@ RUS_has_eurasian_ministers = {
 			has_idea = RUS_Nikolay_S_Trubetskoy_hog_sco
 			has_idea = RUS_Georgiy_V_Vernadskiy_for_sli
 			has_idea = RUS_Nikolay_S_Trubetskoy_for_sco
-			has_idea = RUS_Lev_N_Gumilov_for_pau
 			has_idea = RUS_Konstantin_A_Chkheidze_eco_ade
 			has_idea = RUS_Pyetr_N_Savitskiy_sec_ade
 		}

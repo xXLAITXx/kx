@@ -2,7 +2,7 @@
 
 shared_focus = {
 	id = TRK_Turkestani_Military
-	icon = GFX_goal_BUK_army
+	icon = GFX_goal_TRK_Army
 	cost = 4
 	x = 17
 	y = 0
@@ -557,9 +557,9 @@ shared_focus = {
 				category = air_doctrine
 		}
 		add_equipment_to_stockpile = {
-			type = fighter_equipment_0
+			type = small_plane_airframe
 			amount = 25
-			producer = OTT
+			producer = TUR
 		}
 	}
 }
@@ -789,8 +789,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		swap_ideas = {
-			remove_idea = UZB_nomadic_society
-			add_idea = UZB_nomadic_society_1
+			remove_idea = TRK_nomadic_society
+			add_idea = TRK_nomadic_society_1
 		}
 	}
 }
@@ -1271,9 +1271,9 @@ shared_focus = {
 				category = air_doctrine
 		}
 		add_equipment_to_stockpile = {
-			type = fighter_equipment_0
+			type = small_plane_airframe
 			amount = 25
-			producer = OTT
+			producer = TUR
 		}
 	}
 }
@@ -1405,7 +1405,7 @@ shared_focus = {
 		focus = UZB_Victory_In_Turkestan
 	}
 	completion_reward = {
-		remove_ideas = UZB_illiteracy
+		remove_ideas = TRK_illiteracy
 	}
 }
 shared_focus = {
@@ -1503,8 +1503,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		swap_ideas = {
-			remove_idea = KYR_nomadic_society
-			add_idea = KYR_nomadic_society_1
+			remove_idea = TRK_nomadic_society
+			add_idea = TRK_nomadic_society_1
 		}
 	}
 }
@@ -1985,9 +1985,9 @@ shared_focus = {
 				category = air_doctrine
 		}
 		add_equipment_to_stockpile = {
-			type = fighter_equipment_0
+			type = small_plane_airframe
 			amount = 25
-			producer = OTT
+			producer = TUR
 		}
 	}
 }
@@ -2119,7 +2119,7 @@ shared_focus = {
 		focus = KYR_Victory_In_Turkestan
 	}
 	completion_reward = {
-		remove_ideas = KYR_illiteracy
+		remove_ideas = TRK_illiteracy
 	}
 }
 shared_focus = {

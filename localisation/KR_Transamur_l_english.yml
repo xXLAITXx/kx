@@ -1,7 +1,6 @@
 ﻿l_english:
 
 TRM_focus:0 "Transamur Focus Tree"
-TRM_KR_GATHERING_STORM_DESC:0 "In 1936, the Transamur Republic is a corporate and militaristic state, highly tied economically to the Japanese Empire. And yet Admiral Kolchak has ambitions of his own. Could he simply be playing a very dangerous game, using the Japanese protection to establish his own rule, first over Siberia, and then over Russia as a whole?"
 ### Events ###
 tram.intro.t:0 "Transamur - Provisional Russian State in Vladivostok"
 tram.intro.d:0 "Siberia and the Russian Far East had been a major area of conflict during the Russian Civil War, as the location of a short-lived democratic republic, the rising of the 'Czech Legion' and Japanese intervention. While forced to evacuate their forces due to German pressure (as well as intense resistance from local Cossacks), the Japanese remained eager to extend their influence and in 1922 pushed for the establishment of an independent state in the Transamur region. This motion gained the support of the Vladivostok business community, despite the fact that it left them vulnerable to forming an economic dependency on Japan. The majority of the business community however saw economic and diplomatic relations with the rising power in the East as a significant advantage, especially when compared to the alternative of being sucked further into the disorder besetting the rest of Russia. The new nation gained a prominent figurehead in the form of Admiral Kolchak, one of the most successful White Generals of the civil war and the one-time self-proclaimed 'Supreme Ruler of All Russia', who had been forced to flee Russia following his unsuccessful attempt to seize control in 1925.\n\nIn 1936, the Transamur Republic has become a corporate and militaristic state, highly tied economically to Japanese Empire. And yet Kolchak has ambitions of his own. Could he simply be playing a very dangerous game, using the Japanese protection to establish his own rule, first over Siberia, and then over Russia as a whole?"
@@ -1280,7 +1279,7 @@ trammlad.512.d:0 "A strong Vozhd requires an equally strong army, an army loyal 
 trammlad.512.a:0 "We walked in line..."
 
 trammlad.513.t:0 "Russia's Ascendency..."
-trammlad.513.d:0 "“Russia was a land that had lost its identity, its morals and its spirit. A decaying corpse of a once great empire, a truly sad state for any patriot of the motherland… However not all was lost! In Russia’s darkest hour there stood one man who would not go quietly into that good night. Alexander Kazem-Bek held within him a fiery passion that struck a light in the minds and souls of working patriots across the Russian lands. He rejected the spiralling crash brought upon by bickering factions of lifeless hordes eager to tear eachother apart in the name of power and greed! Kazem-Bek rallied those fellow brave nationalists and together they defeated the enemy within! Russia has ascended beyond its stagnant state, no longer the sickman of the globe. The heart of Russia is the heart of the Mladorossi, the movement has become Russia’s new identity. And as Kazem-Bek’s fearsome rhetoric grows ever more dominant over the minds of many, so does Russia. The future belongs to us comrades!“\n\n- Front page of today’s edition of the Toward Young Russia newspaper"
+trammlad.513.d:0 "“Russia was a land that had lost its identity, its morals and its spirit. A decaying corpse of a once great empire, a truly sad state for any patriot of the motherland... However not all was lost! In Russia’s darkest hour there stood one man who would not go quietly into that good night. Alexander Kazem-Bek held within him a fiery passion that struck a light in the minds and souls of working patriots across the Russian lands. He rejected the spiralling crash brought upon by bickering factions of lifeless hordes eager to tear eachother apart in the name of power and greed! Kazem-Bek rallied those fellow brave nationalists and together they defeated the enemy within! Russia has ascended beyond its stagnant state, no longer the sickman of the globe. The heart of Russia is the heart of the Mladorossi, the movement has become Russia’s new identity. And as Kazem-Bek’s fearsome rhetoric grows ever more dominant over the minds of many, so does Russia. The future belongs to us comrades!“\n\n- Front page of today’s edition of the Toward Young Russia newspaper"
 trammlad.513.a:0 "Let us see what the future holds for Kazem-Bek..."
 
 trammlad.514.t:0 "Attempt on Kazem-Bek’s Life!"
@@ -1359,7 +1358,7 @@ trammlad.530.d:0 "Anastasy Vonsyatsky, the Vozhd of our great nation, and why wo
 trammlad.530.a:0 "Hail Vozhd!"
 
 trammlad.531.t:0 "Russia's Ascendency..."
-trammlad.531.d:0 "“Russia was a land that had lost its identity, its morals and its spirit. A decaying corpse of a once great empire, a truly sad state for any patriot of the motherland… However not all was lost! In Russia’s darkest hour there stood one man who would not go quietly into that good night. Anastasiy Vonsyatsky held within him a fiery passion that struck a light in the minds and souls of working patriots across the Russian lands. He rejected the spiralling crash brought upon by bickering factions of lifeless hordes eager to tear eachother apart in the name of power and greed! The Vozhd rallied those fellow brave nationalists and together they defeated the enemy within! Russia has ascended beyond its stagnant state, no longer the sickman of the globe. The heart of Russia is the heart of the Natsionalisty, the movement has become Russia’s new identity. And as Vonsyatsky’s fearsome rhetoric grows ever more dominant over the minds of many, so does Russia. The future belongs to us comrades!“\n\n- Front page of today’s edition of the 'Nationalist' newspaper"
+trammlad.531.d:0 "“Russia was a land that had lost its identity, its morals and its spirit. A decaying corpse of a once great empire, a truly sad state for any patriot of the motherland... However not all was lost! In Russia’s darkest hour there stood one man who would not go quietly into that good night. Anastasiy Vonsyatsky held within him a fiery passion that struck a light in the minds and souls of working patriots across the Russian lands. He rejected the spiralling crash brought upon by bickering factions of lifeless hordes eager to tear eachother apart in the name of power and greed! The Vozhd rallied those fellow brave nationalists and together they defeated the enemy within! Russia has ascended beyond its stagnant state, no longer the sickman of the globe. The heart of Russia is the heart of the Natsionalisty, the movement has become Russia’s new identity. And as Vonsyatsky’s fearsome rhetoric grows ever more dominant over the minds of many, so does Russia. The future belongs to us comrades!“\n\n- Front page of today’s edition of the 'Nationalist' newspaper"
 trammlad.531.a:0 "Long Live Tsar [ROOT.GetLeader]"
 
 
@@ -1613,6 +1612,8 @@ TRM_army_discontent:0 "Army Discontent"
 TRM_army_discontent_1:0 "Army Discontent"
 
 SIB_fighting_for_free_siberia:0 "Fighting For Free Siberia!"
+
+hog_loyal_kolchakite:0 "Loyal Kolchakite"
 
 ### New Kolchak Focuses ###
 TRM_Kolchak_Doc:0 "Supreme Ruler"
@@ -2521,7 +2522,7 @@ TRM_Invade_Armenia_desc:0 "The Armenian people share our faith and will only be 
 TRM_Attack_Europe:0 "Reclaim Eastern Europe"
 TRM_Attack_Europe_desc:0 "The entire Russian state is under our command now. It is time to reclaim our soil in Eastern Europe from different artificial states."
 TRM_Invade_Finland:0 "Bring Finland to its Knees"
-TRM_Invade_Finland_desc:0 "Finland and their false King has mocked Russia for long enough. It's time we send Russian troops to Helsinki once again."
+TRM_Invade_Finland_desc:0 "Finland and their false King have mocked Russia for long enough. It's time we send Russian troops to Helsinki once again."
 TRM_Invade_WHR:0 "Invade White Russia"
 TRM_Invade_WHR_desc:0 "The breakway state commonly called White Russia was claimed during the partitions of old, only to be taken by the Kaiser. We will not lose our lands this time!"
 TRM_Invade_Ukraine:0 "Resolve the Ukrainian Problem"
