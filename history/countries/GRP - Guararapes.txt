@@ -79,11 +79,11 @@ set_popularities = {
 }
 
 create_country_leader = {
-	name = "Newton Cavalcanti"
-	desc = "POLITICS_CAVALCANTI_HOS_GRP_DESC"
-	picture = "gfx/leaders/BRA/Portrait_BRA_Newton_Cavalcanti.png"
+	name = "Lampião"
+	desc = "POLITICS_LAMPIAO_HOS_GRP_DESC"
+	picture = "gfx/leaders/BRA/Portrait_BRA_Lampião.png"
 	expire = "1.1.1"
-	ideology = integralism_subtype
+	ideology = natpop_warlordism_subtype
 }
 
 create_country_leader = {
